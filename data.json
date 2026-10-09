@@ -1,34 +1,33 @@
 {
- "generated_at": "2026-10-09T06:18:54.227617+00:00",
+ "generated_at": "2026-10-09T06:30:33.746132+00:00",
  "engine_version": "0.9.0",
  "rule_version": "rules-v0.9.0",
- "last_run": "2026-10-09T06:18:46.578482+00:00",
+ "last_run": "2026-10-09T06:30:26.243236+00:00",
  "kpis": {
   "monitored": 6609,
-  "checked_current_rules": 3733,
+  "checked_current_rules": 3933,
   "official_abc_in_scope": 122,
-  "bidder_list_share": 0.782,
-  "watch_markers": 243,
-  "review_cases_issued": 27,
-  "review_pending": 208,
+  "bidder_list_share": 0.783,
+  "watch_markers": 261,
+  "review_cases_issued": 36,
+  "review_pending": 212,
   "priority_counts_last_run": {
-   "High": 2,
-   "Low": 378,
-   "Medium": 28
+   "Low": 197,
+   "Medium": 3
   },
   "detail_failed_last_run": 0
  },
  "queue_types": {
   "issued": {
-   "Other": 8,
+   "Other": 16,
    "Watch validation sample": 14,
-   "Random baseline": 3,
+   "Random baseline": 4,
    "Scored (Medium/High)": 2
   },
   "pending": {
-   "Watch validation sample": 90,
-   "Other": 9,
-   "Scored (Medium/High)": 109
+   "Watch validation sample": 99,
+   "Scored (Medium/High)": 112,
+   "Other": 1
   }
  },
  "regions": [
@@ -48,154 +47,154 @@
    "short": "CAR",
    "col": 2,
    "row": 0,
-   "checked": 250,
+   "checked": 263,
    "watch": 1,
    "review_cases": 0,
-   "material": 77,
-   "official_abc": 250
+   "material": 82,
+   "official_abc": 263
   },
   {
    "region": "Region II",
    "short": "Cagayan Valley",
    "col": 3,
    "row": 0,
-   "checked": 294,
+   "checked": 310,
    "watch": 12,
    "review_cases": 6,
-   "material": 57,
-   "official_abc": 294
+   "material": 58,
+   "official_abc": 310
   },
   {
    "region": "Region III",
    "short": "Central Luzon",
    "col": 1,
    "row": 1,
-   "checked": 408,
-   "watch": 34,
-   "review_cases": 8,
-   "material": 147,
-   "official_abc": 408
+   "checked": 430,
+   "watch": 36,
+   "review_cases": 13,
+   "material": 153,
+   "official_abc": 430
   },
   {
    "region": "National Capital Region",
    "short": "NCR",
    "col": 2,
    "row": 1,
-   "checked": 122,
-   "watch": 14,
+   "checked": 134,
+   "watch": 16,
    "review_cases": 0,
-   "material": 36,
-   "official_abc": 122
+   "material": 41,
+   "official_abc": 134
   },
   {
    "region": "Region IV-A",
    "short": "CALABARZON",
    "col": 3,
    "row": 1,
-   "checked": 361,
-   "watch": 47,
+   "checked": 391,
+   "watch": 55,
    "review_cases": 2,
-   "material": 133,
-   "official_abc": 361
+   "material": 148,
+   "official_abc": 391
   },
   {
    "region": "Region IV-B",
    "short": "MIMAROPA",
    "col": 1,
    "row": 2,
-   "checked": 126,
+   "checked": 136,
    "watch": 2,
    "review_cases": 0,
-   "material": 30,
-   "official_abc": 126
+   "material": 34,
+   "official_abc": 136
   },
   {
    "region": "Region V",
    "short": "Bicol",
    "col": 3,
    "row": 2,
-   "checked": 159,
+   "checked": 170,
    "watch": 16,
-   "review_cases": 0,
-   "material": 80,
-   "official_abc": 159
+   "review_cases": 1,
+   "material": 87,
+   "official_abc": 170
   },
   {
    "region": "Region VI",
    "short": "W. Visayas",
    "col": 0,
    "row": 3,
-   "checked": 156,
+   "checked": 166,
    "watch": 9,
    "review_cases": 0,
-   "material": 45,
-   "official_abc": 156
+   "material": 52,
+   "official_abc": 166
   },
   {
    "region": "Negros Island Region",
    "short": "Negros Island",
    "col": 1,
    "row": 3,
-   "checked": 146,
+   "checked": 152,
    "watch": 5,
    "review_cases": 0,
-   "material": 36,
-   "official_abc": 146
+   "material": 38,
+   "official_abc": 152
   },
   {
    "region": "Region VII",
    "short": "C. Visayas",
    "col": 2,
    "row": 3,
-   "checked": 194,
-   "watch": 19,
+   "checked": 209,
+   "watch": 20,
    "review_cases": 1,
-   "material": 72,
-   "official_abc": 194
+   "material": 78,
+   "official_abc": 209
   },
   {
    "region": "Region VIII",
    "short": "E. Visayas",
    "col": 3,
    "row": 3,
-   "checked": 185,
+   "checked": 196,
    "watch": 1,
    "review_cases": 0,
-   "material": 92,
-   "official_abc": 185
+   "material": 98,
+   "official_abc": 196
   },
   {
    "region": "Region IX",
    "short": "Zamboanga",
    "col": 0,
    "row": 4,
-   "checked": 203,
+   "checked": 211,
    "watch": 5,
    "review_cases": 0,
-   "material": 88,
-   "official_abc": 203
+   "material": 90,
+   "official_abc": 211
   },
   {
    "region": "Region X",
    "short": "N. Mindanao",
    "col": 1,
    "row": 4,
-   "checked": 277,
-   "watch": 26,
-   "review_cases": 2,
-   "material": 114,
-   "official_abc": 277
+   "checked": 295,
+   "watch": 30,
+   "review_cases": 3,
+   "material": 125,
+   "official_abc": 295
   },
   {
    "region": "Region XIII",
    "short": "Caraga",
    "col": 3,
    "row": 4,
-   "checked": 150,
+   "checked": 158,
    "watch": 16,
    "review_cases": 3,
-   "material": 73,
-   "official_abc": 150
+   "material": 77,
+   "official_abc": 158
   },
   {
    "region": "Bangsamoro Autonomous Region in Muslim Mindanao",
@@ -208,22 +207,22 @@
    "short": "SOCCSKSARGEN",
    "col": 1,
    "row": 5,
-   "checked": 159,
-   "watch": 24,
-   "review_cases": 0,
-   "material": 63,
-   "official_abc": 159
+   "checked": 161,
+   "watch": 25,
+   "review_cases": 1,
+   "material": 64,
+   "official_abc": 161
   },
   {
    "region": "Region XI",
    "short": "Davao",
    "col": 2,
    "row": 5,
-   "checked": 139,
+   "checked": 147,
    "watch": 5,
-   "review_cases": 2,
-   "material": 64,
-   "official_abc": 139
+   "review_cases": 3,
+   "material": 69,
+   "official_abc": 147
   }
  ],
  "regions_unmapped": {
@@ -264,6 +263,16 @@
    "review_queue_new": 9,
    "review_eligible_pending": 217,
    "shadow_watch": 54,
+   "philgeps_usable_in_scope": 122
+  },
+  {
+   "run_at": "2026-10-09T06:30:26.410767+00:00",
+   "checked_current_rules": 3933,
+   "detail_checked": 200,
+   "detail_failed": 0,
+   "review_queue_new": 9,
+   "review_eligible_pending": 221,
+   "shadow_watch": 18,
    "philgeps_usable_in_scope": 122
   }
  ],
