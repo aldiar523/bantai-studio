@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantAI Studio</title>
+<meta name="description" content="Aggregate monitoring and governance dashboard for Project BantAI, a risk-based review-prioritisation prototype for Philippine road procurement.">
+<style>
+:root{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;--ring:rgba(11,11,11,.10);
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--seq1:#cde2fb;--seq2:#9ec5f4;--seq3:#6da7ec;--seq4:#3987e5;--seq5:#256abf;--seq6:#184f95;--empty:#f0efec;--accent:#2a78d6;--lo-ink:#0b0b0b;--hi-ink:#ffffff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--ring:rgba(255,255,255,.10);
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--seq1:#104281;--seq2:#184f95;--seq3:#1c5cab;--seq4:#256abf;--seq5:#3987e5;--seq6:#6da7ec;--empty:#2c2c2a;--accent:#3987e5;--lo-ink:#ffffff;--hi-ink:#0b0b0b}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--axis:#383835;--ring:rgba(255,255,255,.10);
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--seq1:#104281;--seq2:#184f95;--seq3:#1c5cab;--seq4:#256abf;--seq5:#3987e5;--seq6:#6da7ec;--empty:#2c2c2a;--accent:#3987e5;--lo-ink:#ffffff;--hi-ink:#0b0b0b}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 64px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:8px}
+h1{font-size:28px;margin:0;letter-spacing:-.01em}h2{font-size:18px;margin:0 0 4px}h3{font-size:15px;margin:0 0 6px}
+.sub{color:var(--ink2);margin:4px 0 0}.note{color:var(--ink2);font-size:13px}
+.banner{background:var(--surface);border:1px solid var(--ring);border-left:4px solid var(--accent);border-radius:10px;padding:10px 14px;margin:16px 0 22px;color:var(--ink2);font-size:14px}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px}
+nav.tabs button{font:inherit;font-size:14px;border:1px solid var(--ring);background:var(--surface);color:var(--ink2);padding:7px 14px;border-radius:999px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink);font-weight:600}
+.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:16px}
+.kpi .v{font-size:28px;font-weight:650;line-height:1.1;margin-top:6px}.kpi .l{color:var(--ink2);font-size:13px}.kpi .d{color:var(--muted);font-size:12px;margin-top:4px}
+section{margin-top:22px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{color:var(--ink2);font-weight:600;font-size:13px}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+.chip{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--ring);color:var(--ink2);white-space:nowrap}
+.tiles{position:relative;width:100%;max-width:460px;margin:4px auto 0}
+.tile{position:absolute;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;padding:6px 8px;font-size:11px;cursor:default;overflow:hidden;white-space:nowrap}
+.tile span:first-child{overflow:hidden;text-overflow:ellipsis}
+.tile .n{font-size:16px;font-weight:650}
+.legend{display:flex;align-items:center;gap:8px;color:var(--ink2);font-size:12px;margin-top:10px;flex-wrap:wrap}
+.legend .sw{width:22px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:fixed;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--ring);box-shadow:0 4px 18px rgba(0,0,0,.12);border-radius:8px;padding:8px 10px;font-size:13px;display:none;z-index:9;max-width:260px}
+.tip b{display:block;margin-bottom:2px}
+.toggle{float:right;font:inherit;font-size:12px;border:1px solid var(--ring);background:transparent;color:var(--ink2);border-radius:6px;padding:3px 8px;cursor:pointer}
+svg text{fill:var(--muted);font-size:11px}
+.agent{display:flex;flex-direction:column;gap:6px}.agent .k{color:var(--ink2);font-size:13px}
+.pipeline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.step{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:8px 12px;font-size:13px}
+.step b{display:block;font-size:14px}.arrow{color:var(--muted)}
+.hidden{display:none}
+footer{margin-top:36px;color:var(--muted);font-size:12px}
+.themebtn{font:inherit;font-size:13px;border:1px solid var(--ring);background:var(--surface);color:var(--ink2);border-radius:8px;padding:6px 10px;cursor:pointer}
+</style></head>
+<body><div class="wrap">
+<header><div><h1>BantAI Studio</h1>
+<p class="sub">Risk-based prioritisation of human review for current DPWH road procurements · aggregate view</p></div>
+<button class="themebtn" id="theme" type="button">Theme</button></header>
+<div class="banner"><b>Review priority is not a finding.</b> BantAI decides which procurements a person should look at first. It never alleges corruption, fraud or wrongdoing. Case-level evidence stays in a private review desk; this page shows only counts and governance information.</div>
+<nav class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-tab="monitor">Monitoring</button>
+<button role="tab" aria-selected="false" data-tab="review">Review & learning</button>
+<button role="tab" aria-selected="false" data-tab="system">Agents & governance</button>
+<button role="tab" aria-selected="false" data-tab="evidence">Rules & validation</button>
+</nav>
+
+<div data-panel="monitor">
+<div class="grid kpis" id="kpis"></div>
+<section class="grid two">
+ <div class="card"><button class="toggle" data-table="tblCov">Table</button><h2>Coverage under current rules</h2><p class="note">Projects screened with the current rule version, after each daily run</p><div id="cov"></div><div id="tblCov" class="tablewrap hidden"></div></div>
+ <div class="card"><button class="toggle" data-table="tblReg">Table</button><h2>Screened procurements by region</h2><p class="note">Schematic tile map, north to south. Shade = projects screened under current rules</p><div id="map"></div><div id="tblReg" class="tablewrap hidden"></div></div>
+</section>
+</div>
+
+<div data-panel="review" class="hidden">
+<section class="grid two" style="margin-top:0">
+ <div class="card"><h2>Review queue by type</h2><p class="note">Cases sent to the private review desk, and eligible cases waiting under the daily capacity cap</p><div id="queue"></div></div>
+ <div class="card"><h2>Reviewer decisions</h2><p class="note" id="decnote"></p><div id="decisions"></div></div>
+</section>
+<section class="card"><h2>Does prioritisation beat random review?</h2>
+<p class="note">Yield = share of usable decisions where review was warranted (escalate or monitor). Each queue is compared against a random baseline of unflagged material projects. No rule is changed until a queue or signal has at least <span id="gateN">30</span> usable decisions.</p>
+<div class="tablewrap" id="yield"></div></section>
+</div>
+
+<div data-panel="system" class="hidden">
+<section class="card" style="margin-top:0"><h2>Daily workflow</h2><p class="note">Runs on GitHub Actions at 08:30 Manila time. The AI step runs on a free Gemini API tier and can never change a priority.</p>
+<div class="pipeline" id="pipeline"></div></section>
+<section><h2>Governance gates</h2><div class="grid two" id="gates" style="margin-top:8px"></div></section>
+<section><h2>Agent registry</h2><div class="grid two" id="agents" style="margin-top:8px"></div></section>
+</div>
+
+<div data-panel="evidence" class="hidden">
+<section class="card" style="margin-top:0"><h2>Rule register</h2><div class="tablewrap" id="rules"></div></section>
+<section class="card"><h2>Validation so far</h2><div class="tablewrap" id="valid"></div></section>
+</div>
+
+<footer id="foot"></footer>
+</div><div class="tip" id="tip"></div>
+<script id="data" type="application/json">{"generated_at": "2026-10-09T01:50:28.779926+00:00", "engine_version": "0.8.1", "rule_version": "rules-v0.8.1", "last_run": "2026-10-09T01:50:18.709887+00:00", "kpis": {"monitored": 6201, "checked_current_rules": 3325, "official_abc_in_scope": 118, "bidder_list_share": 0.755, "watch_markers": 182, "review_cases_issued": 18, "review_pending": 160, "priority_counts_last_run": {"Low": 200}, "detail_failed_last_run": 0}, "queue_types": {"issued": {"Watch validation sample": 15, "Random baseline": 2, "Scored (Medium/High)": 1}, "pending": {"Watch validation sample": 160}}, "regions": [{"region": "Region I", "short": "Ilocos", "col": 1, "row": 0, "checked": 349, "watch": 3, "review_cases": 3, "material": 2, "official_abc": 2}, {"region": "Cordillera Administrative Region", "short": "CAR", "col": 2, "row": 0, "checked": 191, "watch": 1, "review_cases": 0, "material": 1, "official_abc": 6}, {"region": "Region II", "short": "Cagayan Valley", "col": 3, "row": 0, "checked": 280, "watch": 12, "review_cases": 6, "material": 1, "official_abc": 7}, {"region": "Region III", "short": "Central Luzon", "col": 1, "row": 1, "checked": 313, "watch": 16, "review_cases": 1, "material": 6, "official_abc": 10}, {"region": "National Capital Region", "short": "NCR", "col": 2, "row": 1, "checked": 116, "watch": 11, "review_cases": 0, "material": 1, "official_abc": 2}, {"region": "Region IV-A", "short": "CALABARZON", "col": 3, "row": 1, "checked": 335, "watch": 32, "review_cases": 1, "material": 5, "official_abc": 11}, {"region": "Region IV-B", "short": "MIMAROPA", "col": 1, "row": 2, "checked": 126, "watch": 2, "review_cases": 0, "material": 0, "official_abc": 10}, {"region": "Region V", "short": "Bicol", "col": 3, "row": 2, "checked": 133, "watch": 10, "review_cases": 0, "material": 8, "official_abc": 14}, {"region": "Region VI", "short": "W. Visayas", "col": 0, "row": 3, "checked": 134, "watch": 7, "review_cases": 0, "material": 2, "official_abc": 3}, {"region": "Negros Island Region", "short": "Negros Island", "col": 1, "row": 3, "checked": 140, "watch": 5, "review_cases": 0, "material": 0, "official_abc": 0}, {"region": "Region VII", "short": "C. Visayas", "col": 2, "row": 3, "checked": 187, "watch": 19, "review_cases": 1, "material": 1, "official_abc": 2}, {"region": "Region VIII", "short": "E. Visayas", "col": 3, "row": 3, "checked": 169, "watch": 0, "review_cases": 0, "material": 3, "official_abc": 4}, {"region": "Region IX", "short": "Zamboanga", "col": 0, "row": 4, "checked": 175, "watch": 3, "review_cases": 0, "material": 9, "official_abc": 10}, {"region": "Region X", "short": "N. Mindanao", "col": 1, "row": 4, "checked": 257, "watch": 23, "review_cases": 2, "material": 4, "official_abc": 9}, {"region": "Region XIII", "short": "Caraga", "col": 3, "row": 4, "checked": 141, "watch": 16, "review_cases": 2, "material": 11, "official_abc": 9}, {"region": "Bangsamoro Autonomous Region in Muslim Mindanao", "short": "BARMM", "col": 0, "row": 5}, {"region": "Region XII", "short": "SOCCSKSARGEN", "col": 1, "row": 5, "checked": 144, "watch": 17, "review_cases": 0, "material": 5, "official_abc": 5}, {"region": "Region XI", "short": "Davao", "col": 2, "row": 5, "checked": 132, "watch": 5, "review_cases": 2, "material": 10, "official_abc": 14}], "regions_unmapped": {"MIMAROPA Region": {"checked": 2, "watch": 0, "review_cases": 0, "material": 0, "official_abc": 0}}, "history": [{"run_at": "2026-10-08T17:04:23.080559+00:00", "checked_current_rules": 3125, "detail_checked": 200, "detail_failed": 0, "review_queue_new": 9, "review_eligible_pending": 165, "shadow_watch": 18, "philgeps_usable_in_scope": 118}, {"run_at": "2026-10-09T01:50:18.829169+00:00", "checked_current_rules": 3325, "detail_checked": 200, "detail_failed": 0, "review_queue_new": 9, "review_eligible_pending": 169, "shadow_watch": 12, "philgeps_usable_in_scope": 118}], "feedback": {"by_queue_type": {}, "decision_counts": {}, "min_decided_gate": 30, "generated_at": null}, "ai_last_run": {"requested": 9, "valid": 0, "invalid_model_output": 0, "unavailable": 9, "downgrade_recommendations": 0, "manual_verification_recommendations": 0, "model": ""}, "rule_register": [{"signal": "Official ABC per km ≥ same-subtype P95", "treatment": "Strong scored signal", "evidence": "Transparent cost outlier; requires official PhilGEPS/DPWH ABC, parsed length and ≥30 peers; excluded for slope works"}, {"signal": "Official ABC per km P90–P95, or ABC ≥ P95 when length unavailable", "treatment": "Weak scored signal", "evidence": "Screening statistic; benchmark provenance limits interpretation"}, {"signal": "Any prior contractor termination (years before target)", "treatment": "Weak scored signal", "evidence": "OR 1.51 (95% CI 1.05–2.17) in 2020–25 matched sample; termination is not misconduct"}, {"signal": "Recent (≤3 yrs) or high-rate (≥2% of ≥5) contractor termination", "treatment": "Watch marker → human validation sample", "evidence": "OR 2.08–2.69 but threshold chosen after inspecting data; promoted only after ≥30 independent human decisions"}, {"signal": "Single bidder / two bidders", "treatment": "Context only", "evidence": "Not rare (16% historically); not associated with later termination (OR 0.55–0.70)"}, {"signal": "High same-office contractor concentration", "treatment": "Context only", "evidence": "Normal local-contractor geography; inverse association (OR 0.62)"}, {"signal": "Project budget size", "treatment": "Materiality only (never adverse)", "evidence": "Weights review order by potential exposure: Large ≥ ₱100m, Medium ≥ ₱25m"}, {"signal": "Missing PhilGEPS notice or missing fields", "treatment": "Never adverse", "evidence": "Coverage problem, not a project characteristic"}], "validation": [{"item": "DPWH records scanned per run", "result": "265,848"}, {"item": "Current-year road procurements monitored", "result": "6,201"}, {"item": "Matched case-control outcome test (2020–25)", "result": "168 terminated vs 504 matched completed"}, {"item": "Official ABC via PhilGEPS reverse index", "result": "115 exact joins, 0 ambiguous"}, {"item": "Verifier process benchmark", "result": "10/10 constructed cases handled safely"}, {"item": "Verifier temporal holdout", "result": "31 blinded cases; did not improve a weak legacy rule → AI kept out of scoring"}], "gates": [{"id": "G1", "name": "Data health", "text": "Bulk scan, detail retrieval and PhilGEPS joins are checked each run; failures are reported, never scored."}, {"id": "G2", "name": "Queue capacity", "text": "At most 8 new cases a day plus 1 random baseline case; excess cases wait, none are dropped."}, {"id": "G3", "name": "Human decision", "text": "Every case needs one decision label and a written reason from a reviewer."}, {"id": "G4", "name": "Rule change", "text": "Rules change only by a pull request approved by a person, after the evidence gate is met."}], "agents": [{"name": "Scout", "layer": "Workflow", "kind": "Deterministic", "purpose": "Scans the full DPWH project list every run and maintains persistent state of the current-year road-procurement population.", "must_never": "Treat a project's appearance or disappearance as evidence of anything; rewrite unchanged state.", "gate": "G1 data-health: run aborts its outputs if the bulk scan fails"}, {"name": "Matcher", "layer": "Workflow", "kind": "Deterministic", "purpose": "Builds a reverse index of open mPhilGEPS notices and joins DPWH Contract IDs to official bid notices to obtain the ABC.", "must_never": "Accept an ABC from an ambiguous or conflicting notice; treat a no-match as adverse.", "gate": "Ambiguous matches are review-only"}, {"name": "Profiler", "layer": "Workflow", "kind": "Deterministic", "purpose": "Builds each bidder's DPWH road-project history using only years before the target project.", "must_never": "Infer ownership, political or social links; use the target project's own outcome.", "gate": "—"}, {"name": "Benchmarker", "layer": "Workflow", "kind": "Deterministic", "purpose": "Compares official ABC per km with same-subtype peer thresholds.", "must_never": "Use the DPWH project budget as procurement ABC; compare per km for slope works or with fewer than 30 peers.", "gate": "—"}, {"name": "Screener (policy engine)", "layer": "Workflow", "kind": "Deterministic rules", "purpose": "Applies the versioned rule register to produce a review priority, a materiality band and a watch marker.", "must_never": "Score single-bidder status, office concentration, missing data or political context.", "gate": "Rule changes only through an approved pull request (G4)"}, {"name": "Orchestrator", "layer": "Governance", "kind": "Deterministic", "purpose": "Selects today's human-review cases under a capacity cap and adds one random baseline case for evaluation.", "must_never": "Exceed analyst capacity; drop an eligible case (it stays pending).", "gate": "G2 queue cap"}, {"name": "Verifier", "layer": "Workflow", "kind": "AI (Gemini free tier, Groq fallback)", "purpose": "Checks whether each queued case's rule signals are supported by its evidence packet and writes a plain-language case note.", "must_never": "Raise or change priority; use outside facts; describe anyone as corrupt; invent signal or source IDs.", "gate": "Output validator rejects unknown IDs; failure degrades to 'AI unavailable'"}, {"name": "Review desk", "layer": "Governance", "kind": "Human-in-the-loop", "purpose": "Opens one private GitHub Issue per queued case and posts the daily digest.", "must_never": "Publish case-level information outside the private repository.", "gate": "G3 human decision label + reason on every case"}, {"name": "Steward", "layer": "Governance", "kind": "Deterministic", "purpose": "Weekly: turns human decisions into yield statistics by queue type and signal, against the random baseline.", "must_never": "Change a rule; it only reports whether the pre-registered evidence gate (30 decisions) is met.", "gate": "G4 opens a pull request that a person must approve"}, {"name": "Studio", "layer": "Interface", "kind": "Static site", "purpose": "Publishes aggregate-only monitoring, governance and validation views to the public dashboard.", "must_never": "Show contract IDs, contractor names or case-level flags.", "gate": "Privacy check fails the build if an ID-like string appears"}]}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const $=s=>document.querySelector(s), fmt=n=>n==null?'—':Number(n).toLocaleString('en-US');
+const pct=x=>x==null?'—':(x*100).toFixed(0)+'%';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tip=$('#tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.display='block';const x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8),y=Math.min(e.clientY+14,innerHeight-tip.offsetHeight-8);tip.style.left=x+'px';tip.style.top=y+'px'}
+function hideTip(){tip.style.display='none'}
+// theme
+(function(){const k='bantai-theme';let t=null;try{t=localStorage.getItem(k)}catch(e){}
+ if(t)document.documentElement.setAttribute('data-theme',t);
+ $('#theme').onclick=()=>{const cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const nx=cur==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nx);try{localStorage.setItem(k,nx)}catch(e){}}})();
+// tabs
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('hidden',p.dataset.panel!==b.dataset.tab))});
+document.querySelectorAll('.toggle').forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.table);t.classList.toggle('hidden');b.textContent=t.classList.contains('hidden')?'Table':'Chart';t.previousElementSibling.classList.toggle('hidden')});
+// KPIs
+const K=D.kpis, pc=K.priority_counts_last_run||{};
+const kp=[['Procurements monitored',fmt(K.monitored),'Current-year DPWH road projects in procurement'],
+['Screened under current rules',fmt(K.checked_current_rules),K.monitored?pct(K.checked_current_rules/K.monitored)+' of monitored':''],
+['Official ABC available',fmt(K.official_abc_in_scope),'Exact DPWH↔PhilGEPS joins in scope'],
+['Bidder list available',pct(K.bidder_list_share),'Share of screened projects'],
+['Cases sent to review',fmt(K.review_cases_issued),fmt(K.review_pending)+' eligible cases waiting'],
+['Last run',D.last_run?new Date(D.last_run).toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'—',(D.last_run?new Date(D.last_run).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})+' · ':'')+'Priorities: '+(Object.entries(pc).map(([k,v])=>k+' '+v).join(', ')||'—')]];
+$('#kpis').innerHTML=kp.map(([l,v,d])=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${esc(d)}</div></div>`).join('');
+// coverage line
+(function(){const H=D.history.filter(h=>h.checked_current_rules!=null),el=$('#cov');
+ $('#tblCov').innerHTML='<table><tr><th>Run</th><th class="num">Screened (current rules)</th><th class="num">Checked this run</th><th class="num">New review cases</th></tr>'+H.map(h=>`<tr><td>${esc((h.run_at||'').slice(0,16).replace('T',' '))}</td><td class="num">${fmt(h.checked_current_rules)}</td><td class="num">${fmt(h.detail_checked)}</td><td class="num">${fmt(h.review_queue_new)}</td></tr>`).join('')+'</table>';
+ if(H.length<2){el.innerHTML=`<p class="note" style="padding:24px 0">${H.length?'One run recorded so far: '+fmt(H[0].checked_current_rules)+' projects screened. The trend appears after the next run.':'No runs recorded yet.'}</p>`;return}
+ const W=520,Ht=220,m={l:44,r:12,t:12,b:26},iw=W-m.l-m.r,ih=Ht-m.t-m.b,max=Math.max(D.kpis.monitored||0,...H.map(h=>h.checked_current_rules));
+ const x=i=>m.l+i*iw/(H.length-1),y=v=>m.t+ih-v/max*ih;let g='';
+ for(let k=0;k<=4;k++){const v=max*k/4;g+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text x="${m.l-6}" y="${y(v)+4}" text-anchor="end">${fmt(Math.round(v))}</text>`}
+ g+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--axis)"/>`;
+ [0,H.length-1].forEach(i=>g+=`<text x="${x(i)}" y="${Ht-6}" text-anchor="${i?'end':'start'}">${esc((H[i].run_at||'').slice(5,10))}</text>`);
+ const pts=H.map((h,i)=>`${x(i)},${y(h.checked_current_rules)}`).join(' ');
+ g+=`<polyline points="${pts}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/><line id="xh" y1="${m.t}" y2="${m.t+ih}" stroke="var(--axis)" visibility="hidden"/><circle id="dot" r="4" fill="var(--s1)" stroke="var(--surface)" stroke-width="2" visibility="hidden"/>`;
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${Ht}" width="100%" role="img" aria-label="Line chart of projects screened under current rules over time">${g}<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="hit"/></svg>`;
+ const svg=el.querySelector('svg'),hit=svg.querySelector('#hit');
+ hit.onmousemove=e=>{const r=svg.getBoundingClientRect(),px=(e.clientX-r.left)*W/r.width,i=Math.max(0,Math.min(H.length-1,Math.round((px-m.l)/iw*(H.length-1)))),h=H[i];
+  svg.querySelector('#xh').setAttribute('x1',x(i));svg.querySelector('#xh').setAttribute('x2',x(i));svg.querySelector('#xh').setAttribute('visibility','visible');
+  const d=svg.querySelector('#dot');d.setAttribute('cx',x(i));d.setAttribute('cy',y(h.checked_current_rules));d.setAttribute('visibility','visible');
+  showTip(e,`<b>${esc((h.run_at||'').slice(0,10))}</b>Screened under current rules: ${fmt(h.checked_current_rules)}<br>Checked this run: ${fmt(h.detail_checked)}<br>New review cases: ${fmt(h.review_queue_new)}`)};
+ hit.onmouseleave=()=>{hideTip();svg.querySelector('#xh').setAttribute('visibility','hidden');svg.querySelector('#dot').setAttribute('visibility','hidden')};
+})();
+// region tiles
+(function(){const R=D.regions,el=$('#map'),max=Math.max(1,...R.map(r=>r.checked||0)),steps=['--seq1','--seq2','--seq3','--seq4','--seq5','--seq6'];
+ const col=v=>!v?'var(--empty)':`var(${steps[Math.min(5,Math.floor(v/max*5.999))]})`;
+ const th=56,gap=4,Hh=6*(th+gap);
+ el.innerHTML=`<div class="tiles" style="height:${Hh}px">`+R.map((r,i)=>{const v=r.checked||0,dark=v/max>.5;return `<div class="tile" data-i="${i}" style="left:calc(${r.col*25}% + ${gap/2}px);top:${r.row*(th+gap)}px;width:calc(25% - ${gap}px);height:${th}px;background:${col(v)};color:${dark?'var(--hi-ink)':'var(--lo-ink)'}"><span>${esc(r.short)}</span><span class="n">${fmt(v)}</span></div>`}).join('')+'</div>'+
+ `<div class="legend"><span>fewer</span>${steps.map(s=>`<span class="sw" style="background:var(${s})"></span>`).join('')}<span>more screened</span><span class="sw" style="background:var(--empty);margin-left:10px"></span><span>none yet</span></div>`;
+ el.querySelectorAll('.tile').forEach(t=>{const r=R[+t.dataset.i];t.onmousemove=e=>showTip(e,`<b>${esc(r.short)}</b>Screened: ${fmt(r.checked||0)}<br>Material (≥₱25m): ${fmt(r.material||0)}<br>Official ABC: ${fmt(r.official_abc||0)}<br>Watch markers: ${fmt(r.watch||0)}<br>Sent to review: ${fmt(r.review_cases||0)}`);t.onmouseleave=hideTip});
+ $('#tblReg').innerHTML='<table><tr><th>Region</th><th class="num">Screened</th><th class="num">Material</th><th class="num">Official ABC</th><th class="num">Watch</th><th class="num">Review</th></tr>'+R.map(r=>`<tr><td>${esc(r.short)}</td><td class="num">${fmt(r.checked||0)}</td><td class="num">${fmt(r.material||0)}</td><td class="num">${fmt(r.official_abc||0)}</td><td class="num">${fmt(r.watch||0)}</td><td class="num">${fmt(r.review_cases||0)}</td></tr>`).join('')+'</table>';
+})();
+// bars helper (single measure → one hue; identity by label)
+function bars(el,rows,label){if(!rows.length){el.innerHTML='<p class="note" style="padding:18px 0">Nothing recorded yet.</p>';return}
+ const max=Math.max(1,...rows.map(r=>r[1]));el.innerHTML=rows.map(([k,v,extra])=>`<div class="barrow" style="display:grid;grid-template-columns:minmax(120px,190px) 1fr 44px;gap:10px;align-items:center;margin:8px 0" data-k="${esc(k)}" data-v="${v}" data-x="${esc(extra||'')}"><span style="font-size:13px;color:var(--ink2)">${esc(k)}</span><span style="height:14px;background:var(--grid);border-radius:4px;overflow:hidden;display:block"><span style="display:block;height:100%;width:${v/max*100}%;background:var(--s1);border-radius:0 4px 4px 0"></span></span><span style="text-align:right;font-variant-numeric:tabular-nums">${fmt(v)}</span></div>`).join('');
+ el.querySelectorAll('.barrow').forEach(r=>{r.onmousemove=e=>showTip(e,`<b>${r.dataset.k}</b>${label}: ${fmt(+r.dataset.v)}${r.dataset.x?'<br>'+r.dataset.x:''}`);r.onmouseleave=hideTip})}
+const QT=['Scored (Medium/High)','Watch validation sample','Random baseline'];
+bars($('#queue'),QT.map(k=>[k,(D.queue_types.issued||{})[k]||0,'Waiting: '+fmt((D.queue_types.pending||{})[k]||0)]),'Sent to review');
+const DL={'decision:escalate':'Escalate','decision:monitor':'Monitor','decision:close-no-concern':'Close — no concern','decision:insufficient-evidence':'Insufficient evidence','decision:data-error':'Data error','pending':'Awaiting decision','conflicting':'Conflicting labels'};
+const dc=D.feedback.decision_counts||{};bars($('#decisions'),Object.keys(DL).filter(k=>dc[k]).map(k=>[DL[k],dc[k]]),'Cases');
+$('#decnote').textContent=D.feedback.generated_at?'From the weekly Steward report, '+new Date(D.feedback.generated_at).toLocaleDateString('en-GB'):'Appears after the first weekly Steward report';
+$('#gateN').textContent=D.feedback.min_decided_gate||30;
+(function(){const Y=D.feedback.by_queue_type||{},ks=Object.keys(Y);$('#yield').innerHTML=ks.length?'<table><tr><th>Queue</th><th class="num">Usable decisions</th><th class="num">Warranted</th><th class="num">Yield</th><th class="num">Median minutes</th><th>Evidence gate</th></tr>'+ks.map(k=>{const v=Y[k];return `<tr><td>${esc(k)}</td><td class="num">${fmt(v.decided_usable)}</td><td class="num">${fmt(v.warranted)}</td><td class="num">${pct(v.yield)}</td><td class="num">${fmt(v.median_minutes)}</td><td><span class="chip">${v.gate_met?'Met':'Not yet'}</span></td></tr>`}).join('')+'</table>':'<p class="note">No decided cases yet.</p>'})();
+// system
+const steps=[['Scout','DPWH scan & state'],['Matcher','PhilGEPS ABC'],['Profiler','Contractor history'],['Benchmarker','ABC per km'],['Screener','Rule register'],['Orchestrator','Queue & baseline'],['Verifier','AI evidence check'],['Review desk','Human decision'],['Steward','Weekly learning']];
+$('#pipeline').innerHTML=steps.map(([a,b],i)=>`<div class="step"><b>${a}</b>${b}</div>${i<steps.length-1?'<span class="arrow">→</span>':''}`).join('');
+$('#gates').innerHTML=D.gates.map(g=>`<div class="card"><h3>${g.id} · ${esc(g.name)}</h3><div class="note">${esc(g.text)}</div></div>`).join('');
+$('#agents').innerHTML=D.agents.map(a=>`<div class="card agent"><div><h3 style="display:inline">${esc(a.name)}</h3> <span class="chip">${esc(a.layer)}</span> <span class="chip">${esc(a.kind)}</span></div><div>${esc(a.purpose)}</div><div class="k"><b>Must never:</b> ${esc(a.must_never)}</div><div class="k"><b>Gate:</b> ${esc(a.gate)}</div></div>`).join('');
+$('#rules').innerHTML='<table><tr><th>Signal</th><th>Treatment</th><th>Evidence</th></tr>'+D.rule_register.map(r=>`<tr><td>${esc(r.signal)}</td><td><span class="chip">${esc(r.treatment)}</span></td><td>${esc(r.evidence)}</td></tr>`).join('')+'</table>';
+$('#valid').innerHTML='<table><tr><th>Test</th><th>Result</th></tr>'+D.validation.map(r=>`<tr><td>${esc(r.item)}</td><td>${esc(r.result)}</td></tr>`).join('')+'</table>';
+const ai=D.ai_last_run||{};
+$('#foot').innerHTML=`Engine ${esc(D.engine_version)} · ${esc(D.rule_version)} · page built ${esc((D.generated_at||'').slice(0,16).replace('T',' '))} UTC`+(ai.requested!=null?` · Verifier last run: ${fmt(ai.valid)} valid, ${fmt(ai.unavailable)} unavailable`:'')+` · Project BantAI — LKY School of Public Policy, PP5538 capstone prototype.`;
+</script></body></html>
