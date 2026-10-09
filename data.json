@@ -1,472 +1,387 @@
 {
- "generated_at": "2026-10-09T10:08:39.758963+00:00",
+ "generated_at": "2026-10-09T11:35+00:00",
  "engine_version": "0.9.2",
  "rule_version": "rules-v0.9.2",
- "last_run": "2026-10-09T09:49:47.022033+00:00",
- "kpis": {
-  "monitored": 6609,
-  "checked_current_rules": 4133,
-  "official_abc_in_scope": 122,
-  "bidder_list_share": 0.781,
-  "watch_markers": 892,
-  "review_cases_issued": 583,
-  "review_pending": 0,
-  "priority_counts_last_run": {
-   "Low": 194,
-   "Medium": 6
-  },
-  "detail_failed_last_run": 0
+ "last_run": "2026-10-09T11:04:19.027092+00:00",
+ "stages": {
+  "road_tenders_open": 6201,
+  "road_tenders_new": null,
+  "road_awarded": 408,
+  "road_awarded_new": null,
+  "road_construction": 12692,
+  "road_completed_this_year": 26,
+  "road_terminated_this_year": 0,
+  "all_dpwh_tenders_open": 13822
  },
- "queue_types": {
-  "issued": {
-   "Other": 84,
-   "Watch validation sample": 388,
-   "Scored (Medium/High)": 107,
-   "Random baseline": 4
+ "stages_at": "2026-10-09T11:04:19.027092+00:00",
+ "monitored": 6609,
+ "checked": 6609,
+ "cases": {
+  "total": 915,
+  "by_colour": {
+   "Red": 145,
+   "Yellow": 139,
+   "Blue": 625,
+   "Grey": 6
   },
-  "pending": {}
+  "by_stage": {
+   "Award": 117,
+   "Tender": 791,
+   "Construction": 7
+  }
+ },
+ "decisions": {
+  "decided": 0,
+  "by_type": {}
  },
  "regions": [
   {
-   "region": "Region I",
-   "short": "Ilocos",
-   "col": 1,
-   "row": 0,
-   "checked": 373,
-   "watch": 79,
-   "review_cases": 25,
-   "material": 98,
-   "official_abc": 373
+   "region": "CALABARZON",
+   "Red": 11,
+   "Yellow": 27,
+   "Blue": 109,
+   "Grey": 0
   },
   {
-   "region": "Cordillera Administrative Region",
-   "short": "CAR",
-   "col": 2,
-   "row": 0,
-   "checked": 274,
-   "watch": 25,
-   "review_cases": 18,
-   "material": 84,
-   "official_abc": 274
+   "region": "Central Luzon",
+   "Red": 17,
+   "Yellow": 17,
+   "Blue": 91,
+   "Grey": 2
   },
   {
-   "region": "Region II",
-   "short": "Cagayan Valley",
-   "col": 3,
-   "row": 0,
-   "checked": 322,
-   "watch": 18,
-   "review_cases": 13,
-   "material": 59,
-   "official_abc": 322
+   "region": "Northern Mindanao",
+   "Red": 46,
+   "Yellow": 6,
+   "Blue": 47,
+   "Grey": 0
   },
   {
-   "region": "Region III",
-   "short": "Central Luzon",
-   "col": 1,
-   "row": 1,
-   "checked": 450,
-   "watch": 120,
-   "review_cases": 88,
-   "material": 158,
-   "official_abc": 450
+   "region": "Caraga",
+   "Red": 19,
+   "Yellow": 13,
+   "Blue": 64,
+   "Grey": 1
   },
   {
-   "region": "National Capital Region",
-   "short": "NCR",
-   "col": 2,
-   "row": 1,
-   "checked": 144,
-   "watch": 37,
-   "review_cases": 16,
-   "material": 43,
-   "official_abc": 144
+   "region": "Central Visayas",
+   "Red": 4,
+   "Yellow": 12,
+   "Blue": 54,
+   "Grey": 1
   },
   {
-   "region": "Region IV-A",
-   "short": "CALABARZON",
-   "col": 3,
-   "row": 1,
-   "checked": 415,
-   "watch": 168,
-   "review_cases": 78,
-   "material": 157,
-   "official_abc": 415
+   "region": "Eastern Visayas",
+   "Red": 3,
+   "Yellow": 11,
+   "Blue": 46,
+   "Grey": 0
   },
   {
-   "region": "Region IV-B",
-   "short": "MIMAROPA",
-   "col": 1,
-   "row": 2,
-   "checked": 144,
-   "watch": 3,
-   "review_cases": 2,
-   "material": 36,
-   "official_abc": 144
+   "region": "Western Visayas",
+   "Red": 30,
+   "Yellow": 2,
+   "Blue": 22,
+   "Grey": 1
   },
   {
-   "region": "Region V",
-   "short": "Bicol",
-   "col": 3,
-   "row": 2,
-   "checked": 181,
-   "watch": 35,
-   "review_cases": 36,
-   "material": 93,
-   "official_abc": 181
+   "region": "Bicol",
+   "Red": 1,
+   "Yellow": 12,
+   "Blue": 33,
+   "Grey": 1
   },
   {
-   "region": "Region VI",
-   "short": "W. Visayas",
-   "col": 0,
-   "row": 3,
-   "checked": 177,
-   "watch": 47,
-   "review_cases": 32,
-   "material": 54,
-   "official_abc": 177
+   "region": "SOCCSKSARGEN",
+   "Red": 4,
+   "Yellow": 7,
+   "Blue": 26,
+   "Grey": 0
   },
   {
-   "region": "Negros Island Region",
-   "short": "Negros Island",
-   "col": 1,
-   "row": 3,
-   "checked": 165,
-   "watch": 16,
-   "review_cases": 11,
-   "material": 42,
-   "official_abc": 165
+   "region": "Davao",
+   "Red": 2,
+   "Yellow": 11,
+   "Blue": 21,
+   "Grey": 0
   },
   {
-   "region": "Region VII",
-   "short": "C. Visayas",
-   "col": 2,
-   "row": 3,
-   "checked": 223,
-   "watch": 68,
-   "review_cases": 46,
-   "material": 85,
-   "official_abc": 223
+   "region": "CAR",
+   "Red": 0,
+   "Yellow": 3,
+   "Blue": 30,
+   "Grey": 0
   },
   {
-   "region": "Region VIII",
-   "short": "E. Visayas",
-   "col": 3,
-   "row": 3,
-   "checked": 207,
-   "watch": 49,
-   "review_cases": 42,
-   "material": 100,
-   "official_abc": 207
+   "region": "Ilocos",
+   "Red": 0,
+   "Yellow": 1,
+   "Blue": 24,
+   "Grey": 0
   },
   {
-   "region": "Region IX",
-   "short": "Zamboanga",
-   "col": 0,
-   "row": 4,
-   "checked": 218,
-   "watch": 14,
-   "review_cases": 15,
-   "material": 93,
-   "official_abc": 218
+   "region": "Zamboanga Peninsula",
+   "Red": 0,
+   "Yellow": 5,
+   "Blue": 17,
+   "Grey": 0
   },
   {
-   "region": "Region X",
-   "short": "N. Mindanao",
-   "col": 1,
-   "row": 4,
-   "checked": 314,
-   "watch": 85,
-   "review_cases": 63,
-   "material": 130,
-   "official_abc": 314
+   "region": "NCR",
+   "Red": 2,
+   "Yellow": 6,
+   "Blue": 12,
+   "Grey": 0
   },
   {
-   "region": "Region XIII",
-   "short": "Caraga",
-   "col": 3,
-   "row": 4,
-   "checked": 162,
-   "watch": 65,
-   "review_cases": 53,
-   "material": 78,
-   "official_abc": 162
+   "region": "Cagayan Valley",
+   "Red": 4,
+   "Yellow": 1,
+   "Blue": 13,
+   "Grey": 0
   },
   {
-   "region": "Bangsamoro Autonomous Region in Muslim Mindanao",
-   "short": "BARMM",
-   "col": 0,
-   "row": 5
+   "region": "Negros Island",
+   "Red": 2,
+   "Yellow": 3,
+   "Blue": 10,
+   "Grey": 0
   },
   {
-   "region": "Region XII",
-   "short": "SOCCSKSARGEN",
-   "col": 1,
-   "row": 5,
-   "checked": 176,
-   "watch": 33,
-   "review_cases": 23,
-   "material": 70,
-   "official_abc": 176
-  },
-  {
-   "region": "Region XI",
-   "short": "Davao",
-   "col": 2,
-   "row": 5,
-   "checked": 157,
-   "watch": 28,
-   "review_cases": 22,
-   "material": 74,
-   "official_abc": 157
+   "region": "MIMAROPA",
+   "Red": 0,
+   "Yellow": 2,
+   "Blue": 6,
+   "Grey": 0
   }
  ],
- "regions_unmapped": {
-  "MIMAROPA Region": {
-   "checked": 30,
-   "watch": 2,
-   "review_cases": 0,
-   "material": 6,
-   "official_abc": 30
+ "trend": [
+  {
+   "d": "2026-10-09",
+   "t": 6201,
+   "a": 408
   }
+ ],
+ "evidence": [
+  {
+   "group": "Contract later terminated",
+   "contracts": 8208,
+   "items": [
+    {
+     "label": "Winner had a contract terminated before",
+     "or": 2.13,
+     "lo": 1.64,
+     "hi": 2.76,
+     "n": 1925,
+     "verdict": "strong: holds on 2023-2025 too",
+     "holdout_or": 2.38
+    },
+    {
+     "label": "Award within 8 days of bid opening",
+     "or": 2.11,
+     "lo": 1.52,
+     "hi": 2.94,
+     "n": 800,
+     "verdict": "strong: holds on 2023-2025 too",
+     "holdout_or": 2.64
+    },
+    {
+     "label": "Winning bid under 95% of official price",
+     "or": 4.36,
+     "lo": 3.13,
+     "hi": 6.07,
+     "n": 451,
+     "verdict": "strong: holds on 2023-2025 too",
+     "holdout_or": 4.62
+    },
+    {
+     "label": "Price per km above 95% of similar roads",
+     "or": 2.23,
+     "lo": 1.05,
+     "hi": 4.72,
+     "n": 115,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": 0.71
+    },
+    {
+     "label": "Only one bidder",
+     "or": 0.89,
+     "lo": 0.61,
+     "hi": 1.28,
+     "n": 1212,
+     "verdict": "no evidence: keep as context only",
+     "holdout_or": 1.06
+    },
+    {
+     "label": "Winner new to DPWH roads",
+     "or": 0.97,
+     "lo": 0.6,
+     "hi": 1.56,
+     "n": 623,
+     "verdict": "no evidence: keep as context only",
+     "holdout_or": 0.91
+    }
+   ]
+  },
+  {
+   "group": "Citizens reported a problem",
+   "contracts": 9662,
+   "items": [
+    {
+     "label": "Contractor's other roads drew 2+ citizen reports",
+     "or": 4.49,
+     "lo": 3.72,
+     "hi": 5.42,
+     "n": 2259,
+     "verdict": "strong: promote to scored (after next-year check)",
+     "holdout_or": null
+    },
+    {
+     "label": "Two or fewer bidders",
+     "or": 1.67,
+     "lo": 1.39,
+     "hi": 2.01,
+     "n": 4457,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "One bidder and bid 98%+ of price",
+     "or": 1.53,
+     "lo": 1.16,
+     "hi": 2.02,
+     "n": 864,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "Award within 8 days of bid opening",
+     "or": 1.63,
+     "lo": 1.26,
+     "hi": 2.12,
+     "n": 988,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "Winning bid under 95% of official price",
+     "or": 0.38,
+     "lo": 0.2,
+     "hi": 0.72,
+     "n": 481,
+     "verdict": "points the other way: drop",
+     "holdout_or": null
+    }
+   ]
+  },
+  {
+   "group": "Tender documents (contract later terminated)",
+   "contracts": 906,
+   "items": [
+    {
+     "label": "Documents mostly scanned images",
+     "or": 2.55,
+     "lo": 1.14,
+     "hi": 5.69,
+     "n": 27,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "Few or no quantities stated",
+     "or": 2.04,
+     "lo": 1.38,
+     "hi": 3.02,
+     "n": 178,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "No Bill of Quantities",
+     "or": 1.71,
+     "lo": 1.13,
+     "hi": 2.59,
+     "n": 153,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "No technical specifications",
+     "or": 1.63,
+     "lo": 1.09,
+     "hi": 2.44,
+     "n": 622,
+     "verdict": "weak but real: watch / weak signal",
+     "holdout_or": null
+    },
+    {
+     "label": "Unfilled template placeholders",
+     "or": 0.85,
+     "lo": 0.6,
+     "hi": 1.22,
+     "n": 607,
+     "verdict": "no evidence: keep as context only",
+     "holdout_or": null
+    },
+    {
+     "label": "Brand names without 'or equivalent'",
+     "or": 0.5,
+     "lo": 0.34,
+     "hi": 0.74,
+     "n": 712,
+     "verdict": "points the other way: drop",
+     "holdout_or": null
+    }
+   ]
+  }
+ ],
+ "library": {
+  "contractors": 6638,
+  "blacklist": 20,
+  "official_actions": 7,
+  "documented_links": 37,
+  "pep_or_offshore": 1
  },
- "history": [
+ "sources": [
   {
-   "run_at": "2026-10-08T17:04:23.080559+00:00",
-   "checked_current_rules": 3125,
-   "detail_checked": 200,
-   "detail_failed": 0,
-   "review_queue_new": 9,
-   "review_eligible_pending": 165,
-   "shadow_watch": 18,
-   "philgeps_usable_in_scope": 118
+   "name": "DPWH project records",
+   "what": "Every DPWH project: status, budget, contractor, bidders, dates, official bid price (via the BetterGov public API)",
+   "when": "Daily"
   },
   {
-   "run_at": "2026-10-09T01:50:18.829169+00:00",
-   "checked_current_rules": 3325,
-   "detail_checked": 200,
-   "detail_failed": 0,
-   "review_queue_new": 9,
-   "review_eligible_pending": 169,
-   "shadow_watch": 12,
-   "philgeps_usable_in_scope": 118
+   "name": "Tender documents",
+   "what": "Bidding documents linked from DPWH records, read (with OCR for scans) and checked by Claude",
+   "when": "Daily, for flagged cases"
   },
   {
-   "run_at": "2026-10-09T06:18:46.883809+00:00",
-   "checked_current_rules": 3733,
-   "detail_checked": 408,
-   "detail_failed": 0,
-   "review_queue_new": 9,
-   "review_eligible_pending": 217,
-   "shadow_watch": 54,
-   "philgeps_usable_in_scope": 122
+   "name": "GPPB blacklist",
+   "what": "Government blacklist of suppliers and contractors (via OpenSanctions)",
+   "when": "Weekly"
   },
   {
-   "run_at": "2026-10-09T06:30:26.410767+00:00",
-   "checked_current_rules": 3933,
-   "detail_checked": 200,
-   "detail_failed": 0,
-   "review_queue_new": 9,
-   "review_eligible_pending": 221,
-   "shadow_watch": 18,
-   "philgeps_usable_in_scope": 122
+   "name": "Bisto.ph",
+   "what": "Citizen site inspections with satisfactory / unsatisfactory ratings",
+   "when": "Daily"
   },
   {
-   "run_at": "2026-10-09T09:49:47.239416+00:00",
-   "checked_current_rules": 4133,
-   "detail_checked": 200,
-   "detail_failed": 0,
-   "review_queue_new": 547,
-   "review_eligible_pending": 547,
-   "shadow_watch": 41,
-   "philgeps_usable_in_scope": 122
-  }
- ],
- "feedback": {
-  "by_queue_type": {},
-  "decision_counts": {},
-  "min_decided_gate": 30,
-  "generated_at": null
- },
- "ai_last_run": {
-  "requested": 12,
-  "valid": 0,
-  "invalid_model_output": 0,
-  "unavailable": 12,
-  "downgrade_recommendations": 0,
-  "manual_verification_recommendations": 0,
-  "model": ""
- },
- "rule_register": [
-  {
-   "signal": "Official ABC per km ≥ same-subtype P95",
-   "treatment": "Strong scored signal",
-   "evidence": "Transparent cost outlier; requires official PhilGEPS/DPWH ABC, parsed length and ≥30 peers; excluded for slope works"
+   "name": "DPWH citizen reports",
+   "what": "Number of public reports filed against each project",
+   "when": "Daily"
   },
   {
-   "signal": "Official ABC per km P90–P95, or ABC ≥ P95 when length unavailable",
-   "treatment": "Weak scored signal",
-   "evidence": "Screening statistic; benchmark provenance limits interpretation"
+   "name": "Politically exposed persons",
+   "what": "Philippine officials and politicians (OpenSanctions PEP list)",
+   "when": "Weekly"
   },
   {
-   "signal": "Any prior contractor termination (years before target)",
-   "treatment": "Weak scored signal",
-   "evidence": "OR 1.51 (95% CI 1.05–2.17) in 2020–25 matched sample; termination is not misconduct"
+   "name": "ICIJ Offshore Leaks",
+   "what": "Philippine-linked offshore companies and officers",
+   "when": "Weekly"
   },
   {
-   "signal": "Recent (≤3 yrs) or high-rate (≥2% of ≥5) contractor termination",
-   "treatment": "Watch marker → human validation sample",
-   "evidence": "OR 2.08–2.69 but threshold chosen after inspecting data; promoted only after ≥30 independent human decisions"
-  },
-  {
-   "signal": "Single bidder / two bidders",
-   "treatment": "Context only",
-   "evidence": "Not rare (16% historically); not associated with later termination (OR 0.55–0.70)"
-  },
-  {
-   "signal": "High same-office contractor concentration",
-   "treatment": "Context only",
-   "evidence": "Normal local-contractor geography; inverse association (OR 0.62)"
-  },
-  {
-   "signal": "Project budget size",
-   "treatment": "Materiality only (never adverse)",
-   "evidence": "Weights review order by potential exposure: Large ≥ ₱100m, Medium ≥ ₱25m"
-  },
-  {
-   "signal": "Missing PhilGEPS notice or missing fields",
-   "treatment": "Never adverse",
-   "evidence": "Coverage problem, not a project characteristic"
-  }
- ],
- "validation": [
-  {
-   "item": "DPWH records scanned per run",
-   "result": "265,848"
-  },
-  {
-   "item": "Current-year road procurements monitored",
-   "result": "6,201"
-  },
-  {
-   "item": "Matched case-control outcome test (2020–25)",
-   "result": "168 terminated vs 504 matched completed"
-  },
-  {
-   "item": "Official ABC via PhilGEPS reverse index",
-   "result": "115 exact joins, 0 ambiguous"
-  },
-  {
-   "item": "Verifier process benchmark",
-   "result": "10/10 constructed cases handled safely"
-  },
-  {
-   "item": "Verifier temporal holdout",
-   "result": "31 blinded cases; did not improve a weak legacy rule → AI kept out of scoring"
-  }
- ],
- "gates": [
-  {
-   "id": "G1",
-   "name": "Data health",
-   "text": "Bulk scan, detail retrieval and PhilGEPS joins are checked each run; failures are reported, never scored."
-  },
-  {
-   "id": "G2",
-   "name": "Queue capacity",
-   "text": "At most 8 new cases a day plus 1 random baseline case; excess cases wait, none are dropped."
-  },
-  {
-   "id": "G3",
-   "name": "Human decision",
-   "text": "Every case needs one decision label and a written reason from a reviewer."
-  },
-  {
-   "id": "G4",
-   "name": "Rule change",
-   "text": "Rules change only by a pull request approved by a person, after the evidence gate is met."
-  }
- ],
- "agents": [
-  {
-   "name": "Scout",
-   "layer": "Workflow",
-   "kind": "Deterministic",
-   "purpose": "Scans the full DPWH project list every run and maintains persistent state of the current-year road-procurement population.",
-   "must_never": "Treat a project's appearance or disappearance as evidence of anything; rewrite unchanged state.",
-   "gate": "G1 data-health: run aborts its outputs if the bulk scan fails"
-  },
-  {
-   "name": "Matcher",
-   "layer": "Workflow",
-   "kind": "Deterministic",
-   "purpose": "Builds a reverse index of open mPhilGEPS notices and joins DPWH Contract IDs to official bid notices to obtain the ABC.",
-   "must_never": "Accept an ABC from an ambiguous or conflicting notice; treat a no-match as adverse.",
-   "gate": "Ambiguous matches are review-only"
-  },
-  {
-   "name": "Profiler",
-   "layer": "Workflow",
-   "kind": "Deterministic",
-   "purpose": "Builds each bidder's DPWH road-project history using only years before the target project.",
-   "must_never": "Infer ownership, political or social links; use the target project's own outcome.",
-   "gate": "—"
-  },
-  {
-   "name": "Benchmarker",
-   "layer": "Workflow",
-   "kind": "Deterministic",
-   "purpose": "Compares official ABC per km with same-subtype peer thresholds.",
-   "must_never": "Use the DPWH project budget as procurement ABC; compare per km for slope works or with fewer than 30 peers.",
-   "gate": "—"
-  },
-  {
-   "name": "Screener (policy engine)",
-   "layer": "Workflow",
-   "kind": "Deterministic rules",
-   "purpose": "Applies the versioned rule register to produce a review priority, a materiality band and a watch marker.",
-   "must_never": "Score single-bidder status, office concentration, missing data or political context.",
-   "gate": "Rule changes only through an approved pull request (G4)"
-  },
-  {
-   "name": "Orchestrator",
-   "layer": "Governance",
-   "kind": "Deterministic",
-   "purpose": "Selects today's human-review cases under a capacity cap and adds one random baseline case for evaluation.",
-   "must_never": "Exceed analyst capacity; drop an eligible case (it stays pending).",
-   "gate": "G2 queue cap"
-  },
-  {
-   "name": "Verifier",
-   "layer": "Workflow",
-   "kind": "AI (Gemini free tier, Groq fallback)",
-   "purpose": "Checks whether each queued case's rule signals are supported by its evidence packet and writes a plain-language case note.",
-   "must_never": "Raise or change priority; use outside facts; describe anyone as corrupt; invent signal or source IDs.",
-   "gate": "Output validator rejects unknown IDs; failure degrades to 'AI unavailable'"
-  },
-  {
-   "name": "Review desk",
-   "layer": "Governance",
-   "kind": "Human-in-the-loop",
-   "purpose": "Opens one private GitHub Issue per queued case and posts the daily digest.",
-   "must_never": "Publish case-level information outside the private repository.",
-   "gate": "G3 human decision label + reason on every case"
-  },
-  {
-   "name": "Steward",
-   "layer": "Governance",
-   "kind": "Deterministic",
-   "purpose": "Weekly: turns human decisions into yield statistics by queue type and signal, against the random baseline.",
-   "must_never": "Change a rule; it only reports whether the pre-registered evidence gate (30 decisions) is met.",
-   "gate": "G4 opens a pull request that a person must approve"
-  },
-  {
-   "name": "Studio",
-   "layer": "Interface",
-   "kind": "Static site",
-   "purpose": "Publishes aggregate-only monitoring, governance and validation views to the public dashboard.",
-   "must_never": "Show contract IDs, contractor names or case-level flags.",
-   "gate": "Privacy check fails the build if an ID-like string appears"
+   "name": "Official actions and documented links",
+   "what": "Referrals, charges, COA findings and reported company–person links, each with a public source; compiled by the team",
+   "when": "When new reports appear"
   }
  ]
 }
