@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T17:17+00:00",
+ "generated_at": "2026-10-09T18:09+00:00",
  "engine_version": "0.9.2",
  "rule_version": "rules-v0.9.2",
  "last_run": "2026-10-09T11:04:19.027092+00:00",
@@ -17,17 +17,17 @@
  "monitored": 6609,
  "checked": 6609,
  "cases": {
-  "total": 915,
+  "total": 323,
   "by_colour": {
-   "Red": 142,
-   "Yellow": 125,
+   "Red": 140,
+   "Yellow": 136,
    "Blue": 41,
-   "Grey": 607
+   "Grey": 6
   },
   "by_stage": {
-   "Award": 120,
-   "Tender": 787,
-   "Construction": 8
+   "Award": 95,
+   "Tender": 223,
+   "Construction": 5
   }
  },
  "decisions": {
@@ -36,123 +36,123 @@
  },
  "regions": [
   {
-   "region": "CALABARZON",
-   "Red": 11,
-   "Yellow": 26,
-   "Blue": 3,
-   "Grey": 107
+   "region": "Northern Mindanao",
+   "Red": 46,
+   "Yellow": 4,
+   "Blue": 4,
+   "Grey": 0
   },
   {
    "region": "Central Luzon",
-   "Red": 17,
+   "Red": 19,
    "Yellow": 15,
    "Blue": 9,
-   "Grey": 86
+   "Grey": 2
   },
   {
-   "region": "Northern Mindanao",
-   "Red": 46,
-   "Yellow": 3,
-   "Blue": 4,
-   "Grey": 46
-  },
-  {
-   "region": "Caraga",
-   "Red": 19,
-   "Yellow": 12,
+   "region": "CALABARZON",
+   "Red": 8,
+   "Yellow": 32,
    "Blue": 3,
-   "Grey": 63
-  },
-  {
-   "region": "Central Visayas",
-   "Red": 3,
-   "Yellow": 11,
-   "Blue": 5,
-   "Grey": 52
-  },
-  {
-   "region": "Eastern Visayas",
-   "Red": 2,
-   "Yellow": 10,
-   "Blue": 5,
-   "Grey": 43
+   "Grey": 0
   },
   {
    "region": "Western Visayas",
    "Red": 30,
    "Yellow": 2,
    "Blue": 1,
-   "Grey": 22
+   "Grey": 1
   },
   {
-   "region": "Bicol",
-   "Red": 1,
-   "Yellow": 10,
+   "region": "Caraga",
+   "Red": 19,
+   "Yellow": 11,
    "Blue": 3,
-   "Grey": 33
+   "Grey": 1
   },
   {
-   "region": "SOCCSKSARGEN",
+   "region": "Central Visayas",
    "Red": 3,
-   "Yellow": 7,
-   "Blue": 2,
-   "Grey": 25
+   "Yellow": 14,
+   "Blue": 5,
+   "Grey": 1
   },
   {
-   "region": "Davao",
+   "region": "Eastern Visayas",
    "Red": 2,
-   "Yellow": 12,
-   "Blue": 0,
-   "Grey": 20
-  },
-  {
-   "region": "CAR",
-   "Red": 0,
-   "Yellow": 3,
-   "Blue": 1,
-   "Grey": 29
-  },
-  {
-   "region": "Ilocos",
-   "Red": 0,
-   "Yellow": 1,
-   "Blue": 1,
-   "Grey": 23
-  },
-  {
-   "region": "Zamboanga Peninsula",
-   "Red": 0,
-   "Yellow": 4,
-   "Blue": 3,
-   "Grey": 15
+   "Yellow": 11,
+   "Blue": 5,
+   "Grey": 0
   },
   {
    "region": "NCR",
    "Red": 2,
-   "Yellow": 4,
-   "Blue": 1,
-   "Grey": 13
+   "Yellow": 11,
+   "Blue": 0,
+   "Grey": 0
+  },
+  {
+   "region": "SOCCSKSARGEN",
+   "Red": 3,
+   "Yellow": 6,
+   "Blue": 3,
+   "Grey": 0
+  },
+  {
+   "region": "Bicol",
+   "Red": 0,
+   "Yellow": 6,
+   "Blue": 3,
+   "Grey": 1
+  },
+  {
+   "region": "Davao",
+   "Red": 2,
+   "Yellow": 7,
+   "Blue": 0,
+   "Grey": 0
+  },
+  {
+   "region": "Zamboanga Peninsula",
+   "Red": 0,
+   "Yellow": 5,
+   "Blue": 3,
+   "Grey": 0
   },
   {
    "region": "Cagayan Valley",
    "Red": 4,
    "Yellow": 1,
    "Blue": 0,
-   "Grey": 13
+   "Grey": 0
+  },
+  {
+   "region": "Ilocos",
+   "Red": 0,
+   "Yellow": 3,
+   "Blue": 1,
+   "Grey": 0
+  },
+  {
+   "region": "CAR",
+   "Red": 0,
+   "Yellow": 3,
+   "Blue": 1,
+   "Grey": 0
   },
   {
    "region": "Negros Island",
    "Red": 2,
-   "Yellow": 3,
+   "Yellow": 2,
    "Blue": 0,
-   "Grey": 10
+   "Grey": 0
   },
   {
    "region": "MIMAROPA",
    "Red": 0,
-   "Yellow": 1,
+   "Yellow": 3,
    "Blue": 0,
-   "Grey": 7
+   "Grey": 0
   }
  ],
  "trend": [
@@ -196,12 +196,12 @@
     },
     {
      "label": "Price per km above 95% of similar roads",
-     "or": 2.23,
-     "lo": 1.05,
-     "hi": 4.72,
-     "n": 115,
+     "or": 2.25,
+     "lo": 1.06,
+     "hi": 4.77,
+     "n": 114,
      "verdict": "weak but real: watch / weak signal",
-     "holdout_or": 0.71
+     "holdout_or": 0.7
     },
     {
      "label": "Only one bidder",
@@ -386,10 +386,10 @@
  ],
  "stage3": {
   "ongoing_roads": 12769,
-  "with_planned_end": 1454,
-  "past_planned_end": 1442,
-  "possibly_stalled": 179,
-  "far_behind": 6,
-  "as_of": "2026-10-10"
+  "with_planned_end": 12765,
+  "past_planned_end": 12009,
+  "possibly_stalled": 1549,
+  "far_behind": 437,
+  "as_of": "2026-10-09"
  }
 }
