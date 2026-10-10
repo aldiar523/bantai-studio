@@ -52,7 +52,7 @@ footer{padding:20px 0 40px;font-size:13px;color:var(--muted);border-top:1px soli
 <main class="wrap" id="main"><p class="small" style="margin-top:24px">Loading the case…</p></main>
 <footer class="wrap">A case is a request for a person to look at a contract, not a finding of wrongdoing. Data: DPWH via BetterGov; GPPB blacklist and PEP list via OpenSanctions; ICIJ Offshore Leaks; Bisto.ph. Project BantAI, LKYSPP PP5538 capstone, 2026.</footer>
 <script>
-const R=[{"name": "Aldiyar", "h": "a8ad8cf07b0d65bfe548e45d0d523016acadd1a90f8920487a962f56d39348b3"}, {"name": "Riolyka", "h": "9eddb8a3befb83e56435f6071e98b7166c25a5ddbe6e5c481b3dd414ac4e3816"}, {"name": "Louise", "h": "19f37918445c72fbdf77abcef5b108084ab005a2f86ea0250998ebaf1df734b9"}, {"name": "Professor", "h": "8b7d68899284a8d4d7cdc55bf3155d115cc9406eb1ea285c5ad4464bbbea7ef7"}], SALT='bantai-reviewer-2026', ROUNDS=150000, PUBREPO='aldiar523/bantai-studio';
+const R=[{"name": "Aldiyar", "h": "a8ad8cf07b0d65bfe548e45d0d523016acadd1a90f8920487a962f56d39348b3"}, {"name": "Riolyka", "h": "9eddb8a3befb83e56435f6071e98b7166c25a5ddbe6e5c481b3dd414ac4e3816"}, {"name": "Louise", "h": "19f37918445c72fbdf77abcef5b108084ab005a2f86ea0250998ebaf1df734b9"}, {"name": "Professor", "h": "8b7d68899284a8d4d7cdc55bf3155d115cc9406eb1ea285c5ad4464bbbea7ef7"}], SALT='bantai-reviewer-2026', ROUNDS=150000, TOPIC='bantai-decisions-8b6fc166bbeee9d2';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const peso=v=>v==null||v===''?'—':(v>=1e9?'₱'+(v/1e9).toFixed(2)+'B':v>=1e6?'₱'+(v/1e6).toFixed(1)+'M':'₱'+Math.round(v).toLocaleString('en-US'));
@@ -105,7 +105,7 @@ async function decisionPanel(c){
  const pending=store.get('bantai-pending-'+c.id);
  let head=`<h2>Decision</h2>`;
  if(c.decision)head+=`<p><span class="ok">${esc(c.decision.decision)}</span>${c.decision.by?` · by ${esc(c.decision.by)}`:''}${c.decision.at?` · ${esc(c.decision.at)}`:''}</p>`;
- else if(pending)head+=`<p class="small">Submitted: <b>${esc(pending)}</b>. It appears here within about 3 hours, once checked.</p>`;
+ else if(pending)head+=`<p class="small">Sent: <b>${esc(pending)}</b>. It appears here within about an hour, once checked.</p>`;
  else head+=`<p class="small">No decision yet.</p>`;
  if(!name){box.innerHTML=head+`<p class="small">Reviewers: enter your reviewer ID to record a decision.</p><input id="rid" placeholder="BTN-XXXX-XXXX" autocomplete="off" aria-label="Reviewer ID"><button class="primary" id="unlock" style="margin-top:8px;width:100%">Unlock</button><p class="small" id="msg"></p>`;
   $('#unlock').onclick=async()=>{$('#msg').textContent='Checking…';const id=$('#rid').value;const n=await who(id);if(n){store.set('bantai-reviewer-id',normId(id));decisionPanel(c)}else{$('#msg').innerHTML='<span class="warn">That ID is not valid.</span>'}};return}
@@ -115,12 +115,15 @@ async function decisionPanel(c){
   <label class="small">Reason (one line)<textarea id="why" rows="2" placeholder="e.g. Length in the BoQ is 1.2 km, so the price per km is normal"></textarea></label>
   <label class="small">Minutes spent<input id="mins" inputmode="numeric" placeholder="10"></label>
   ${DECISIONS.map(([d,t])=>`<button class="dbtn" data-d="${esc(d)}">${esc(d)}<small>${esc(t)}</small></button>`).join('')}
-  <p class="small">Opens a pre-filled form on GitHub (sign in needed); press <b>Create</b> there to submit.</p><button id="out">Sign out</button>`;
+  <p class="small" id="sendmsg">Your decision is sent straight from this page; no other account is needed.</p><button id="out">Sign out</button>`;
  $('#out').onclick=()=>{store.del('bantai-reviewer-id');decisionPanel(c)};
  box.querySelectorAll('.dbtn').forEach(b=>b.onclick=async()=>{const d=b.dataset.d;const ts=new Date().toISOString();const id=store.get('bantai-reviewer-id');
   const sig=await sign(id,`${c.id}|${d}|${name}|${ts}`);
   const body=`Case: ${c.id}\nDecision: ${d}\nReviewer: ${name}\nSigned at: ${ts}\nSignature: ${sig}\nReason: ${($('#why').value||'').replace(/\s+/g,' ').trim()}\nMinutes spent: ${($('#mins').value||'').trim()}\n\n---\nPress Create to submit. Recorded automatically within about 3 hours. Project: ${c.title}`;
-  const url=`https://github.com/${PUBREPO}/issues/new?title=${encodeURIComponent(`[Decision] ${c.id} — ${d}`)}&body=${encodeURIComponent(body)}`;
-  store.set('bantai-pending-'+c.id,d);window.open(url,'_blank','noopener');decisionPanel(c)});
+  const msg=JSON.stringify({case:c.id,decision:d,reviewer:name,signed_at:ts,signature:sig,reason:($('#why').value||'').replace(/\s+/g,' ').trim(),minutes:($('#mins').value||'').trim()});
+  box.querySelectorAll('.dbtn').forEach(x=>x.disabled=true);$('#sendmsg').textContent='Sending…';
+  try{const r=await fetch(`https://ntfy.sh/${TOPIC}`,{method:'POST',body:msg});if(!r.ok)throw new Error(r.status);
+   store.set('bantai-pending-'+c.id,d);decisionPanel(c);setTimeout(()=>{const m=$('#sendmsg');if(m)m.innerHTML='<span class="ok">Sent.</span> It is checked and recorded within about an hour.'},50)}
+  catch(e){box.querySelectorAll('.dbtn').forEach(x=>x.disabled=false);$('#sendmsg').innerHTML='<span class="warn">Could not send (network). Please try again in a minute.</span>'}});
 }
 </script></body></html>
