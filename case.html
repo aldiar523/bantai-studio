@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantAI Case</title>
+<meta name="description" content="One road contract flagged for review by Project BantAI: facts, reasons, evidence, what to check and the reviewer's decision.">
+<style>
+:root{color-scheme:light;--page:#f7f6f2;--surface:#ffffff;--ink:#16181d;--ink2:#4b4f58;--muted:#80838b;--line:#e3e1da;--soft:#efede6;
+--accent:#1f5fbf;--red:#c8312b;--yellow:#c99a06;--blue:#2470d6;--grey:#8b8f97;--good:#1a7f52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#101114;--surface:#191b20;--ink:#f1f1ee;--ink2:#b9bcc4;--muted:#868a93;--line:#2b2e35;--soft:#22252b;
+--accent:#6aa2f2;--red:#ef6a5f;--yellow:#e3b93a;--blue:#5b9cf0;--grey:#9a9ea7;--good:#45b884}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#101114;--surface:#191b20;--ink:#f1f1ee;--ink2:#b9bcc4;--muted:#868a93;--line:#2b2e35;--soft:#22252b;
+--accent:#6aa2f2;--red:#ef6a5f;--yellow:#e3b93a;--blue:#5b9cf0;--grey:#9a9ea7;--good:#45b884}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:52px;overflow-x:auto;white-space:nowrap}
+.brand{font-weight:700;margin-right:auto;text-decoration:none;color:var(--ink)}.brand span{color:var(--accent)}
+.top a.nav{color:var(--ink2);text-decoration:none;font-size:14px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start;margin:24px 0 40px}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+h1{font-size:clamp(22px,3.2vw,30px);line-height:1.2;letter-spacing:-.015em;margin:10px 0 8px}
+h2{font-size:18px;margin:0 0 10px}h3{font-size:15px;margin:0 0 4px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;border:1px solid var(--line);background:var(--surface)}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.meta{color:var(--ink2);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px;margin:0}
+.facts div{border-bottom:1px solid var(--line);padding:6px 0}.facts dt{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.facts dd{margin:2px 0 0;font-variant-numeric:tabular-nums}
+.reason{border-left:4px solid var(--accent);padding:4px 0 4px 14px;margin:14px 0}
+.reason .ev{font-size:13px;color:var(--ink2);margin:4px 0}
+.reason ul{margin:6px 0 0;padding-left:20px}.reason li{margin:3px 0}
+.small{font-size:13px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:8px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.note{white-space:pre-wrap;font-size:14px;background:var(--soft);border-radius:10px;padding:12px 14px;margin:8px 0}
+.links a{display:block;margin:4px 0}
+.side{position:sticky;top:68px}
+input,textarea,select{font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+button{font:inherit;font-size:14px;border-radius:8px;padding:8px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.dbtn{display:block;width:100%;text-align:left;margin:6px 0;font-weight:600}
+.dbtn small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.ok{color:var(--good);font-weight:600}.warn{color:var(--red)}
+ol.steps li{margin:6px 0}
+footer{padding:20px 0 40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+.theme{font:inherit;font-size:13px;background:none;border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 9px;cursor:pointer;width:auto}
+</style></head><body>
+<div class="top"><div class="wrap"><a class="brand" href="index.html">Project <span>BantAI</span></a>
+<a class="nav" href="places.html#cases">All cases</a><a class="nav" href="places.html">Map</a><a class="nav" href="index.html">Overview</a><button class="theme" id="theme" aria-label="Switch light or dark">◐</button></div></div>
+<main class="wrap" id="main"><p class="small" style="margin-top:24px">Loading the case…</p></main>
+<footer class="wrap">A case is a request for a person to look at a contract, not a finding of wrongdoing. Data: DPWH via BetterGov; GPPB blacklist and PEP list via OpenSanctions; ICIJ Offshore Leaks; Bisto.ph. Project BantAI, LKYSPP PP5538 capstone, 2026.</footer>
+<script>
+const R=[{"name": "Aldiyar", "h": "a8ad8cf07b0d65bfe548e45d0d523016acadd1a90f8920487a962f56d39348b3"}, {"name": "Riolyka", "h": "9eddb8a3befb83e56435f6071e98b7166c25a5ddbe6e5c481b3dd414ac4e3816"}, {"name": "Louise", "h": "19f37918445c72fbdf77abcef5b108084ab005a2f86ea0250998ebaf1df734b9"}, {"name": "Professor", "h": "8b7d68899284a8d4d7cdc55bf3155d115cc9406eb1ea285c5ad4464bbbea7ef7"}], SALT='bantai-reviewer-2026', ROUNDS=150000, PUBREPO='aldiar523/bantai-studio';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const peso=v=>v==null||v===''?'—':(v>=1e9?'₱'+(v/1e9).toFixed(2)+'B':v>=1e6?'₱'+(v/1e6).toFixed(1)+'M':'₱'+Math.round(v).toLocaleString('en-US'));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+(function(){const k='bantai-theme';const t=store.get(k);if(t)document.documentElement.dataset.theme=t;
+$('#theme').onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;store.set(k,n)}})();
+const enc=s=>new TextEncoder().encode(s);
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+const normId=s=>(s||'').toUpperCase().replace(/\s+/g,'');
+async function idHash(id){const k=await crypto.subtle.importKey('raw',enc(normId(id)),'PBKDF2',false,['deriveBits']);return hex(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:enc(SALT),iterations:ROUNDS},k,256))}
+async function sign(id,payload){const k=await crypto.subtle.importKey('raw',enc(normId(id)),{name:'HMAC',hash:'SHA-256'},false,['sign']);return hex(await crypto.subtle.sign('HMAC',k,enc(payload)))}
+const COL={Red:'var(--red)',Yellow:'var(--yellow)',Blue:'var(--blue)',Grey:'var(--grey)'};
+const DECISIONS=[["Escalate", "The evidence holds up after checking and an oversight body should look."], ["Monitor", "Something may be there, but it cannot be settled yet; check again later (for example after award or at mid-construction)."], ["Close \u2013 no concern", "There is a reasonable explanation (for example a correct length, a justified scope, a different firm with the same name)."], ["Insufficient evidence", "The sources cannot confirm or rule out the concern."], ["Data error", "The data, or BantAI's reading of it, is wrong. Say what is wrong."]], NEXT=["Open the official DPWH page and confirm the basic facts on this page: budget, location, status, bidders.", "Open the bid documents, if linked, and look for quantities, a Bill of Quantities and specifications.", "Work through \u201cWhat to check\u201d under each reason above, and read Claude's note.", "Record a decision with a one-line reason. If you escalate, say to whom: the COA regional audit team, DPWH's internal audit service, the Ombudsman, or a newsroom."];
+const cid=new URLSearchParams(location.search).get('id')||'';
+fetch(`cases/${encodeURIComponent(cid)}.json`).then(r=>{if(!r.ok)throw 0;return r.json()}).then(render).catch(()=>{$('#main').innerHTML=`<div class="card" style="margin-top:24px"><h2>Case not found</h2><p>No open case with ID <b>${esc(cid)}</b>. It may have been decided long ago or withdrawn. <a href="places.html#cases">See all cases</a>.</p></div>`});
+function fact(k,v){return v==null||v===''?'':`<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`}
+function render(c){
+ document.title=`BantAI · ${c.id}`;
+ const place=[c.place.barangay,c.place.municipality,c.place.province].filter(Boolean).join(', ')||c.office;
+ const ratio=c.budget.award_ratio?` (${(c.budget.award_ratio*100).toFixed(1)}% of budget)`:'';
+ const reasons=c.reasons.map(r=>`<div class="reason" style="border-color:${COL[c.colour]}"><h3>${esc(r.title)}</h3><div>${esc(r.detail)}</div>${(r.more||[]).map(m=>`<div class="small" style="margin-top:4px">${esc(m)}</div>`).join('')}${r.evidence?`<div class="ev"><b>Evidence:</b> ${esc(r.evidence)}</div>`:''}${r.sources.length?`<div class="small">Source: ${r.sources.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//,'').slice(0,60))}</a>`).join(' · ')}</div>`:''}${r.checks.length?`<div class="ev" style="margin-top:6px"><b>What to check</b></div><ul>${r.checks.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div>`).join('');
+ const tests=c.tests.length?`<div class="card"><h2>Also noted (shown, not scored)</h2><ul>${c.tests.map(t=>`<li>${esc(t.text)}${t.source?` · <a href="${esc(t.source)}" target="_blank" rel="noopener">source</a>`:''}</li>`).join('')}</ul></div>`:'';
+ const bid=c.bidders.length?`<div class="card tw"><h2>Bidders and their records</h2><table><tr><th>Bidder</th><th>Licence</th><th class="n">Earlier road contracts</th><th class="n">Completed</th><th class="n">Terminated</th></tr>${c.bidders.map(b=>`<tr><td>${esc(b.name)}${b.winner?' <b>(winner)</b>':''}${b.terminated_examples.length?`<div class="small">Terminated: ${b.terminated_examples.map(e=>`<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.id)}</a> (${esc(e.year)})`).join(', ')}</div>`:''}</td><td>${esc(b.licence)}</td><td class="n">${b.road_contracts??''}</td><td class="n">${b.completed??''}</td><td class="n">${b.terminated??''}</td></tr>`).join('')}</table><p class="small">Counts from DPWH records before this contract's year.</p></div>`:'<div class="card"><h2>Bidders</h2><p>Not published yet.</p></div>';
+ const notes=(c.claude_note||c.docs_note)?`<div class="card"><h2>Claude's check (advice only)</h2>${c.claude_note?`<div class="note">${esc(c.claude_note)}</div>`:''}${c.docs_note?`<h3 style="margin-top:10px">Documents</h3><div class="note">${esc(c.docs_note)}</div>`:''}<p class="small">Claude reads the official records and documents and notes what matches and what is missing. It does not score or decide.</p></div>`:`<div class="card"><h2>Claude's check</h2><p class="small">Not checked yet. Claude checks up to 25 new red and yellow cases a day, newest red first.</p></div>`;
+ $('#main').innerHTML=`<div class="layout"><div>
+  <div style="margin-top:4px"><a class="small" href="places.html#cases">← All cases</a></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><span class="pill"><span class="dot" style="background:${COL[c.colour]}"></span>${esc(c.colour)}</span><span class="pill">${esc(c.stage)} stage</span><span class="pill">${esc(c.id)}</span>${c.added?`<span class="pill" style="font-weight:400">Added ${esc(c.added)}</span>`:''}</div>
+  <h1>${esc(c.title)}</h1>
+  <div class="meta">${esc(place)}${c.region?' · '+esc(c.region):''} · ${esc(c.contractor)}</div>
+  <p style="margin:10px 0 0">${esc(c.colour_meaning)}</p>
+  <div class="card" style="margin-top:16px"><h2>Key facts</h2><dl class="facts">
+   ${fact('Official budget (ABC)',peso(c.budget.abc))}${fact('DPWH project budget',peso(c.budget.project))}${fact('Winning bid',c.budget.award?peso(c.budget.award)+ratio:'')}
+   ${fact('Stage / DPWH status',esc(c.stage+' · '+c.status))}${fact('Type of work',esc(c.subtype))}${fact('Rule priority',esc(c.priority))}
+   ${fact('Advertised',esc(c.dates.advertised))}${fact('Bid deadline',esc(c.dates.bid_deadline))}${fact('Length from title',c.length_m?Math.round(c.length_m).toLocaleString('en-US')+' m':'')}
+   ${fact('Price per km',c.per_km?peso(c.per_km):'')}${fact('District office',esc(c.office))}${fact('Located by',esc(c.place.level||''))}
+  </dl><p class="small" style="margin-top:10px">Full DPWH title: ${esc(c.description)}</p></div>
+  <div class="card"><h2>Why it was picked</h2>${reasons}</div>
+  ${tests}${bid}${notes}
+  <div class="card"><h2>What to do next</h2><ol class="steps">${NEXT.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+   <h3 style="margin-top:12px">Which decision to choose</h3><table>${DECISIONS.map(([d,t])=>`<tr><td style="white-space:nowrap"><b>${esc(d)}</b></td><td>${esc(t)}</td></tr>`).join('')}</table></div>
+ </div><aside class="side">
+  <div class="card links"><h2>Sources</h2><a href="${esc(c.links.dpwh)}" target="_blank" rel="noopener">Official DPWH page</a>${c.links.docs?`<a href="${esc(c.links.docs)}" target="_blank" rel="noopener">Bid documents (zip)</a>`:''}${c.links.philgeps?`<a href="${esc(c.links.philgeps)}" target="_blank" rel="noopener">PhilGEPS notice</a>`:''}${c.links.data?`<a href="${esc(c.links.data)}" target="_blank" rel="noopener">Machine-readable record</a>`:''}</div>
+  <div class="card" id="decide"></div>
+ </aside></div>`;
+ decisionPanel(c);
+}
+async function who(id){if(!id)return null;const h=await idHash(id);const r=R.find(x=>x.h===h);return r?r.name:null}
+async function decisionPanel(c){
+ const box=$('#decide');const saved=store.get('bantai-reviewer-id');const name=saved?await who(saved):null;
+ const pending=store.get('bantai-pending-'+c.id);
+ let head=`<h2>Decision</h2>`;
+ if(c.decision)head+=`<p><span class="ok">${esc(c.decision.decision)}</span>${c.decision.by?` · by ${esc(c.decision.by)}`:''}${c.decision.at?` · ${esc(c.decision.at)}`:''}</p>`;
+ else if(pending)head+=`<p class="small">Submitted: <b>${esc(pending)}</b>. It appears here within about 3 hours, once checked.</p>`;
+ else head+=`<p class="small">No decision yet.</p>`;
+ if(!name){box.innerHTML=head+`<p class="small">Reviewers: enter your reviewer ID to record a decision.</p><input id="rid" placeholder="BTN-XXXX-XXXX" autocomplete="off" aria-label="Reviewer ID"><button class="primary" id="unlock" style="margin-top:8px;width:100%">Unlock</button><p class="small" id="msg"></p>`;
+  $('#unlock').onclick=async()=>{$('#msg').textContent='Checking…';const id=$('#rid').value;const n=await who(id);if(n){store.set('bantai-reviewer-id',normId(id));decisionPanel(c)}else{$('#msg').innerHTML='<span class="warn">That ID is not valid.</span>'}};return}
+ const mine=!c.decision||(c.decision.by||'').toLowerCase().includes(name.toLowerCase());
+ if(!mine){box.innerHTML=head+`<p class="small">Signed in as <b>${esc(name)}</b>. This case was decided by another reviewer, so it is locked.</p><button id="out">Sign out</button>`;$('#out').onclick=()=>{store.del('bantai-reviewer-id');decisionPanel(c)};return}
+ box.innerHTML=head+`<p class="small">Signed in as <b>${esc(name)}</b>${c.decision?' (you can change your decision)':''}.</p>
+  <label class="small">Reason (one line)<textarea id="why" rows="2" placeholder="e.g. Length in the BoQ is 1.2 km, so the price per km is normal"></textarea></label>
+  <label class="small">Minutes spent<input id="mins" inputmode="numeric" placeholder="10"></label>
+  ${DECISIONS.map(([d,t])=>`<button class="dbtn" data-d="${esc(d)}">${esc(d)}<small>${esc(t)}</small></button>`).join('')}
+  <p class="small">Opens a pre-filled form on GitHub (sign in needed); press <b>Create</b> there to submit.</p><button id="out">Sign out</button>`;
+ $('#out').onclick=()=>{store.del('bantai-reviewer-id');decisionPanel(c)};
+ box.querySelectorAll('.dbtn').forEach(b=>b.onclick=async()=>{const d=b.dataset.d;const ts=new Date().toISOString();const id=store.get('bantai-reviewer-id');
+  const sig=await sign(id,`${c.id}|${d}|${name}|${ts}`);
+  const body=`Case: ${c.id}\nDecision: ${d}\nReviewer: ${name}\nSigned at: ${ts}\nSignature: ${sig}\nReason: ${($('#why').value||'').replace(/\s+/g,' ').trim()}\nMinutes spent: ${($('#mins').value||'').trim()}\n\n---\nPress Create to submit. Recorded automatically within about 3 hours. Project: ${c.title}`;
+  const url=`https://github.com/${PUBREPO}/issues/new?title=${encodeURIComponent(`[Decision] ${c.id} — ${d}`)}&body=${encodeURIComponent(body)}`;
+  store.set('bantai-pending-'+c.id,d);window.open(url,'_blank','noopener');decisionPanel(c)});
+}
+</script></body></html>
