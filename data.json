@@ -1,33 +1,33 @@
 {
- "generated_at": "2026-10-12T00:35+00:00",
+ "generated_at": "2026-10-12T00:43+00:00",
  "engine_version": "0.9.3",
  "rule_version": "rules-v0.9.3",
- "last_run": "2026-10-11T00:20:18.442392+00:00",
+ "last_run": "2026-10-12T00:42:53.053222+00:00",
  "stages": {
   "road_tenders_open": 6201,
   "road_tenders_new": 0,
-  "road_awarded": 387,
+  "road_awarded": 384,
   "road_awarded_new": 0,
-  "road_construction": 12713,
+  "road_construction": 12716,
   "road_completed_this_year": 26,
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 13822
  },
- "stages_at": "2026-10-11T00:20:18.442392+00:00",
- "monitored": 6588,
- "checked": 6588,
+ "stages_at": "2026-10-12T00:42:53.053222+00:00",
+ "monitored": 6585,
+ "checked": 6585,
  "cases": {
-  "total": 322,
+  "total": 327,
   "by_colour": {
    "Red": 140,
-   "Yellow": 135,
-   "Blue": 40,
-   "Grey": 7
+   "Yellow": 137,
+   "Blue": 42,
+   "Grey": 8
   },
   "by_stage": {
-   "Award": 92,
-   "Tender": 224,
-   "Construction": 6
+   "Award": 95,
+   "Tender": 225,
+   "Construction": 7
   }
  },
  "decisions": {
@@ -39,7 +39,7 @@
    "region": "Northern Mindanao",
    "Red": 46,
    "Yellow": 4,
-   "Blue": 2,
+   "Blue": 3,
    "Grey": 0
   },
   {
@@ -57,18 +57,18 @@
    "Grey": 0
   },
   {
-   "region": "Western Visayas",
-   "Red": 30,
-   "Yellow": 2,
-   "Blue": 1,
-   "Grey": 1
-  },
-  {
    "region": "Caraga",
    "Red": 19,
    "Yellow": 11,
    "Blue": 3,
-   "Grey": 0
+   "Grey": 1
+  },
+  {
+   "region": "Western Visayas",
+   "Red": 29,
+   "Yellow": 2,
+   "Blue": 1,
+   "Grey": 1
   },
   {
    "region": "Central Visayas",
@@ -80,7 +80,7 @@
   {
    "region": "Eastern Visayas",
    "Red": 2,
-   "Yellow": 11,
+   "Yellow": 12,
    "Blue": 5,
    "Grey": 1
   },
@@ -108,7 +108,7 @@
   {
    "region": "Davao",
    "Red": 2,
-   "Yellow": 7,
+   "Yellow": 8,
    "Blue": 0,
    "Grey": 0
   },
@@ -121,7 +121,7 @@
   },
   {
    "region": "Cagayan Valley",
-   "Red": 4,
+   "Red": 5,
    "Yellow": 1,
    "Blue": 0,
    "Grey": 0
@@ -170,6 +170,11 @@
    "d": "2026-10-11",
    "t": 6201,
    "a": 387
+  },
+  {
+   "d": "2026-10-12",
+   "t": 6201,
+   "a": 384
   }
  ],
  "evidence": [
