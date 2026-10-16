@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-16T08:12+00:00",
- "engine_version": "0.10.1",
- "rule_version": "rules-v0.10.1",
- "last_run": "2026-10-16T08:05:41.238344+00:00",
+ "generated_at": "2026-10-16T08:55+00:00",
+ "engine_version": "0.11.0",
+ "rule_version": "rules-v0.11.0",
+ "last_run": "2026-10-16T08:46:50.669870+00:00",
  "stages": {
   "road_tenders_open": 4556,
   "road_tenders_new": 0,
@@ -13,20 +13,20 @@
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 10249
  },
- "stages_at": "2026-10-16T08:05:41.238344+00:00",
+ "stages_at": "2026-10-16T08:46:50.669870+00:00",
  "monitored": 6214,
  "checked": 6214,
  "cases": {
-  "total": 450,
+  "total": 310,
   "by_colour": {
-   "Red": 164,
-   "Yellow": 140,
-   "Blue": 132,
-   "Grey": 14
+   "Red": 141,
+   "Yellow": 3,
+   "Blue": 151,
+   "Grey": 15
   },
   "by_stage": {
-   "Award": 288,
-   "Tender": 162
+   "Award": 242,
+   "Tender": 68
   }
  },
  "decisions": {
@@ -38,22 +38,22 @@
  "regions": [
   {
    "region": "National Capital Region (NCR)",
-   "Red": 3,
-   "Yellow": 12,
-   "Blue": 1,
+   "Red": 0,
+   "Yellow": 0,
+   "Blue": 3,
    "Grey": 0
   },
   {
    "region": "Cordillera Administrative Region (CAR)",
    "Red": 0,
-   "Yellow": 2,
+   "Yellow": 0,
    "Blue": 8,
    "Grey": 0
   },
   {
    "region": "Region I (Ilocos Region)",
-   "Red": 2,
-   "Yellow": 4,
+   "Red": 0,
+   "Yellow": 0,
    "Blue": 3,
    "Grey": 0
   },
@@ -66,86 +66,86 @@
   },
   {
    "region": "Region III (Central Luzon)",
-   "Red": 20,
-   "Yellow": 25,
-   "Blue": 15,
+   "Red": 16,
+   "Yellow": 3,
+   "Blue": 18,
    "Grey": 2
   },
   {
    "region": "Region IV-A (CALABARZON)",
-   "Red": 3,
-   "Yellow": 29,
-   "Blue": 14,
+   "Red": 1,
+   "Yellow": 0,
+   "Blue": 16,
    "Grey": 2
   },
   {
    "region": "Region IV-B (MIMAROPA)",
    "Red": 0,
-   "Yellow": 2,
+   "Yellow": 0,
    "Blue": 2,
    "Grey": 1
   },
   {
    "region": "Region V (Bicol Region)",
    "Red": 1,
-   "Yellow": 4,
-   "Blue": 10,
+   "Yellow": 0,
+   "Blue": 11,
    "Grey": 1
   },
   {
    "region": "Region VI (Western Visayas)",
-   "Red": 46,
-   "Yellow": 4,
-   "Blue": 1,
+   "Red": 45,
+   "Yellow": 0,
+   "Blue": 4,
    "Grey": 1
   },
   {
    "region": "Region VII (Central Visayas)",
-   "Red": 6,
-   "Yellow": 8,
-   "Blue": 22,
+   "Red": 0,
+   "Yellow": 0,
+   "Blue": 24,
    "Grey": 1
   },
   {
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
-   "Yellow": 14,
-   "Blue": 13,
+   "Yellow": 0,
+   "Blue": 14,
    "Grey": 1
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
-   "Yellow": 8,
+   "Yellow": 0,
    "Blue": 7,
    "Grey": 1
   },
   {
    "region": "Region X (Northern Mindanao)",
    "Red": 49,
-   "Yellow": 4,
-   "Blue": 14,
-   "Grey": 0
+   "Yellow": 0,
+   "Blue": 15,
+   "Grey": 1
   },
   {
    "region": "Region XI (Davao Region)",
    "Red": 2,
-   "Yellow": 9,
-   "Blue": 1,
+   "Yellow": 0,
+   "Blue": 3,
    "Grey": 1
   },
   {
    "region": "Region XII (SOCCSKSARGEN)",
-   "Red": 3,
-   "Yellow": 6,
+   "Red": 1,
+   "Yellow": 0,
    "Blue": 6,
    "Grey": 0
   },
   {
    "region": "Region XIII (Caraga)",
-   "Red": 22,
-   "Yellow": 7,
-   "Blue": 11,
+   "Red": 19,
+   "Yellow": 0,
+   "Blue": 13,
    "Grey": 3
   },
   {
@@ -158,7 +158,7 @@
   {
    "region": "NIR (Negros Island Region)",
    "Red": 2,
-   "Yellow": 2,
+   "Yellow": 0,
    "Blue": 0,
    "Grey": 0
   }
@@ -201,6 +201,11 @@
   },
   {
    "d": "2026-10-15",
+   "t": 4556,
+   "a": 1658
+  },
+  {
+   "d": "2026-10-16",
    "t": 4556,
    "a": 1658
   },
@@ -469,24 +474,24 @@
    "what": "Whether the official budget is high for the work: price per km against the same type of work, nationally, with a regional cost factor for context.",
    "indicators": [
     {
-     "label": "Price per km at or above the 95th percentile of similar works",
-     "role": "strong",
-     "evidence": "Termination odds ×2.95 (1.44–6.02) with the v0.10 groups and 200 m floor"
+     "label": "Price per km above the 95th percentile, like-for-like (same type of work, year, region and length)",
+     "role": "weak",
+     "evidence": "Termination odds ×2.97 (1.60–5.51); not yet confirmed on 2023–2025 or PhilGEPS data, so weak"
     },
     {
-     "label": "Price per km between the 90th and 95th percentile",
-     "role": "weak",
-     "evidence": "A milder version of the same pattern"
+     "label": "Price per km between the 90th and 95th percentile, like-for-like",
+     "role": "context",
+     "evidence": "Shown to the reviewer, not scored"
     },
     {
      "label": "Total budget above the 95th percentile when the length is not stated",
-     "role": "weak",
-     "evidence": "Fallback when price per km cannot be computed"
+     "role": "context",
+     "evidence": "Large size alone was never linked to failure (odds ×1.2, n.s.)"
     },
     {
-     "label": "Regional cost factor (DPWH regional prices differ)",
+     "label": "Prices rise over time and fall with length",
      "role": "context",
-     "evidence": "Factor 0.80–1.25 by region; tested as an adjustment, did not sharpen the link, so shown only"
+     "evidence": "Built into the like-for-like comparison: 2025 prices ×1.65 of 2020; each doubling of length lowers price per km by ~18%"
     },
     {
      "label": "Works under 200 m are not priced per km",
@@ -504,9 +509,9 @@
    "what": "The bidders' track record on earlier DPWH road contracts, official sanctions, and citizen inspections of their work.",
    "indicators": [
     {
-     "label": "A bidder had an earlier contract terminated",
+     "label": "A bidder had a contract terminated after work had started, in the last 3 years",
      "role": "weak",
-     "evidence": "Winner with a termination: termination odds ×2.1 (1.6–2.8); held on 2023–2025; ×2.7 on PhilGEPS data"
+     "evidence": "Termination odds ×3.2 (2.4–4.4); 2023–2025 ×3.5; PhilGEPS ×6.5. Terminations before work started (often right-of-way, funding or design problems) showed no link and are context"
     },
     {
      "label": "Bidder on the GPPB blacklist, or licence marked [REVOKED]",
@@ -1063,19 +1068,19 @@
   },
   "base_rates": {
    "High": {
-    "finished": 189,
-    "terminated": 26,
-    "share": 0.138
+    "finished": 100,
+    "terminated": 19,
+    "share": 0.19
    },
    "Medium": {
-    "finished": 576,
-    "terminated": 45,
-    "share": 0.078
+    "finished": 452,
+    "terminated": 43,
+    "share": 0.095
    },
    "Low": {
-    "finished": 7443,
-    "terminated": 179,
-    "share": 0.024
+    "finished": 7656,
+    "terminated": 188,
+    "share": 0.025
    }
   }
  },
