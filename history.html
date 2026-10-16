@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantAI History</title>
+<meta name="description" content="Past DPWH road contracts screened with today's BantAI indicators, next to what happened: completed, terminated, reported by citizens.">
+<style>
+:root{color-scheme:light;--page:#FFFFFF;--surface:#FFFFFF;--ink:#101828;--ink2:#475467;--muted:#667085;--line:#E4E7EC;--soft:#F5F7FB;
+--accent:#0032A0;--accent-soft:#E8EEF9;--red:#BF0D3E;--red-soft:#FBE7EC;--yellow:#FED141;--yellow-soft:#FFF8DB;--gold:#8A6400;
+--blue:#0032A0;--blue-soft:#E8EEF9;--grey:#98A2B3;--grey-soft:#F2F4F7;--good:#0E7A4B;--purple:#6941C6}
+*{box-sizing:border-box}html,body{margin:0}html{scroll-behavior:smooth}
+body{background:var(--page);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}a:hover{text-decoration-thickness:2px}
+.top{position:sticky;top:0;z-index:1000;background:var(--accent);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.top::after{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--yellow) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;white-space:nowrap}
+.brand{font-weight:800;letter-spacing:-.01em;margin-right:auto;color:#fff;text-decoration:none;font-size:17px}.brand span{color:var(--yellow)}
+.top a.nav,.top nav a{color:#DCE5F7;text-decoration:none;font-size:14px}.top a.nav:hover,.top nav a:hover{color:#fff}
+.top a.cta{color:var(--accent);background:var(--yellow);padding:5px 11px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.dot.Red,.c-Red{background:var(--red)}.dot.Yellow,.c-Yellow{background:var(--yellow);box-shadow:inset 0 0 0 1px #D9A800}
+.dot.Blue,.c-Blue{background:var(--blue)}.dot.Grey,.c-Grey{background:var(--grey)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.tag.strong,.tag.High{background:var(--red-soft);color:var(--red)}
+.tag.alert,.tag.Alert{background:var(--red);color:#fff}
+.tag.weak,.tag.Elevated{background:var(--yellow-soft);color:var(--gold);box-shadow:inset 0 0 0 1px #F3D46B}
+.tag.watch,.tag.Watch{background:var(--blue-soft);color:var(--blue)}
+.tag.test,.tag.context,.tag.Context{background:var(--grey-soft);color:var(--ink2)}
+.tag.none{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin:28px 0 6px}
+h2{font-size:22px;margin:28px 0 8px}
+.sub{color:var(--ink2);margin:0 0 16px;max-width:860px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.controls label{font-size:13px;color:var(--ink2);display:flex;gap:6px;align-items:center}
+select,input[type=search]{font:inherit;font-size:14px;background:#fff;color:var(--ink);border:1px solid #D0D5DD;border-radius:8px;padding:6px 10px}
+.card{padding:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.kpi .v{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.kpi .l{font-size:13px;color:var(--ink2)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;position:sticky;top:0;background:#fff}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow:auto}
+.bar{height:10px;border-radius:5px;background:var(--red);display:inline-block;vertical-align:middle;margin-right:6px}
+.st{font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px}.st.terminated{background:var(--red);color:#fff}.st.completed{background:var(--grey-soft);color:var(--ink2)}.st.on-going{background:var(--blue-soft);color:var(--blue)}
+.note{font-size:13px;color:var(--muted)}
+.more{margin:12px 0;text-align:center}
+button{font:inherit;font-size:14px;border-radius:8px;padding:8px 14px;border:1px solid #D0D5DD;background:#fff;cursor:pointer}
+footer{margin:36px 0 0;padding:20px 0 36px}
+</style></head><body>
+<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a>
+<a class="nav" href="index.html">Overview</a><a class="nav" href="index.html#risk">Risk scoring</a><a class="nav" href="places.html">Map</a><a class="cta" href="places.html#cases">Today's cases</a></div></div>
+<main class="wrap">
+<h1>History: would today's rules have caught them?</h1>
+<p class="sub">Past DPWH road contracts (2018–2026), screened with the indicators BantAI uses today, next to what actually happened. This is the evidence base for the rules. The sample holds <b>every</b> terminated road contract with procurement details and a <b>random sample</b> of completed and on-going ones, so compare rates between rows; they are not national rates. A flag on a past contract is not a finding of wrongdoing.</p>
+<div class="controls">
+<label>Year <select id="year"><option value="">All</option></select></label>
+<label>Region <select id="region"><option value="">All regions</option></select></label>
+<label>Priority <select id="prio"><option value="">All</option><option>High</option><option>Medium</option><option>Low</option></select></label>
+<label>Indicator <select id="flag"><option value="">Any</option></select></label>
+<label>Outcome <select id="status"><option value="">Any</option><option value="terminated">Terminated</option><option value="completed">Completed</option><option value="on-going">On-going</option><option value="reported">Reported by citizens</option></select></label>
+<input type="search" id="q" placeholder="Search project, contractor, office, ID…" style="min-width:240px">
+</div>
+<div class="grid" id="kpis"></div>
+<h2>Outcomes by today's priority</h2>
+<div class="card tw"><table id="byp"></table></div>
+<p class="note">Terminated share is among finished contracts (completed + terminated). Citizen reports are public reports on the DPWH Transparency Portal.</p>
+<h2>Contracts</h2>
+<div class="card tw" style="max-height:720px"><table id="tbl"><thead><tr><th data-k="1">Year</th><th data-k="0">ID</th><th data-k="3">Project</th><th data-k="4">Winner</th><th data-k="2">Region</th><th data-k="5" class="n">Budget ₱M</th><th data-k="7">Indicators today</th><th data-k="8">Priority</th><th data-k="9">Outcome</th><th data-k="10" class="n">Citizen reports</th></tr></thead><tbody></tbody></table></div>
+<div class="more"><button id="more">Show more</button> <span class="note" id="count"></span></div>
+<footer>Data: DPWH via BetterGov (project records and procurement details). Indicators and thresholds as in rule set rules-v0.10.0. <a href="index.html#evidence">See the odds ratios →</a></footer>
+</main>
+<script>
+const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>Number(n||0).toLocaleString('en-US');let H=null,shown=200,sk=1,sd=-1;
+fetch('history.json').then(r=>r.json()).then(d=>{H=d;
+ $('#year').innerHTML+=[...new Set(d.rows.map(r=>r[1]))].sort().reverse().map(y=>`<option>${y}</option>`).join('');
+ $('#region').innerHTML+=["National Capital Region (NCR)", "Cordillera Administrative Region (CAR)", "Region I (Ilocos Region)", "Region II (Cagayan Valley)", "Region III (Central Luzon)", "Region IV-A (CALABARZON)", "Region IV-B (MIMAROPA)", "Region V (Bicol Region)", "Region VI (Western Visayas)", "Region VII (Central Visayas)", "Region VIII (Eastern Visayas)", "Region IX (Zamboanga Peninsula)", "Region X (Northern Mindanao)", "Region XI (Davao Region)", "Region XII (SOCCSKSARGEN)", "Region XIII (Caraga)", "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)", "NIR (Negros Island Region)"].map(r=>`<option>${esc(r)}</option>`).join('');
+ $('#flag').innerHTML+=Object.entries(d.flags).map(([k,v])=>`<option value="${k}">${esc(v[0])} (${esc(v[1])})</option>`).join('');
+ ['#year','#region','#prio','#flag','#status','#q'].forEach(s=>$(s).addEventListener('input',()=>{shown=200;draw()}));draw()});
+function rows(){const y=$('#year').value,rg=$('#region').value,p=$('#prio').value,f=$('#flag').value,st=$('#status').value,q=$('#q').value.trim().toLowerCase();
+ return H.rows.filter(r=>(!y||r[1]==y)&&(!rg||r[2]===rg)&&(!p||r[8]===p)&&(!f||r[7].includes(f))&&(!st||(st==='reported'?r[10]>0:r[9]===st))&&(!q||(r[0]+' '+r[3]+' '+r[4]+' '+r[11]).toLowerCase().includes(q)))}
+function draw(){const R=rows();const fin=R.filter(r=>r[9]!=='on-going'),t=fin.filter(r=>r[9]==='terminated').length;
+ $('#kpis').innerHTML=[['Contracts',fmt(R.length)],['Terminated (of finished)',fin.length?(t/fin.length*100).toFixed(1)+'%':'—'],['Reported by citizens',R.length?(R.filter(r=>r[10]>0).length/R.length*100).toFixed(1)+'%':'—'],['Flagged High or Medium today',fmt(R.filter(r=>r[8]!=='Low').length)]].map(([l,v])=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
+ const P=['High','Medium','Low'];const mx=Math.max(...P.map(p=>{const f=R.filter(r=>r[8]===p&&r[9]!=='on-going');return f.length?f.filter(r=>r[9]==='terminated').length/f.length:0}),.01);
+ $('#byp').innerHTML='<tr><th>Priority today</th><th class="n">Contracts</th><th>Terminated (of finished)</th><th class="n">Reported by citizens</th></tr>'+P.map(p=>{const a=R.filter(r=>r[8]===p),f=a.filter(r=>r[9]!=='on-going'),tt=f.filter(r=>r[9]==='terminated').length,sh=f.length?tt/f.length:0;return `<tr><td><b>${p}</b></td><td class="n">${fmt(a.length)}</td><td><span class="bar" style="width:${sh/mx*160}px"></span>${f.length?(sh*100).toFixed(1)+'%':'—'} <span class="note">(${tt} of ${fmt(f.length)})</span></td><td class="n">${a.length?(a.filter(r=>r[10]>0).length/a.length*100).toFixed(1)+'%':'—'}</td></tr>`}).join('');
+ R.sort((a,b)=>{let x=a[sk],y=b[sk];if(sk===7){x=x.length;y=y.length}return (typeof x==='string'?x.localeCompare(y):x-y)*sd});
+ $('#tbl tbody').innerHTML=R.slice(0,shown).map(r=>`<tr><td>${r[1]}</td><td><a href="https://transparency.dpwh.gov.ph/?project=${encodeURIComponent(r[0])}" target="_blank" rel="noopener">${esc(r[0])}</a></td><td>${esc(r[3])}<div class="note">${esc(r[11])} · ${esc(r[6])}</div></td><td>${esc(r[4])}</td><td style="font-size:13px">${esc(r[2])}</td><td class="n">${r[5]||''}</td><td style="font-size:13px">${r[7].map(k=>`<span class="tag ${H.flags[k][1]}">${esc(H.flags[k][0])}</span>`).join(' ')}</td><td>${r[8]}</td><td><span class="st ${r[9]}">${esc(r[9])}</span></td><td class="n">${r[10]||''}</td></tr>`).join('');
+ $('#count').textContent=`Showing ${fmt(Math.min(shown,R.length))} of ${fmt(R.length)}`;$('#more').style.display=shown<R.length?'':'none'}
+$('#more').onclick=()=>{shown+=400;draw()};
+document.querySelectorAll('#tbl th').forEach(th=>th.onclick=()=>{const k=+th.dataset.k;sd=sk===k?-sd:-1;sk=k;draw()});
+</script></body></html>
