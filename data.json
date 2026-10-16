@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T03:03+00:00",
+ "generated_at": "2026-10-16T03:09+00:00",
  "engine_version": "0.10.0",
  "rule_version": "rules-v0.10.0",
  "last_run": "2026-10-16T02:37:11.241576+00:00",
@@ -528,14 +528,9 @@
    "what": "How concentrated political power is where the road is: political families in elective office and the district representative's family, from documented relations.",
    "indicators": [
     {
-     "label": "Dynasty share of the province's elected local positions (Ateneo dataset, 2016)",
+     "label": "Share of the province's elected officials with a relative also in office",
      "role": "context",
-     "evidence": "High-dynasty provinces: termination odds ×1.35, citizen reports ×1.57, but the link flips within poorer vs richer provinces, so context only"
-    },
-    {
-     "label": "Current officials with documented relatives in office (Wikidata)",
-     "role": "context",
-     "evidence": "Updates the 2016 Ateneo picture for 2019–2025 terms; partial coverage"
+     "evidence": "Wikidata documented family links (Ateneo dynasty data when added); backtested before any scoring"
     },
     {
      "label": "District representative's relatives in elective office",
@@ -686,209 +681,6 @@
    }
   },
   "network_pairs": 5807,
-  "ateneo": {
-   "provinces": 79,
-   "median_2016": 0.272,
-   "backtest": {
-    "terminated": {
-     "contracts": 66091,
-     "in_high_dynasty_provinces": 38759,
-     "odds_ratio": 1.35,
-     "ci_low": 1.05,
-     "ci_high": 1.74
-    },
-    "reported": {
-     "contracts": 75403,
-     "in_high_dynasty_provinces": 44298,
-     "odds_ratio": 1.57,
-     "ci_low": 1.27,
-     "ci_high": 1.92
-    },
-    "verdict": "linked to worse outcomes: candidate for scoring after team review",
-    "within_poverty_halves": {
-     "poorer": {
-      "terminated": {
-       "contracts": 21958,
-       "in_high_dynasty_provinces": 6026,
-       "odds_ratio": 0.59,
-       "ci_low": 0.32,
-       "ci_high": 1.1
-      },
-      "reported": {
-       "contracts": 25196,
-       "in_high_dynasty_provinces": 6806,
-       "odds_ratio": 4.13,
-       "ci_low": 3.08,
-       "ci_high": 5.54
-      },
-      "verdict": "linked to worse outcomes: candidate for scoring after team review"
-     },
-     "richer": {
-      "terminated": {
-       "contracts": 39203,
-       "in_high_dynasty_provinces": 27803,
-       "odds_ratio": 1.41,
-       "ci_low": 0.98,
-       "ci_high": 2.04
-      },
-      "reported": {
-       "contracts": 44567,
-       "in_high_dynasty_provinces": 31852,
-       "odds_ratio": 0.93,
-       "ci_low": 0.69,
-       "ci_high": 1.27
-      },
-      "verdict": "no clear link: context only"
-     }
-    }
-   }
-  },
-  "philgeps": {
-   "built": "2026-10-16",
-   "files": [
-    "DATASETS_MPHILGEPS_2026_APR-JUNE.csv",
-    "DATASETS_MPHILGEPS_2026_JULY-SEPT.csv",
-    "DATASETS_PHILGEPS_2026_JULY-SEPTEMBER.csv"
-   ],
-   "civil_works_notices": 44812,
-   "dpwh_contracts_matched": 8774,
-   "non_dpwh_road_notices": 10538,
-   "by_pe_group": {
-    "Local Government Units (LGU)": 9896,
-    "National Government Agencies (NGA)": 484,
-    "Government Owned and Controlled Corporations (GOCC)": 110,
-    "State Universities and Colleges (SUC)": 40,
-    "Other": 6,
-    "Others": 2
-   },
-   "by_region": [
-    {
-     "region": "National Capital Region (NCR)",
-     "notices": 245,
-     "abc": 53804931372.0,
-     "awarded": 17
-    },
-    {
-     "region": "Cordillera Administrative Region (CAR)",
-     "notices": 885,
-     "abc": 2348527834.0,
-     "awarded": 54
-    },
-    {
-     "region": "Region I (Ilocos Region)",
-     "notices": 822,
-     "abc": 2198878944.0,
-     "awarded": 69
-    },
-    {
-     "region": "Region II (Cagayan Valley)",
-     "notices": 907,
-     "abc": 2411953203.0,
-     "awarded": 16
-    },
-    {
-     "region": "Region III (Central Luzon)",
-     "notices": 764,
-     "abc": 2518279216.0,
-     "awarded": 31
-    },
-    {
-     "region": "Region IV-A (CALABARZON)",
-     "notices": 1203,
-     "abc": 5723673493.0,
-     "awarded": 11
-    },
-    {
-     "region": "Region IV-B (MIMAROPA)",
-     "notices": 382,
-     "abc": 2870605255.0,
-     "awarded": 13
-    },
-    {
-     "region": "Region V (Bicol Region)",
-     "notices": 812,
-     "abc": 1963269859.0,
-     "awarded": 39
-    },
-    {
-     "region": "Region VI (Western Visayas)",
-     "notices": 796,
-     "abc": 2560622349.0,
-     "awarded": 74
-    },
-    {
-     "region": "Region VII (Central Visayas)",
-     "notices": 819,
-     "abc": 2810740650.0,
-     "awarded": 5
-    },
-    {
-     "region": "Region VIII (Eastern Visayas)",
-     "notices": 935,
-     "abc": 3900814744.0,
-     "awarded": 25
-    },
-    {
-     "region": "Region IX (Zamboanga Peninsula)",
-     "notices": 347,
-     "abc": 1484271194.0,
-     "awarded": 2
-    },
-    {
-     "region": "Region X (Northern Mindanao)",
-     "notices": 440,
-     "abc": 2306524120.0,
-     "awarded": 34
-    },
-    {
-     "region": "Region XI (Davao Region)",
-     "notices": 280,
-     "abc": 1203104020.0,
-     "awarded": 25
-    },
-    {
-     "region": "Region XII (SOCCSKSARGEN)",
-     "notices": 356,
-     "abc": 3376438511.0,
-     "awarded": 64
-    },
-    {
-     "region": "Region XIII (Caraga)",
-     "notices": 312,
-     "abc": 1851400819.0,
-     "awarded": 35
-    },
-    {
-     "region": "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)",
-     "notices": 174,
-     "abc": 2444493531.0,
-     "awarded": 0
-    },
-    {
-     "region": "NIR (Negros Island Region)",
-     "notices": 59,
-     "abc": 239041975.0,
-     "awarded": 1
-    }
-   ],
-   "modes": {
-    "Public Bidding": 8026,
-    "Competitive Bidding (Public Bidding)": 1485,
-    "Negotiated Procurement - Small Value Procurement (Sec. 34)": 631,
-    "Small Value Procurement": 195,
-    "Negotiated Procurement - Two Failed Biddings (Sec. 53.1)": 135,
-    "Negotiated Procurement - Two Failed Biddings": 34
-   },
-   "award_ratio": {
-    "awards": 511,
-    "share_99_plus": 0.855,
-    "median": 0.9977
-   },
-   "concentration": {
-    "entities": 28,
-    "top_firm_half_or_more": 13
-   }
-  },
   "base_rates": {
    "High": {
     "finished": 49,
@@ -949,16 +741,6 @@
    "name": "ICIJ Offshore Leaks",
    "what": "Philippine-linked offshore companies and officers",
    "when": "Weekly"
-  },
-  {
-   "name": "PhilGEPS open data",
-   "what": "Quarterly bulk files of every government tender and award (mPhilGEPS and legacy PhilGEPS): official budget, dates, procurement mode, contract amount, notice to proceed, awardee; matched to DPWH contracts by Contract ID",
-   "when": "Each quarter (uploaded by the team)"
-  },
-  {
-   "name": "Ateneo Political Dynasties Dataset",
-   "what": "Every elected local official 2004–2016 with a dynasty flag, provincial dynasty shares, poverty and HDI (Ateneo Policy Center)",
-   "when": "Static (2016 latest)"
   },
   {
    "name": "Elected officials and political families",
