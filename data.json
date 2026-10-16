@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T04:37+00:00",
+ "generated_at": "2026-10-16T07:30+00:00",
  "engine_version": "0.10.0",
  "rule_version": "rules-v0.10.0",
  "last_run": "2026-10-16T02:37:11.241576+00:00",
@@ -381,6 +381,48 @@
      "holdout_or": null
     }
    ]
+  },
+  {
+   "group": "Re-test on PhilGEPS open data (contract later terminated)",
+   "contracts": 18135,
+   "items": [
+    {
+     "label": "Contract 94.5% of the budget or less",
+     "or": 8.01,
+     "lo": 4.42,
+     "hi": 14.5,
+     "n": 846,
+     "verdict": "independent re-test on PhilGEPS open data",
+     "holdout_or": null
+    },
+    {
+     "label": "Award within 8 days of bid closing",
+     "or": 3.74,
+     "lo": 2.11,
+     "hi": 6.63,
+     "n": 1988,
+     "verdict": "independent re-test on PhilGEPS open data",
+     "holdout_or": null
+    },
+    {
+     "label": "Contract 99%+ of the budget",
+     "or": 0.6,
+     "lo": 0.3,
+     "hi": 1.2,
+     "n": 4589,
+     "verdict": "independent re-test on PhilGEPS open data",
+     "holdout_or": null
+    },
+    {
+     "label": "Bid window 19 days or less",
+     "or": 1.18,
+     "lo": 0.69,
+     "hi": 2.02,
+     "n": 5630,
+     "verdict": "independent re-test on PhilGEPS open data",
+     "holdout_or": null
+    }
+   ]
   }
  ],
  "families": [
@@ -746,147 +788,266 @@
   "philgeps": {
    "built": "2026-10-16",
    "files": [
+    "2021_Aprl-Jun.csv",
+    "2021_Jan-Mar.csv",
+    "2021_Jul-Sep.csv",
+    "2021_Oct-Dec.csv",
+    "2022_Apr-Jun.csv",
+    "2022__Jul-Sep.csv",
+    "2022__Oct-Dec.csv",
+    "2024_Apr-Jun.csv",
+    "2024_Jan-Mar.csv",
+    "2024_Jul-Sep.csv",
+    "2024_Oct-Dec.csv",
+    "2025_Oct-Dec.csv",
+    "709c7b68-DATASETS_MPHILGEPS_2026_JAN-MAR.csv",
     "DATASETS_MPHILGEPS_2026_APR-JUNE.csv",
     "DATASETS_MPHILGEPS_2026_JULY-SEPT.csv",
-    "DATASETS_PHILGEPS_2026_JULY-SEPTEMBER.csv"
+    "DATASETS_PHILGEPS_2026_APRIL-JUNE.csv",
+    "DATASETS_PHILGEPS_2026_JAN-MARCH.csv",
+    "DATASETS_PHILGEPS_2026_JULY-SEPTEMBER.csv",
+    "January-March_2022.xlsx",
+    "October-December_2020.xlsx"
    ],
-   "civil_works_notices": 44812,
-   "dpwh_contracts_matched": 8774,
-   "non_dpwh_road_notices": 10538,
+   "notices_by_year": {
+    "2020": 12586,
+    "2021": 15944,
+    "2022": 62212,
+    "2023": 6,
+    "2024": 73405,
+    "2025": 9141,
+    "2026": 53129
+   },
+   "file_years": {
+    "2021_Aprl-Jun.csv": {
+     "2021": 4059,
+     "2024": 18064
+    },
+    "2021_Jan-Mar.csv": {
+     "2021": 3728
+    },
+    "2021_Jul-Sep.csv": {
+     "2021": 3724
+    },
+    "2021_Oct-Dec.csv": {
+     "2021": 4422
+    },
+    "2022_Apr-Jun.csv": {
+     "2022": 8384
+    },
+    "2022__Jul-Sep.csv": {
+     "2021": 1,
+     "2022": 11678
+    },
+    "2022__Oct-Dec.csv": {
+     "2022": 20034
+    },
+    "2024_Apr-Jun.csv": {
+     "2023": 1,
+     "2024": 16471
+    },
+    "2024_Jan-Mar.csv": {
+     "2023": 4,
+     "2024": 19889
+    },
+    "2024_Jul-Sep.csv": {
+     "2023": 1,
+     "2024": 13554
+    },
+    "2024_Oct-Dec.csv": {
+     "2024": 5427
+    },
+    "2025_Oct-Dec.csv": {
+     "2025": 9141
+    },
+    "709c7b68-DATASETS_MPHILGEPS_2026_JAN-MAR.csv": {
+     "2026": 1131
+    },
+    "DATASETS_MPHILGEPS_2026_APR-JUNE.csv": {
+     "2026": 3561
+    },
+    "DATASETS_MPHILGEPS_2026_JULY-SEPT.csv": {
+     "2026": 5068
+    },
+    "DATASETS_PHILGEPS_2026_APRIL-JUNE.csv": {
+     "2026": 18265
+    },
+    "DATASETS_PHILGEPS_2026_JAN-MARCH.csv": {
+     "2026": 12552
+    },
+    "DATASETS_PHILGEPS_2026_JULY-SEPTEMBER.csv": {
+     "2026": 12552
+    },
+    "January-March_2022.xlsx": {
+     "2020": 3,
+     "2021": 10,
+     "2022": 22116
+    },
+    "October-December_2020.xlsx": {
+     "2020": 12583
+    }
+   },
+   "civil_works_notices": 226423,
+   "dpwh_contracts_matched": 6246,
+   "non_dpwh_road_notices": 127132,
    "by_pe_group": {
-    "Local Government Units (LGU)": 9896,
-    "National Government Agencies (NGA)": 484,
-    "Government Owned and Controlled Corporations (GOCC)": 110,
-    "State Universities and Colleges (SUC)": 40,
-    "Other": 6,
+    "Local Government Units (LGU)": 104417,
+    "Other": 17426,
+    "National Government Agencies (NGA)": 3891,
+    "Government Owned and Controlled Corporations (GOCC)": 1007,
+    "State Universities and Colleges (SUC)": 389,
     "Others": 2
    },
    "by_region": [
     {
      "region": "National Capital Region (NCR)",
-     "notices": 245,
-     "abc": 53804931372.0,
-     "awarded": 17
+     "notices": 2020,
+     "abc": 176601054944.0,
+     "awarded": 798
     },
     {
      "region": "Cordillera Administrative Region (CAR)",
-     "notices": 885,
-     "abc": 2348527834.0,
-     "awarded": 54
+     "notices": 8800,
+     "abc": 31273842911.0,
+     "awarded": 2079
     },
     {
      "region": "Region I (Ilocos Region)",
-     "notices": 822,
-     "abc": 2198878944.0,
-     "awarded": 69
+     "notices": 11025,
+     "abc": 27404926736.0,
+     "awarded": 3649
     },
     {
      "region": "Region II (Cagayan Valley)",
-     "notices": 907,
-     "abc": 2411953203.0,
-     "awarded": 16
+     "notices": 8591,
+     "abc": 25956987890.0,
+     "awarded": 1715
     },
     {
      "region": "Region III (Central Luzon)",
-     "notices": 764,
-     "abc": 2518279216.0,
-     "awarded": 31
+     "notices": 9390,
+     "abc": 32225981621.0,
+     "awarded": 2783
     },
     {
      "region": "Region IV-A (CALABARZON)",
-     "notices": 1203,
-     "abc": 5723673493.0,
-     "awarded": 11
+     "notices": 13585,
+     "abc": 43101738053.0,
+     "awarded": 3698
     },
     {
      "region": "Region IV-B (MIMAROPA)",
-     "notices": 382,
-     "abc": 2870605255.0,
-     "awarded": 13
+     "notices": 3532,
+     "abc": 14915095474.0,
+     "awarded": 1267
     },
     {
      "region": "Region V (Bicol Region)",
-     "notices": 812,
-     "abc": 1963269859.0,
-     "awarded": 39
+     "notices": 8584,
+     "abc": 22224825067.0,
+     "awarded": 1825
     },
     {
      "region": "Region VI (Western Visayas)",
-     "notices": 796,
-     "abc": 2560622349.0,
-     "awarded": 74
+     "notices": 7016,
+     "abc": 21420046440.0,
+     "awarded": 1465
     },
     {
      "region": "Region VII (Central Visayas)",
-     "notices": 819,
-     "abc": 2810740650.0,
-     "awarded": 5
+     "notices": 7640,
+     "abc": 23441516015.0,
+     "awarded": 1587
     },
     {
      "region": "Region VIII (Eastern Visayas)",
-     "notices": 935,
-     "abc": 3900814744.0,
-     "awarded": 25
+     "notices": 9815,
+     "abc": 25500924881.0,
+     "awarded": 2017
     },
     {
      "region": "Region IX (Zamboanga Peninsula)",
-     "notices": 347,
-     "abc": 1484271194.0,
-     "awarded": 2
+     "notices": 3721,
+     "abc": 11199604520.0,
+     "awarded": 767
     },
     {
      "region": "Region X (Northern Mindanao)",
-     "notices": 440,
-     "abc": 2306524120.0,
-     "awarded": 34
+     "notices": 3973,
+     "abc": 21060489556.0,
+     "awarded": 1116
     },
     {
      "region": "Region XI (Davao Region)",
-     "notices": 280,
-     "abc": 1203104020.0,
-     "awarded": 25
+     "notices": 3052,
+     "abc": 12616565077.0,
+     "awarded": 596
     },
     {
      "region": "Region XII (SOCCSKSARGEN)",
-     "notices": 356,
-     "abc": 3376438511.0,
-     "awarded": 64
+     "notices": 2933,
+     "abc": 18844239212.0,
+     "awarded": 1010
     },
     {
      "region": "Region XIII (Caraga)",
-     "notices": 312,
-     "abc": 1851400819.0,
-     "awarded": 35
+     "notices": 3352,
+     "abc": 20613967136.0,
+     "awarded": 900
     },
     {
      "region": "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)",
-     "notices": 174,
-     "abc": 2444493531.0,
-     "awarded": 0
+     "notices": 1973,
+     "abc": 31958577545.0,
+     "awarded": 437
     },
     {
      "region": "NIR (Negros Island Region)",
-     "notices": 59,
-     "abc": 239041975.0,
-     "awarded": 1
+     "notices": 710,
+     "abc": 3991737894.0,
+     "awarded": 204
+    },
+    {
+     "region": "Other / not stated",
+     "notices": 17420,
+     "abc": 79011141925.0,
+     "awarded": 8615
     }
    ],
    "modes": {
-    "Public Bidding": 8026,
-    "Competitive Bidding (Public Bidding)": 1485,
-    "Negotiated Procurement - Small Value Procurement (Sec. 34)": 631,
-    "Small Value Procurement": 195,
-    "Negotiated Procurement - Two Failed Biddings (Sec. 53.1)": 135,
-    "Negotiated Procurement - Two Failed Biddings": 34
+    "Public Bidding": 114690,
+    "Negotiated Procurement - Small Value Procurement (Sec. 53.9)": 5504,
+    "Negotiated Procurement - Two Failed Biddings (Sec. 53.1)": 1861,
+    "Negotiated Procurement - Small Value Procurement (Sec. 34)": 1742,
+    "Competitive Bidding (Public Bidding)": 1644,
+    "Shopping - Ordinary/Regular Office Supplies & Equipment (Sec. 52.1.b)": 471
    },
    "award_ratio": {
-    "awards": 511,
-    "share_99_plus": 0.855,
-    "median": 0.9977
+    "awards": 36497,
+    "share_99_plus": 0.856,
+    "median": 0.9979
    },
    "concentration": {
-    "entities": 28,
-    "top_firm_half_or_more": 13
+    "entities": 1080,
+    "top_firm_half_or_more": 454
+   },
+   "backtest": {
+    "built": "2026-10-16",
+    "dpwh_road_contracts_in_philgeps": 31570,
+    "finished": 18135,
+    "terminated": 58,
+    "with_award_amount": 24281,
+    "by_year": {
+     "2018": 1,
+     "2019": 13,
+     "2020": 239,
+     "2021": 2817,
+     "2022": 4842,
+     "2023": 4257,
+     "2024": 7047,
+     "2025": 5438,
+     "2026": 6916
+    }
    }
   },
   "base_rates": {
