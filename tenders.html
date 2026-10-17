@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantAI Tenders</title>
+<meta name="description" content="Open construction tenders on the PhilGEPS notice board, mostly from local governments: read daily, monitored, not scored.">
+<style>
+:root{color-scheme:light;--page:#FFFFFF;--surface:#FFFFFF;--ink:#101828;--ink2:#475467;--muted:#667085;--line:#E4E7EC;--soft:#F5F7FB;
+--accent:#0032A0;--accent-soft:#E8EEF9;--red:#BF0D3E;--red-soft:#FBE7EC;--yellow:#FED141;--yellow-soft:#FFF8DB;--gold:#8A6400;
+--blue:#0032A0;--blue-soft:#E8EEF9;--grey:#98A2B3;--grey-soft:#F2F4F7;--good:#0E7A4B;--purple:#6941C6}
+*{box-sizing:border-box}html,body{margin:0}html{scroll-behavior:smooth}
+body{background:var(--page);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}a:hover{text-decoration-thickness:2px}
+.top{position:sticky;top:0;z-index:1000;background:var(--accent);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.top::after{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--yellow) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;white-space:nowrap}
+.brand{font-weight:800;letter-spacing:-.01em;margin-right:auto;color:#fff;text-decoration:none;font-size:17px}.brand span{color:var(--yellow)}
+.top a.nav,.top nav a{color:#DCE5F7;text-decoration:none;font-size:14px}.top a.nav:hover,.top nav a:hover{color:#fff}
+.top a.cta{color:var(--accent);background:var(--yellow);padding:5px 11px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.dot.Red,.c-Red{background:var(--red)}.dot.Yellow,.c-Yellow{background:var(--yellow);box-shadow:inset 0 0 0 1px #D9A800}
+.dot.Blue,.c-Blue{background:var(--blue)}.dot.Grey,.c-Grey{background:var(--grey)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.tag.strong,.tag.High{background:var(--red-soft);color:var(--red)}
+.tag.alert,.tag.Alert{background:var(--red);color:#fff}
+.tag.weak,.tag.Elevated{background:var(--yellow-soft);color:var(--gold);box-shadow:inset 0 0 0 1px #F3D46B}
+.tag.watch,.tag.Watch{background:var(--blue-soft);color:var(--blue)}
+.tag.test,.tag.context,.tag.Context{background:var(--grey-soft);color:var(--ink2)}
+.tag.none{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin:28px 0 6px}
+.sub{color:var(--ink2);margin:0 0 16px;max-width:860px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.controls label{font-size:13px;color:var(--ink2);display:flex;gap:6px;align-items:center}
+select,input[type=search]{font:inherit;font-size:14px;background:#fff;color:var(--ink);border:1px solid #D0D5DD;border-radius:8px;padding:6px 10px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:6px 0 16px}
+.card{padding:16px}.kpi .v{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.kpi .l{font-size:13px;color:var(--ink2)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;position:sticky;top:0;background:#fff}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow:auto}.note{font-size:13px;color:var(--muted)}
+.new{font-size:11px;font-weight:700;background:var(--yellow);color:var(--accent);border-radius:6px;padding:1px 6px}
+button{font:inherit;font-size:14px;border-radius:8px;padding:8px 14px;border:1px solid #D0D5DD;background:#fff;cursor:pointer}
+footer{margin:36px 0 0;padding:20px 0 36px}
+</style></head><body>
+<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a>
+<a class="nav" href="index.html">Overview</a><a class="nav" href="places.html">Map</a><a class="nav" href="history.html">History</a><a class="cta" href="places.html#cases">DPWH cases</a></div></div>
+<main class="wrap">
+<h1>Open construction tenders on PhilGEPS</h1>
+<p class="sub">Every construction tender open on the PhilGEPS notice board, read each morning: mostly provinces, cities, municipalities and barangays, which DPWH's data does not cover. Road works are marked. These are <b>monitored, not scored</b>: notices rarely state road lengths, and the award arrives later through PhilGEPS open data. A listed tender is not a finding of anything.</p>
+<div class="grid" id="kpis"></div>
+<div class="controls"><label><input type="checkbox" id="road" checked> Road works only</label>
+<label>Region <select id="region"><option value="">All regions</option></select></label>
+<label>Published <select id="pub"><option value="">Any day</option></select></label>
+<input type="search" id="q" placeholder="Search title, agency, province…" style="min-width:260px"><span class="note" id="count"></span></div>
+<div class="card tw" style="max-height:760px;padding:0"><table id="tbl"><thead><tr><th data-k="1">Published</th><th data-k="2">Closing</th><th data-k="3">Tender</th><th data-k="4">Procuring entity</th><th data-k="5">Province</th><th data-k="7" class="n">Budget ₱M</th><th data-k="8">Mode</th></tr></thead><tbody></tbody></table></div>
+<p style="text-align:center"><button id="more">Show more</button></p>
+<footer>Source: PhilGEPS notice board, business category “Construction Projects” (legacy system). Read daily; list order newest first. <a href="index.html#context">How PhilGEPS is used in BantAI →</a></footer>
+</main>
+<script>
+const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>Number(n||0).toLocaleString('en-US');let T=null,shown=300,sk=1,sd=-1;
+fetch('tenders.json').then(r=>r.json()).then(d=>{T=d;const S=d.summary||{};
+ $('#kpis').innerHTML=[['Construction tenders open',fmt(S.open_on_board||d.rows.length)],['Road tenders, other agencies',fmt(S.open_road_tenders_non_dpwh)],['New road tenders in the latest read',fmt(S.new_road_tenders_today)],['Budget of open road tenders','₱'+((S.open_road_abc_php||0)/1e9).toFixed(1)+'B']].map(([l,v])=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('');
+ $('#region').innerHTML+=["National Capital Region (NCR)", "Cordillera Administrative Region (CAR)", "Region I (Ilocos Region)", "Region II (Cagayan Valley)", "Region III (Central Luzon)", "Region IV-A (CALABARZON)", "Region IV-B (MIMAROPA)", "Region V (Bicol Region)", "Region VI (Western Visayas)", "Region VII (Central Visayas)", "Region VIII (Eastern Visayas)", "Region IX (Zamboanga Peninsula)", "Region X (Northern Mindanao)", "Region XI (Davao Region)", "Region XII (SOCCSKSARGEN)", "Region XIII (Caraga)", "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)", "NIR (Negros Island Region)"].map(r=>`<option>${esc(r)}</option>`).join('');
+ $('#pub').innerHTML+=[...new Set(d.rows.map(r=>r[1]).filter(Boolean))].sort().reverse().slice(0,30).map(x=>`<option>${x}</option>`).join('');
+ ['#road','#region','#pub','#q'].forEach(s=>$(s).addEventListener('input',()=>{shown=300;draw()}));draw()}).catch(()=>{$('#kpis').innerHTML='<p class="note">The tender feed has not run yet.</p>'});
+function draw(){const rd=$('#road').checked,rg=$('#region').value,pb=$('#pub').value,q=$('#q').value.trim().toLowerCase();
+ const R=T.rows.filter(r=>(!rd||r[9])&&(!rg||r[6]===rg)&&(!pb||r[1]===pb)&&(!q||(r[3]+' '+r[4]+' '+r[5]).toLowerCase().includes(q)));
+ R.sort((a,b)=>{const x=a[sk]??-1,y=b[sk]??-1;return (typeof x==='string'?String(x).localeCompare(y):x-y)*sd});
+ $('#tbl tbody').innerHTML=R.slice(0,shown).map(r=>`<tr><td style="white-space:nowrap">${esc(r[1])}${r[10]===T.as_of?' <span class="new">NEW</span>':''}</td><td style="white-space:nowrap;font-size:13px">${esc(r[2])}</td><td><a href="${esc(r[11])}" target="_blank" rel="noopener">${esc(r[3])}</a></td><td style="font-size:13px">${esc(r[4])}</td><td style="font-size:13px">${esc(r[5])}</td><td class="n">${r[7]==null?'':r[7].toLocaleString('en-US')}</td><td style="font-size:12px;color:var(--ink2)">${esc(r[8])}</td></tr>`).join('');
+ $('#count').textContent=`${fmt(R.length)} tenders`;$('#more').style.display=shown<R.length?'':'none'}
+$('#more').onclick=()=>{shown+=500;draw()};
+document.querySelectorAll('#tbl th').forEach(th=>th.onclick=()=>{const k=+th.dataset.k;sd=sk===k?-sd:-1;sk=k;draw()});
+</script></body></html>
