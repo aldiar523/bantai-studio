@@ -126,6 +126,7 @@ function render(){const c=C;
   <h1>${esc(c.title)}</h1>
   <div class="meta">${[place,c.region,c.contractor].filter(Boolean).map(esc).join(' · ')}</div>
   <p style="margin:10px 0 0">${esc(c.colour_meaning)}</p>
+  ${c.left_scope?'<div class="card" style="margin-top:12px;border-left:4px solid var(--blue)"><p class="small" style="margin:0"><b>No longer in the daily list.</b> This contract has moved on (for example, it is now finished or was removed from the source). It is kept for the record and is scored on rules '+esc(c.rule_version||'earlier')+', which may differ from today\'s rules.</p></div>':''}
   <div class="card" style="margin-top:16px"><h2>Key facts</h2><dl class="facts">
    ${fact('Official budget (ABC)',peso(c.budget.abc))}${c.source==='PhilGEPS'?'':fact('DPWH project budget',peso(c.budget.project))}${fact('Winning bid',c.budget.award?peso(c.budget.award)+ratio:'')}
    ${fact(c.source==='PhilGEPS'?'Stage':'Stage / DPWH status',esc(c.stage+' · '+c.status))}${fact('Type of work (comparison group)',esc(c.subtype))}${fact('Rule priority',esc(c.priority))}
