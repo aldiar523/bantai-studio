@@ -26,7 +26,7 @@
    "new_cases": {
     "Red": 104,
     "Yellow": 3,
-    "Blue": 42,
+    "Blue": 38,
     "Grey": 5
    },
    "source_changed": false,
@@ -186,29 +186,45 @@
    "new_cases": {
     "Red": 0,
     "Yellow": 0,
-    "Blue": 5,
+    "Blue": 3,
     "Grey": 1
    },
    "source_changed": true,
    "rules_changed": false
+  },
+  {
+   "d": "2026-10-21",
+   "rows": 266665,
+   "checked": 1000,
+   "rules": "rules-v0.11.1",
+   "new_tenders": 0,
+   "new_awards": 0,
+   "new_cases": {
+    "Red": 0,
+    "Yellow": 0,
+    "Blue": 2,
+    "Grey": 1
+   },
+   "source_changed": false,
+   "rules_changed": false
   }
  ],
- "left_scope": 62,
+ "left_scope": 49,
  "latest": {
   "source_rows": 266665,
   "checked": 1000,
   "failed": 0,
-  "shadow_watch": 84,
-  "queue_new": 4,
+  "shadow_watch": 90,
+  "queue_new": 3,
   "current": 6167
  },
- "generated_at": "2026-10-20T23:56+00:00",
+ "generated_at": "2026-10-21T00:03+00:00",
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.11.1",
- "last_run": "2026-10-20T00:31:46.193849+00:00",
+ "last_run": "2026-10-21T00:01:43.448415+00:00",
  "stages": {
   "road_tenders_open": 4619,
-  "road_tenders_new": 63,
+  "road_tenders_new": 0,
   "road_awarded": 1548,
   "road_awarded_new": 0,
   "road_construction": 13285,
@@ -216,20 +232,20 @@
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 10402
  },
- "stages_at": "2026-10-20T00:31:46.193849+00:00",
+ "stages_at": "2026-10-21T00:01:43.448415+00:00",
  "monitored": 6167,
  "checked": 6167,
  "cases": {
-  "total": 426,
+  "total": 423,
   "by_colour": {
    "Red": 129,
    "Yellow": 3,
-   "Blue": 274,
-   "Grey": 20
+   "Blue": 270,
+   "Grey": 21
   },
   "by_stage": {
    "Award": 274,
-   "Tender": 152
+   "Tender": 149
   },
   "stage_colour": {
    "Award": {
@@ -239,9 +255,9 @@
     "Grey": 2
    },
    "Tender": {
-    "Blue": 86,
+    "Blue": 82,
     "Red": 48,
-    "Grey": 18
+    "Grey": 19
    }
   }
  },
@@ -335,20 +351,20 @@
    "Red": 0,
    "Yellow": 0,
    "Blue": 10,
-   "Grey": 2
+   "Grey": 3
   },
   {
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
-   "Blue": 18,
+   "Blue": 15,
    "Grey": 2
   },
   {
    "region": "Region XI (Davao Region)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 7,
+   "Blue": 6,
    "Grey": 1
   },
   {
@@ -458,6 +474,11 @@
   },
   {
    "d": "2026-10-20",
+   "t": 4619,
+   "a": 1548
+  },
+  {
+   "d": "2026-10-21",
    "t": 4619,
    "a": 1548
   }
