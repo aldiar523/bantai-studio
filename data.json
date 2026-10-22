@@ -207,6 +207,22 @@
    },
    "source_changed": false,
    "rules_changed": false
+  },
+  {
+   "d": "2026-10-22",
+   "rows": 266665,
+   "checked": 1000,
+   "rules": "rules-v0.11.1",
+   "new_tenders": 0,
+   "new_awards": 0,
+   "new_cases": {
+    "Red": 0,
+    "Yellow": 0,
+    "Blue": 0,
+    "Grey": 1
+   },
+   "source_changed": false,
+   "rules_changed": false
   }
  ],
  "left_scope": 49,
@@ -214,14 +230,14 @@
   "source_rows": 266665,
   "checked": 1000,
   "failed": 0,
-  "shadow_watch": 90,
-  "queue_new": 3,
+  "shadow_watch": 95,
+  "queue_new": 1,
   "current": 6167
  },
- "generated_at": "2026-10-21T21:46+00:00",
+ "generated_at": "2026-10-22T00:06+00:00",
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.11.1",
- "last_run": "2026-10-21T00:01:43.448415+00:00",
+ "last_run": "2026-10-22T00:06:31.475812+00:00",
  "stages": {
   "road_tenders_open": 4619,
   "road_tenders_new": 0,
@@ -232,20 +248,20 @@
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 10402
  },
- "stages_at": "2026-10-21T00:01:43.448415+00:00",
+ "stages_at": "2026-10-22T00:06:31.475812+00:00",
  "monitored": 6167,
  "checked": 6167,
  "cases": {
-  "total": 423,
+  "total": 424,
   "by_colour": {
    "Red": 129,
    "Yellow": 3,
    "Blue": 270,
-   "Grey": 21
+   "Grey": 22
   },
   "by_stage": {
    "Award": 274,
-   "Tender": 149
+   "Tender": 150
   },
   "stage_colour": {
    "Award": {
@@ -257,7 +273,7 @@
    "Tender": {
     "Blue": 82,
     "Red": 48,
-    "Grey": 19
+    "Grey": 20
    }
   }
  },
@@ -337,7 +353,7 @@
    "Red": 0,
    "Yellow": 0,
    "Blue": 30,
-   "Grey": 1
+   "Grey": 2
   },
   {
    "region": "Region VIII (Eastern Visayas)",
@@ -479,6 +495,11 @@
   },
   {
    "d": "2026-10-21",
+   "t": 4619,
+   "a": 1548
+  },
+  {
+   "d": "2026-10-22",
    "t": 4619,
    "a": 1548
   }
