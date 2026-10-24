@@ -243,6 +243,31 @@
  ],
  "left_scope": 49,
  "latest": {
+  "source_changed": "",
+  "source_stale_days": null,
+  "source_check": {
+   "checked_at": "2026-10-24T05:27:55+00:00",
+   "api_ok": true,
+   "rows": 266665,
+   "rows_with_id": 266665,
+   "rows_not_in_bantai_state": 259654,
+   "status_counts": {
+    "Completed": 215660,
+    "On-Going": 31543,
+    "For Procurement": 15933,
+    "Not Yet Started": 2466,
+    "Terminated": 1063
+   },
+   "newest_infra_years": {
+    "2026": 16270,
+    "2025": 28088,
+    "2024": 30756,
+    "2023": 26182
+   },
+   "rows_change_since_last_check": 0,
+   "rows_in_last_daily_run": 266665,
+   "verdict": "Source reachable and unchanged since the last daily run: it is quiet, the pipeline is not broken."
+  },
   "source_rows": 266665,
   "checked": 1000,
   "failed": 0,
@@ -250,7 +275,7 @@
   "queue_new": 1,
   "current": 6166
  },
- "generated_at": "2026-10-24T04:42+00:00",
+ "generated_at": "2026-10-24T05:29+00:00",
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.11.1",
  "last_run": "2026-10-23T23:56:34.858161+00:00",
@@ -276,15 +301,19 @@
    "Grey": 24
   },
   "by_stage": {
-   "Award": 274,
+   "Award": 270,
+   "Construction": 4,
    "Tender": 152
   },
   "stage_colour": {
    "Award": {
     "Red": 81,
-    "Blue": 188,
+    "Blue": 184,
     "Yellow": 3,
     "Grey": 2
+   },
+   "Construction": {
+    "Blue": 4
    },
    "Tender": {
     "Blue": 82,
