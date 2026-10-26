@@ -82,6 +82,19 @@ button.primary{background:var(--accent);border-color:var(--accent);color:#fff;fo
 .ok{color:var(--good);font-weight:700}.warn{color:var(--red);font-weight:600}
 .locked{font-size:13px;color:var(--ink2);background:var(--yellow-soft);border:1px solid #F3D46B;border-radius:8px;padding:8px 10px;margin:8px 0}
 footer{padding:20px 0 40px}
+.memowrap{position:fixed;inset:0;background:rgba(15,18,22,.55);display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow:auto;z-index:50}
+.memo{background:#fff;color:#111;max-width:820px;width:100%;border-radius:12px;padding:30px 34px;font-size:13.5px;line-height:1.5}
+.memo h1{font-size:17px;letter-spacing:.08em;margin:0 0 14px;text-align:center}
+.memo h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 6px;color:#333}
+.memo table{border-collapse:collapse;width:100%;font-size:12.5px;margin:6px 0}
+.memo th,.memo td{border:1px solid #bbb;padding:6px 8px;text-align:left;vertical-align:top;color:#111}
+.memo th{background:#f2f2f2;text-transform:none;letter-spacing:0;font-size:12px;color:#111}
+.memo ul{margin:6px 0;padding-left:20px}.memo li{margin:3px 0}
+.memo .hdr td:first-child{width:92px;font-weight:600;background:#f7f7f7}
+.memo .note{background:#f7f7f7;border-left:3px solid #999;padding:8px 12px;margin:8px 0;font-size:12.5px}
+.memobar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+@media print{body>*{display:none!important}.memowrap{display:block!important;position:static;background:#fff;padding:0;overflow:visible}
+ .memobar{display:none!important}.memo{max-width:none;border-radius:0;padding:0;font-size:11pt}}
 </style></head><body>
 <div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a>
 <a class="nav" href="index.html">Overview</a><a class="nav" href="places.html">Map</a><a class="cta" href="places.html#cases">All cases</a></div></div>
@@ -147,6 +160,47 @@ function render(){const c=C;
  renderSteps();decisionPanel();
 }
 const md=s=>String(s||'').replace(/\*\*/g,'').replace(/^#+\s*/gm,'');
+const iso=d=>d.toISOString().slice(0,10);
+function memoAddr(t){const M=C.memo||{},A=(M.addressees||{})[t];return A||{to:M.to||'',copy:M.copy||[]}}
+function memoHtml(t,days,who,why){const M=C.memo||{};if(!M.subject)return '<p>No memo is available for this case.</p>';
+ const A=memoAddr(t),dl=iso(new Date(Date.now()+Math.round(days*7/5)*864e5)),today=iso(new Date());
+ const tbl=(cols,rows)=>`<table><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>`;
+ let h=`<h1>MEMORANDUM</h1><table class="hdr">
+  <tr><td>To</td><td>${esc(A.to)}</td></tr>
+  ${(A.copy||[]).map(c=>`<tr><td>Copy</td><td>${esc(c)}</td></tr>`).join('')}
+  <tr><td>From</td><td>Project BantAI Review Desk${who?' (Reviewer '+esc(who)+')':''}</td></tr>
+  <tr><td>Date</td><td>${esc(today)}</td></tr>
+  <tr><td>Subject</td><td>${esc(M.subject)}</td></tr></table>`;
+ h+=`<h2>Background</h2>${(M.background||[]).map(p=>`<p>${esc(p)}</p>`).join('')}`;
+ h+=`<h2>Action requested</h2><p>We request your good office to consider this contract for a desk review and to indicate your decision by <b>${esc(dl)}</b> (about ${days} working days).${M.rank?' '+esc(M.rank)+'.':''}</p>`;
+ if(why)h+=`<p>The reviewer asks in particular that you look at: ${esc(why)}</p>`;
+ h+=`<div class="note">${esc(M.disclaimer||'')}</div>`;
+ h+=`<h2>The contract</h2>`+tbl(['Item','Value','Source'],(M.facts||[]).map(r=>[r.item,r.value,r.source]));
+ if((M.alerts||[]).length)h+=`<h2>Official records on file</h2>`+tbl(['Record','What it says','Source'],M.alerts.map(r=>[r.sign,r.found,r.source||'see case page']));
+ if((M.signs||[]).length)h+=`<h2>Why BantAI flagged it</h2>`+tbl(['Sign','What we found','Role','Tested evidence'],M.signs.map(r=>[r.sign,r.found,r.role,r.evidence||'\u2014']));
+ h+=`<p>${esc(M.basis||'')}</p>`;
+ if((M.negatives||[]).length)h+=`<h2>What we checked and did not flag</h2><ul>${M.negatives.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+ if((M.steps||[]).length)h+=`<h2>Suggested desk review</h2><ul>${M.steps.map(x=>`<li>\u2610 <b>${esc(x.title)}</b>${(x.sub||[]).length?`<ul>${x.sub.map(y=>`<li>${esc(y)}</li>`).join('')}</ul>`:''}</li>`).join('')}</ul>`;
+ if((M.caveats||[]).length)h+=`<h2>Please note</h2><ul>${M.caveats.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+ h+=`<h2>Attachments</h2><ul>${(M.attachments||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+ if(C.links&&C.links.dpwh)h+=`<p class="small">Case page and every source behind this memo: ${esc(C.links.dpwh)}</p>`;
+ return h}
+function memoText(el){return el.innerText.replace(/\n{3,}/g,'\n\n').trim()}
+async function openMemo(){const t=($('#target')?.value)||'',days=Math.max(1,Math.min(90,parseInt($('#mdays')?.value||'15',10)||15));
+ const key=TARGET_KEY[t];
+ if(!key){alert('A referral memo is addressed to an oversight office. For a newsroom, send the case page link and your note instead.');return}
+ const rev=await who_name(),why=($('#why')?.value||'').trim();
+ const w=document.createElement('div');w.className='memowrap';w.id='memowrap';
+ w.innerHTML=`<div><div class="memobar"><button class="primary" id="mprint">Print or save as PDF</button><button id="mcopy">Copy as text</button><button id="mdl">Download (.md)</button><button id="mclose">Close</button></div><div class="memo" id="memo">${memoHtml(key,days,rev,why)}</div></div>`;
+ document.body.appendChild(w);
+ $('#mclose').onclick=()=>w.remove();
+ w.onclick=e=>{if(e.target===w)w.remove()};
+ $('#mprint').onclick=()=>window.print();
+ $('#mcopy').onclick=async()=>{try{await navigator.clipboard.writeText(memoText($('#memo')));$('#mcopy').textContent='Copied'}catch(e){$('#mcopy').textContent='Select and copy'}};
+ $('#mdl').onclick=()=>{const b=new Blob([memoText($('#memo'))],{type:'text/markdown'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`BantAI-referral-${C.id}.md`;a.click();URL.revokeObjectURL(a.href)};
+}
+const TARGET_KEY={'COA regional audit team (Commission on Audit)':'coa','DPWH Internal Audit Service':'ias','Office of the Ombudsman':'ombudsman'};
+async function who_name(){const id=store.get('bantai-reviewer-id');return id?await who(id):null}
 function pgf(p){if(!p)return '';const a=p.award||{};return fact('PhilGEPS notice',`${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.ref)}</a>`:esc(p.ref)} · ${esc(p.status)}${p.notices>1?` · ${p.notices} notices`:''}`)+fact('PhilGEPS ABC',peso(p.abc)+(p.abc_conflict?' <span class="tag weak">differs from DPWH</span>':''))+fact('Published → closing',esc((p.published||'?')+' → '+(p.closing||'?')))+(a.amount?fact('Award (PhilGEPS)',peso(a.amount)+(p.abc?` (${(a.amount/p.abc*100).toFixed(1)}% of ABC)`:'')+` · ${esc(a.award_date||'')}`)+((a.ntp||a.effective||a.end)?fact('Contract period',esc((a.ntp||a.effective||'?')+' → '+(a.end||'?'))):'')+fact('Awardee (PhilGEPS)',esc(a.awardee+(a.size?' · '+a.size:'')+(a.jv&&a.jv!=='No JV'?' · '+a.jv:''))):'')}
 function claudeBox(){const c=C;return (c.claude_note||c.docs_note)?`<div class="note">${esc(md(c.claude_note))}${c.docs_note?(c.claude_note?'\n\n':'')+'Documents: '+esc(md(c.docs_note)):''}</div><div class="small" style="margin-top:6px">Claude reads the official records and documents and notes what matches and what is missing. It advises; it does not score or decide.</div>`:`<div class="small" style="margin-top:4px">Claude has not checked this case yet (it checks up to 25 new red and yellow cases a day). Tick this step once you have checked the sources yourself.</div>`}
 function renderSteps(){const t=ticked();
@@ -188,10 +242,11 @@ async function decisionPanel(keep){
 }
 function renderForm(name){const f=$('#form');if(!CHOICE){f.innerHTML='';return}
  const mins=`<label class="f">Minutes spent<input id="mins" inputmode="numeric" placeholder="20"></label>`;
- if(CHOICE==='esc')f.innerHTML=`<label class="f">Escalate to<select id="target">${ESCALATE_TO.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label><label class="f">What should they look at, and why (required)<textarea id="why" rows="4" placeholder="e.g. The BoQ shows 0.4 km, not 1.2 km; the price per km is three times similar roads nearby."></textarea></label>${mins}${binHtml()}`;
+ if(CHOICE==='esc'){f.innerHTML=`<label class="f">Escalate to<select id="target">${ESCALATE_TO.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label><label class="f">What should they look at, and why (required)<textarea id="why" rows="4" placeholder="e.g. The BoQ shows 0.4 km, not 1.2 km; the price per km is three times similar roads nearby."></textarea></label><label class="f">Reply requested within (working days)<input id="mdays" type="number" min="1" max="90" value="15" style="width:90px"></label><button id="memobtn" style="width:100%;margin:2px 0 10px">Draft the referral memo</button><p class="small" style="margin:-6px 0 10px">A memorandum to the office you pick, with the facts, the signs and their tested evidence, and a suggested desk review. It is a request for review, never a finding. Read it before you send, and edit anything that does not fit.</p>${mins}${binHtml()}`;}
  else if(CHOICE==='cls'){const rs=risks();f.innerHTML=(rs.length?`<p class="small" style="margin:10px 0 0">For each risk, say briefly why it does not hold (required).</p>`+rs.map((r,i)=>`<label class="f"><b>${esc(r)}</b><textarea class="rc" data-r="${esc(r)}" rows="3" placeholder="Explanation found"></textarea></label>`).join(''):`<label class="f">Why there is no concern (required)<textarea class="rc" data-r="Overall" rows="3"></textarea></label>`)+mins+binHtml()}
  else f.innerHTML=`<label class="f">Outcome<select id="sub">${FURTHER.map(([d,t])=>`<option value="${esc(d)}">${esc(d)} — ${esc(t)}</option>`).join('')}</select></label><label class="f">Comment (required)<textarea id="why" rows="4" placeholder="What is still open, what is wrong in the data, or when to look again."></textarea></label>${mins}${binHtml()}`;
  f.innerHTML+=`<button class="primary" id="submit" style="width:100%;margin-top:12px">Submit decision</button>`;
+ if($('#memobtn'))$('#memobtn').onclick=e=>{e.preventDefault();openMemo()};
  wireBin();$('#submit').onclick=()=>submit(name);
 }
 async function upload(file){const buf=await file.arrayBuffer();const h=await sha256(buf);
