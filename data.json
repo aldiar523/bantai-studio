@@ -24,9 +24,9 @@
    "new_tenders": null,
    "new_awards": null,
    "new_cases": {
-    "Red": 105,
+    "Red": 104,
     "Yellow": 3,
-    "Blue": 35,
+    "Blue": 36,
     "Grey": 5
    },
    "source_changed": false,
@@ -137,8 +137,8 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 16,
-    "Blue": 163,
+    "Yellow": 17,
+    "Blue": 162,
     "Grey": 5
    },
    "source_changed": false,
@@ -307,7 +307,7 @@
   "queue_new": 1,
   "current": 6106
  },
- "generated_at": "2026-10-26T08:32+00:00",
+ "generated_at": "2026-10-26T11:54+00:00",
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.12.0",
  "last_run": "2026-10-25T23:26:37.106346+00:00",
@@ -325,23 +325,23 @@
  "monitored": 6106,
  "checked": 6106,
  "cases": {
-  "total": 560,
+  "total": 549,
   "by_colour": {
-   "Red": 129,
-   "Yellow": 81,
-   "Blue": 324,
+   "Red": 128,
+   "Yellow": 57,
+   "Blue": 338,
    "Grey": 26
   },
   "by_stage": {
-   "Award": 353,
+   "Award": 342,
    "Tender": 202,
    "Construction": 5
   },
   "stage_colour": {
    "Award": {
-    "Red": 80,
-    "Blue": 200,
-    "Yellow": 69,
+    "Red": 79,
+    "Blue": 215,
+    "Yellow": 44,
     "Grey": 4
    },
    "Tender": {
@@ -352,7 +352,8 @@
    },
    "Construction": {
     "Red": 1,
-    "Blue": 4
+    "Blue": 3,
+    "Yellow": 1
    }
   }
  },
@@ -367,84 +368,84 @@
   {
    "region": "National Capital Region (NCR)",
    "Red": 0,
-   "Yellow": 3,
+   "Yellow": 1,
    "Blue": 11,
    "Grey": 1
   },
   {
    "region": "Cordillera Administrative Region (CAR)",
    "Red": 0,
-   "Yellow": 1,
+   "Yellow": 0,
    "Blue": 15,
    "Grey": 1
   },
   {
    "region": "Region I (Ilocos Region)",
    "Red": 0,
-   "Yellow": 21,
+   "Yellow": 17,
    "Blue": 15,
    "Grey": 0
   },
   {
    "region": "Region II (Cagayan Valley)",
    "Red": 5,
-   "Yellow": 3,
-   "Blue": 12,
+   "Yellow": 2,
+   "Blue": 11,
    "Grey": 0
   },
   {
    "region": "Region III (Central Luzon)",
    "Red": 16,
-   "Yellow": 8,
-   "Blue": 57,
+   "Yellow": 7,
+   "Blue": 58,
    "Grey": 3
   },
   {
    "region": "Region IV-A (CALABARZON)",
    "Red": 1,
-   "Yellow": 15,
-   "Blue": 28,
+   "Yellow": 7,
+   "Blue": 31,
    "Grey": 2
   },
   {
    "region": "Region IV-B (MIMAROPA)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 4,
+   "Blue": 3,
    "Grey": 1
   },
   {
    "region": "Region V (Bicol Region)",
    "Red": 1,
-   "Yellow": 4,
-   "Blue": 19,
+   "Yellow": 1,
+   "Blue": 20,
    "Grey": 1
   },
   {
    "region": "Region VI (Western Visayas)",
-   "Red": 43,
-   "Yellow": 4,
-   "Blue": 12,
+   "Red": 42,
+   "Yellow": 6,
+   "Blue": 11,
    "Grey": 1
   },
   {
    "region": "Region VII (Central Visayas)",
    "Red": 0,
-   "Yellow": 4,
-   "Blue": 38,
+   "Yellow": 2,
+   "Blue": 41,
    "Grey": 3
   },
   {
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 30,
+   "Blue": 34,
    "Grey": 3
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
-   "Yellow": 5,
+   "Yellow": 7,
    "Blue": 11,
    "Grey": 3
   },
@@ -452,7 +453,7 @@
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
-   "Blue": 16,
+   "Blue": 20,
    "Grey": 2
   },
   {
@@ -472,8 +473,8 @@
   {
    "region": "Region XIII (Caraga)",
    "Red": 19,
-   "Yellow": 2,
-   "Blue": 15,
+   "Yellow": 3,
+   "Blue": 16,
    "Grey": 3
   },
   {
@@ -486,7 +487,7 @@
   {
    "region": "NIR (Negros Island Region)",
    "Red": 1,
-   "Yellow": 8,
+   "Yellow": 1,
    "Blue": 3,
    "Grey": 0
   }
@@ -1027,19 +1028,19 @@
      "evidence": "Citizen inspection record"
     },
     {
-     "label": "STRONG: CPES found 15%+ negative slippage during construction (10%+ on completion), or rated the work “Poor” or “Unsatisfactory”",
+     "label": "STRONG: CPES evaluated THIS contract and found 15%+ negative slippage during construction (10%+ on completion), or rated the work “Poor” or “Unsatisfactory”",
      "role": "strong",
-     "evidence": "DPWH quarterly CPES 2018–2025. On this contract it is the agency's own trigger: at 15% the procuring entity must start termination (GPPB Circular 03-2019 4.2.3), and Poor/Unsatisfactory is a blacklisting ground (CPES Guidelines 12.7). On the winner's OTHER contracts it does not predict: 0.41% terminated vs 0.32%, odds ×1.29 (0.75–2.20)"
+     "evidence": "DPWH quarterly reports and the GPPB/CIAP consolidated releases, 2018–2026 (53,873 evaluations, every procuring entity). An observation of the agency's own trigger, not a prediction: at 15% the procuring entity must start termination (GPPB Circular 03-2019 4.2.3), and Poor/Unsatisfactory is a blacklisting ground (CPES Guidelines 12.7)"
     },
     {
      "label": "WEAK: a third or more of the winner's CPES evaluations in the last 3 years were behind schedule",
      "role": "weak",
-     "evidence": "The pattern, not one bad visit (we require at least two evaluations): 0.48% of those contracts were terminated vs 0.31%, odds ×1.54 (0.96–2.47) — suggestive, not established. Without the two-evaluation minimum it is ×1.86 (1.23–2.84). GPPB Circular 03-2019 requires a catch-up programme from 5% and a final warning from 10%"
+     "evidence": "The pattern across the winner's other contracts, over at least two evaluations: 0.51% of those contracts were terminated against 0.32%, odds ×1.57 (1.02–2.43). GPPB Circular 03-2019 requires a catch-up programme from 5% and a final warning from 10%"
     },
     {
-     "label": "Materials, workmanship, site facilities, environment and safety and resources scores; a “Satisfactory” rating",
+     "label": "CPES findings on the winner's OTHER contracts: an evaluation over the termination threshold, a “Poor” or “Unsatisfactory” rating, low materials or workmanship, a “Satisfactory” rating",
      "role": "context",
-     "evidence": "Shown for the reviewer, not scored: no measurable link to termination (odds ×1.0)"
+     "evidence": "Shown for the reviewer, never scored. None of them predicts this contract failing (odds ×0.84 to ×1.06, every interval spanning 1) and together they would flag a quarter of all contracts"
     }
    ]
   }
