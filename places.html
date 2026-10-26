@@ -666,29 +666,47 @@ svg.leaflet-image-layer.leaflet-interactive path {
 </style>
 <style>
 
-:root{color-scheme:light;--page:#FFFFFF;--surface:#FFFFFF;--ink:#101828;--ink2:#475467;--muted:#667085;--line:#E4E7EC;--soft:#F5F7FB;
---accent:#0032A0;--accent-soft:#E8EEF9;--red:#BF0D3E;--red-soft:#FBE7EC;--yellow:#FED141;--yellow-soft:#FFF8DB;--gold:#8A6400;
---blue:#0032A0;--blue-soft:#E8EEF9;--grey:#98A2B3;--grey-soft:#F2F4F7;--good:#0E7A4B;--purple:#6941C6}
+:root{color-scheme:light;--page:#FFFFFF;--surface:#FFFFFF;--ink:#0D0D0D;--ink2:#3F4650;--muted:#6B7280;--line:#E6E8EB;--soft:#F7F8FA;
+--accent:#0032A0;--accent-soft:#E8EEF9;--blue:#0032A0;--blue-soft:#E8EEF9;
+--red:#BF0D3E;--red-soft:#FBE7EC;--orange:#FFA500;--orange-soft:#FFF1D9;--on-orange:#8A4B00;
+--yellow:#FFCE1B;--yellow-soft:#FFF8DB;--on-yellow:#7A5C00;--gold:#7A5C00;
+--grey:#98A2B3;--grey-soft:#F2F4F7;--good:#0E7A4B;--purple:#6941C6;--radius:16px}
 *{box-sizing:border-box}html,body{margin:0}html{scroll-behavior:smooth}
-body{background:var(--page);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+body{background:var(--page);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}a:hover{text-decoration-thickness:2px}
-.top{position:sticky;top:0;z-index:1000;background:var(--accent);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
-.top::after{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--yellow) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
-.top .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;white-space:nowrap}
-.brand{font-weight:800;letter-spacing:-.01em;margin-right:auto;color:#fff;text-decoration:none;font-size:17px}.brand span{color:var(--yellow)}
-.top a.nav,.top nav a{color:#DCE5F7;text-decoration:none;font-size:14px}.top a.nav:hover,.top nav a:hover{color:#fff}
-.top a.cta{color:var(--accent);background:var(--yellow);padding:5px 11px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+h1,h2,h3{letter-spacing:-.018em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* top bar: light chrome, dark text, the flag stripe kept as a hairline */
+.top{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.top::after{content:"";display:block;height:2px;background:linear-gradient(90deg,var(--accent) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
+.top .wrap{display:flex;align-items:center;gap:6px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.top .wrap::-webkit-scrollbar{display:none}
+.brand{font-weight:700;letter-spacing:-.02em;margin-right:14px;color:var(--ink);text-decoration:none;font-size:17px;flex:none}
+.brand span{color:var(--accent)}
+.top a.nav{color:var(--ink2);text-decoration:none;font-size:14.5px;padding:7px 11px;border-radius:9px;flex:none}
+.top a.nav:hover{background:var(--soft);color:var(--ink)}
+.top a.nav[aria-current="page"]{background:var(--soft);color:var(--ink);font-weight:600}
+.top a.cta{margin-left:auto;color:#fff;background:var(--ink);padding:8px 15px;border-radius:999px;font-weight:600;text-decoration:none;font-size:14.5px;flex:none}
+.top a.cta:hover{background:#000}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
 .dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
-.dot.Red,.c-Red{background:var(--red)}.dot.Yellow,.c-Yellow{background:var(--yellow);box-shadow:inset 0 0 0 1px #D9A800}
-.dot.Blue,.c-Blue{background:var(--blue)}.dot.Grey,.c-Grey{background:var(--grey)}
-.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.dot.Red,.c-Red{background:var(--red)}
+.dot.Yellow,.c-Yellow{background:var(--orange)}
+.dot.Blue,.c-Blue{background:var(--yellow);box-shadow:inset 0 0 0 1px #E0B400}
+.dot.Grey,.c-Grey{background:var(--grey)}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:7px;padding:2px 8px;white-space:nowrap}
 .tag.strong,.tag.High{background:var(--red-soft);color:var(--red)}
 .tag.alert,.tag.Alert{background:var(--red);color:#fff}
-.tag.weak,.tag.Elevated{background:var(--yellow-soft);color:var(--gold);box-shadow:inset 0 0 0 1px #F3D46B}
-.tag.watch,.tag.Watch{background:var(--blue-soft);color:var(--blue)}
+.tag.weak,.tag.Elevated{background:var(--orange-soft);color:var(--on-orange);box-shadow:inset 0 0 0 1px #F3C98B}
+.tag.watch,.tag.Watch{background:var(--yellow-soft);color:var(--on-yellow);box-shadow:inset 0 0 0 1px #F0DB8A}
 .tag.test,.tag.context,.tag.Context{background:var(--grey-soft);color:var(--ink2)}
 .tag.none{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+ border-radius:999px;padding:10px 18px;font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--soft)}
+.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.primary:hover{background:#000}
 footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
@@ -711,8 +729,12 @@ th[aria-sort=ascending]::after{content:" ▲"}th[aria-sort=descending]::after{co
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 #ctbl td{white-space:normal;vertical-align:top}#ctbl td:nth-child(2){min-width:260px}#ctbl td:nth-child(3){min-width:180px}#ctbl td:last-child{min-width:240px;color:var(--ink2);font-size:13px}
 .cdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
-.cdot.Yellow{box-shadow:inset 0 0 0 1px #D9A800}
+.cdot.Red{background:var(--red)}.cdot.Yellow{background:var(--orange)}.cdot.Blue{background:var(--yellow);box-shadow:inset 0 0 0 1px #E0B400}.cdot.Grey{background:var(--grey)}
 tr:hover td{background:var(--soft)}
+tr.rhead td{background:var(--soft);font-size:13px;border-top:2px solid var(--line)}
+tr.rhead:hover td{background:var(--soft)}
+.inote{border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:50%;width:17px;height:17px;font-size:11px;line-height:1;cursor:pointer;padding:0;font-weight:700}
+ul.rl{margin:0;padding-left:16px}ul.rl li{margin:1px 0}
 tr.grow td{background:var(--soft);cursor:pointer;font-size:13px}tr.gch td:first-child{border-left:3px solid var(--accent)}
 tr.sel td{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .pill{font-size:11px;border-radius:999px;padding:1px 7px;background:var(--soft);color:var(--muted)}
@@ -720,17 +742,16 @@ tr.sel td{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .leaflet-container{background:var(--soft)}
 footer{margin:36px 0 0;padding:20px 0 36px}
 </style></head><body>
-<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a>
-<a class="nav" href="index.html">Overview</a><a class="nav" href="index.html#risk">Risk scoring</a><a class="nav" href="#map">Map</a><a class="nav" href="#table">Places</a><a class="cta" href="#cases">All cases</a></div></div>
+<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html" aria-current="page">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><a class="cta" href="index.html">Review queue</a></div></div>
 <main class="wrap">
-<h1>Where the cases are</h1>
+<h1>Projects &amp; Maps</h1>
 <div class="controls" id="dayrow" style="margin:0 0 6px"><label>Showing the list as of <select id="day"><option value="">Latest run</option></select></label><span class="note" id="asof"></span></div>
 <p class="sub">Each circle is a town (or, when the contract does not name its town, the District Engineering Office's area). Bigger circles have more cases; click one to see its projects. A listed project is a request for a person to look, not a finding of wrongdoing. Click a project name to open its case page: the facts, the risk scoring by indicator family, what to check and the decision.</p>
 <div class="controls">
-<span class="chk" data-c="Red"><input type="checkbox" checked><i class="c-Red"></i>Red</span>
-<span class="chk" data-c="Yellow"><input type="checkbox" checked><i class="c-Yellow"></i>Yellow</span>
-<span class="chk" data-c="Blue"><input type="checkbox" checked><i class="c-Blue"></i>Blue</span>
-<span class="chk" data-c="Grey"><input type="checkbox" checked><i class="c-Grey"></i>Grey</span>
+<span class="chk" data-c="Red"><input type="checkbox" checked><i class="c-Red"></i>High</span>
+<span class="chk" data-c="Yellow"><input type="checkbox" checked><i class="c-Yellow"></i>Medium</span>
+<span class="chk" data-c="Blue"><input type="checkbox" checked><i class="c-Blue"></i>Document check</span>
+<span class="chk" data-c="Grey"><input type="checkbox" checked><i class="c-Grey"></i>Baseline</span>
 <span class="chk" id="s3"><input type="checkbox"><i style="background:var(--purple)"></i>Stage 3: possibly stalled</span>
 <label>Region <select id="region"><option value="">All regions</option></select></label>
 <label>Precision <select id="prec"><option value="">Towns and DEO areas</option><option value="town">Towns only</option><option value="DEO area">DEO areas only</option></select></label>
@@ -741,16 +762,16 @@ footer{margin:36px 0 0;padding:20px 0 36px}
 
 <h2 id="cases" style="margin-top:32px">All cases</h2>
 <p class="sub">One list for every road contract waiting for review: DPWH contracts and, from PhilGEPS, road contracts awarded by local governments and other agencies in the last year (assessed with the indicators PhilGEPS data supports). Filters above apply here too. Click a column to sort. "Group by firm" folds together cases whose winner or bidder list shares a firm that appears in 3 or more cases; click a group to open it. Sharing a firm is a pattern to look at, not a finding.</p>
-<div class="controls"><label><input type="checkbox" id="oldc"> Include contracts that have left the daily list</label> <input type="search" id="cq" placeholder="Search project, contract ID, contractor, town…" aria-label="Search cases" style="min-width:280px"><label>Added <select id="added"><option value="">Any day</option></select></label><label>Colour <select id="col"><option value="">Any colour</option><option>Red</option><option>Yellow</option><option>Blue</option><option>Grey</option></select></label><label>Reason <select id="rsn"><option value="">Any reason</option></select></label><label>Decision <select id="dec"><option value="">Any</option><option value="__open">Open (none yet)</option></select></label><label>Group by <select id="grp"><option value="">No grouping</option><option value="firm">Firm linked to 3+ cases</option></select></label><label>Stage <select id="stage"><option value="">All stages</option><option>Tender</option><option>Award</option><option>Construction</option></select></label><label>Source <select id="src"><option value="">DPWH + PhilGEPS</option><option>DPWH</option><option>PhilGEPS</option></select></label><span class="note" id="ccount"></span></div>
+<div class="controls"><label><input type="checkbox" id="oldc"> Include contracts that have left the daily list</label> <input type="search" id="cq" placeholder="Search project, contract ID, contractor, town…" aria-label="Search cases" style="min-width:280px"><label>Added <select id="added"><option value="">Any day</option></select></label><label>Priority <select id="col"><option value="">Any priority</option><option value="Red">High Review Priority</option><option value="Yellow">Medium Review Priority</option><option value="Blue">Document Check</option><option value="Grey">Baseline Comparison</option></select></label><label>Reason <select id="rsn"><option value="">Any reason</option></select></label><label>Decision <select id="dec"><option value="">Any</option><option value="__open">Open (none yet)</option></select></label><label>Group by <select id="grp"><option value="">No grouping</option><option value="firm">Firm linked to 3+ cases</option></select></label><label>Stage <select id="stage"><option value="">All stages</option><option>Tender</option><option>Award</option><option>Construction</option></select></label><label>Source <select id="src"><option value="">DPWH + PhilGEPS</option><option>DPWH</option><option>PhilGEPS</option></select></label><span class="note" id="ccount"></span></div>
 <div class="card tw" style="max-height:640px;overflow:auto"><table id="ctbl"><thead><tr>
-<th data-k="colour">Colour</th><th data-k="source">Source</th><th data-k="decision">Decision</th><th data-k="added">Added</th><th data-k="name">Project (case page)</th><th data-k="contractor">Contractor / bidders</th><th data-k="town">Town / area</th><th data-k="province">Province</th><th data-k="region">Region</th><th data-k="stage">Stage</th><th data-k="budget_m" class="n">Budget ₱M</th><th data-k="reasons">Risk indicators flagged</th>
+<th data-k="colour">Priority</th><th data-k="region">Region</th><th data-k="province">Province</th><th data-k="town">Town / area</th><th data-k="name">Project (case page)</th><th data-k="contractor">Contractor / bidders</th><th data-k="source">Source</th><th data-k="decision">Decision</th><th data-k="added">Added</th><th data-k="stage">Stage</th><th data-k="budget_m" class="n">Budget ₱M</th><th data-k="reasons">Risk indicators flagged</th>
 </tr></thead><tbody></tbody></table></div>
 
 <h2 id="table" style="margin-top:32px">All places</h2>
 <div class="controls"><input type="search" id="q" placeholder="Search town, province or DEO…" aria-label="Search places" style="min-width:260px"><span class="note" id="count"></span></div>
 <div class="card tw"><table id="tbl"><thead><tr>
-<th data-k="name">Town / area</th><th data-k="province">Province</th><th data-k="region">Region</th>
-<th data-k="Red" class="n">Red</th><th data-k="Yellow" class="n">Yellow</th><th data-k="Blue" class="n">Blue</th><th data-k="Grey" class="n">Grey</th>
+<th data-k="region">Region</th><th data-k="province">Province</th><th data-k="name">Town / area</th>
+<th data-k="Red" class="n">High</th><th data-k="Yellow" class="n">Medium</th><th data-k="Blue" class="n">Check</th><th data-k="Grey" class="n">Baseline</th>
 <th data-k="total" class="n">Total</th><th data-k="tender" class="n">Tender</th><th data-k="award" class="n">Awarded</th><th data-k="precision">Located by</th>
 </tr></thead><tbody></tbody></table></div>
 <footer>Locations are estimated from our own data: the town or barangay named in the contract, placed at the middle of past DPWH projects in that place (tested on past projects: barangay-level typically within 1 km, town-level within about 5 km). Map tiles © OpenStreetMap contributors. <a href="index.html">Back to overview</a>.</footer>
@@ -768,6 +789,10 @@ const fmt=n=>Number(n||0).toLocaleString('en-US');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const COLS=['Red','Yellow','Blue','Grey'];
+// stored key -> swatch and the words a reader sees (see case_summary.BAND)
+const BAND={Red:{sw:'red',label:'High Review Priority',short:'High'},Yellow:{sw:'orange',label:'Medium Review Priority',short:'Medium'},
+ Blue:{sw:'yellow',label:'Document Check',short:'Check'},Grey:{sw:'grey',label:'Baseline Comparison',short:'Baseline'}};
+const swv=c=>'var(--'+(BAND[c]?BAND[c].sw:'grey')+')';
 const REGIONS=["National Capital Region (NCR)", "Cordillera Administrative Region (CAR)", "Region I (Ilocos Region)", "Region II (Cagayan Valley)", "Region III (Central Luzon)", "Region IV-A (CALABARZON)", "Region IV-B (MIMAROPA)", "Region V (Bicol Region)", "Region VI (Western Visayas)", "Region VII (Central Visayas)", "Region VIII (Eastern Visayas)", "Region IX (Zamboanga Peninsula)", "Region X (Northern Mindanao)", "Region XI (Davao Region)", "Region XII (SOCCSKSARGEN)", "Region XIII (Caraga)", "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)", "NIR (Negros Island Region)"];
 let P=[];
 function setData(d){D=d;P=(D.places||[]).map(p=>({...p,total:p.Red+p.Yellow+p.Blue+p.Grey}));CASES=D.cases||[];
@@ -782,17 +807,28 @@ function tiles(){if(!map)return;if(tl)map.removeLayer(tl);
  tl=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'© OpenStreetMap contributors'});tl.addTo(map);
  const pane=map.getPane('tilePane');if(pane)pane.style.filter='grayscale(.55) contrast(.95)'}
 let CASES=[];
-function projList(p){const cs=CASES.filter(c=>c.place===p.key&&on()[c.colour]);if(!cs.length)return'';return '<div style="margin-top:6px;max-height:160px;overflow:auto">'+cs.slice(0,12).map(c=>`<div style="margin:3px 0"><span class="cdot ${c.colour}" style="background:var(--${c.colour.toLowerCase()})"></span><a href="case.html?id=${encodeURIComponent(c.id)}">${esc(c.name)}</a></div>`).join('')+(cs.length>12?`<div style="color:#888">…and ${cs.length-12} more in the table below</div>`:'')+'</div>'}
-let csK='colour',csD=1;const CORD={Red:0,Yellow:1,Blue:2,Grey:3};
+function projList(p){const cs=CASES.filter(c=>c.place===p.key&&on()[c.colour]);if(!cs.length)return'';return '<div style="margin-top:6px;max-height:160px;overflow:auto">'+cs.slice(0,12).map(c=>`<div style="margin:3px 0"><span class="cdot ${c.colour}"></span><a href="case.html?id=${encodeURIComponent(c.id)}">${esc(c.name)}</a></div>`).join('')+(cs.length>12?`<div style="color:#888">…and ${cs.length-12} more in the table below</div>`:'')+'</div>'}
+let csK='region',csD=1;const CORD={Red:0,Yellow:1,Blue:2,Grey:3};
+// a link from another page can arrive with a filter already chosen
+(function(){const q=new URLSearchParams(location.search);
+ const set=(sel,v)=>{if(!v)return;const e=$(sel);if(!e)return;e.value=v;};
+ set('#stage',q.get('stage'));set('#col',q.get('colour'));set('#region',q.get('region'));set('#cq',q.get('q'));
+ if(q.get('colour')){const only=q.get('colour');document.querySelectorAll('.chk[data-c]').forEach(c=>{c.querySelector('input').checked=(c.dataset.c===only)})}
+ if(q.get('stage')||q.get('colour')||q.get('region'))addEventListener('load',()=>{const t=document.getElementById('cases');if(t)t.scrollIntoView()})})();
 function ctable(){const o=on(),rg=$('#region').value,st=$('#stage').value,q=($('#cq').value||$('#q').value).trim().toLowerCase();
  const ad=$('#added').value;const sr=$('#src').value;const cl=$('#col').value,rs=$('#rsn').value,dc=$('#dec').value;const rows=CASES.filter(c=>o[c.colour]&&(!cl||c.colour===cl)&&(!rs||c.reasons.includes(rs))&&(!dc||(dc==='__open'?!c.decision:c.decision===dc))&&($('#oldc').checked||!c.left)&&(!rg||c.region===rg)&&(!st||c.stage===st)&&(!ad||c.added===ad)&&(!sr||(c.source||'DPWH')===sr)&&(!q||(c.name+' '+c.town+' '+c.province+' '+c.region+' '+c.id+' '+c.contractor).toLowerCase().includes(q)));
- rows.sort((a,b)=>{let x=a[csK],y=b[csK];if(csK==='colour'){x=CORD[x];y=CORD[y]}if(csK==='reasons'){x=a.reasons.length;y=b.reasons.length}if(x==null)x=-1;if(y==null)y=-1;const r=(typeof x==='string'?x.localeCompare(y):x-y)*csD;return r||((b.budget_m||0)-(a.budget_m||0))});
- const rowHtml=(c,cls)=>`<tr class="${cls||''}"><td><span class="cdot ${c.colour}" style="background:var(--${c.colour.toLowerCase()})"></span>${c.colour}</td><td style="font-size:12px">${c.source==='PhilGEPS'?'<b>PhilGEPS</b><br><span style="color:var(--muted)">local / other</span>':'DPWH'}</td><td>${c.decision?`<b>${esc(c.decision)}</b>`:'<span style="color:var(--muted)">Open</span>'}</td><td style="white-space:nowrap">${esc(c.added||'')}</td><td><a href="case.html?id=${encodeURIComponent(c.id)}">${esc(c.name)}</a><div style="font-size:12px;color:var(--muted)">${esc(c.id)} · <a href="${esc(c.url)}" target="_blank" rel="noopener">${c.source==='PhilGEPS'?'PhilGEPS notice':'DPWH page'}</a>${c.docs?` · <a href="${esc(c.docs)}" target="_blank" rel="noopener">bid documents</a>`:''}${c.philgeps?` · <a href="${esc(c.philgeps)}" target="_blank" rel="noopener">PhilGEPS notice</a>`:''}</div></td><td>${esc(c.contractor)}</td><td>${esc(c.town)}</td><td>${esc(c.province)}</td><td style="font-size:13px">${esc(c.region)}</td><td>${esc(c.stage)}</td><td class="n">${c.budget_m==null?'':c.budget_m.toLocaleString('en-US')}</td><td>${c.reasons.map(esc).join(' · ')}</td></tr>`;
+ const geo=(a,b)=>String(a.region||'').localeCompare(String(b.region||''))||String(a.province||'').localeCompare(String(b.province||''))||String(a.town||'').localeCompare(String(b.town||''));
+ rows.sort((a,b)=>{let x=a[csK],y=b[csK];if(csK==='colour'){x=CORD[x];y=CORD[y]}if(csK==='reasons'){x=a.reasons.length;y=b.reasons.length}if(x==null)x=-1;if(y==null)y=-1;
+  const r=(typeof x==='string'?x.localeCompare(y):x-y)*csD;
+  // geography is the backbone of the list: within a region, the most urgent cases first
+  if(csK==='region')return r||(CORD[a.colour]-CORD[b.colour])||String(a.province||'').localeCompare(String(b.province||''))||String(a.town||'').localeCompare(String(b.town||''))||((b.budget_m||0)-(a.budget_m||0));
+  return r||geo(a,b)||((b.budget_m||0)-(a.budget_m||0))});
+ const rowHtml=(c,cls)=>`<tr class="${cls||''}"><td style="white-space:nowrap"><span class="cdot ${c.colour}"></span>${esc(BAND[c.colour]?BAND[c.colour].short:c.colour)}</td><td style="font-size:13px">${esc(c.region)}</td><td>${esc(c.province)}</td><td>${esc(c.town)}</td><td><a href="case.html?id=${encodeURIComponent(c.id)}">${esc(c.name)}</a><div style="font-size:12px;color:var(--muted)">${esc(c.id)} · <a href="${esc(c.url)}" target="_blank" rel="noopener">${c.source==='PhilGEPS'?'PhilGEPS notice':'DPWH page'}</a>${c.docs?` · <a href="${esc(c.docs)}" target="_blank" rel="noopener">bid documents</a>`:''}${c.philgeps?` · <a href="${esc(c.philgeps)}" target="_blank" rel="noopener">PhilGEPS notice</a>`:''}</div></td><td>${esc(c.contractor)}</td><td style="font-size:12px">${c.source==='PhilGEPS'?'<b>PhilGEPS</b><br><span style="color:var(--muted)">local / other</span>':'DPWH'}</td><td>${c.decision?`<b>${esc(c.decision)}</b>`:'<span style="color:var(--muted)">Open</span>'}</td><td style="white-space:nowrap">${esc(c.added||'')}</td><td>${esc(c.stage)}</td><td class="n">${c.budget_m==null?'':c.budget_m.toLocaleString('en-US')}</td><td><ul class="rl">${c.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></td></tr>`;
  const gm=$('#grp').value==='firm';let html='';
  if(gm){const G={};rows.forEach(c=>{if(c.group)(G[c.group]=G[c.group]||[]).push(c)});
   const gs=Object.entries(G).filter(([k,v])=>v.length>=2).sort((a,b)=>b[1].length-a[1].length);const used=new Set();
   gs.forEach(([k,v],gi)=>{v.forEach(c=>used.add(c.id));const cc={Red:0,Yellow:0,Blue:0,Grey:0};v.forEach(c=>cc[c.colour]++);const tot=v.reduce((a,c)=>a+(c.budget_m||0),0);
-   html+=`<tr class="grow" data-g="${gi}"><td colspan="12"><b>▸ ${esc(k)}</b> · ${v.length} cases · ${['Red','Yellow','Blue','Grey'].filter(x=>cc[x]).map(x=>`<span class="cdot ${x}" style="background:var(--${x.toLowerCase()})"></span>${cc[x]} ${x}`).join(' · ')} · ₱${tot.toLocaleString('en-US',{maximumFractionDigits:0})}M in total</td></tr>`+v.map(c=>rowHtml(c,'gch g'+gi)).join('')});
+   html+=`<tr class="grow" data-g="${gi}"><td colspan="12"><b>▸ ${esc(k)}</b> · ${v.length} cases · ${COLS.filter(x=>cc[x]).map(x=>`<span class="cdot ${x}"></span>${cc[x]} ${BAND[x].short}`).join(' · ')} · ₱${tot.toLocaleString('en-US',{maximumFractionDigits:0})}M in total</td></tr>`+v.map(c=>rowHtml(c,'gch g'+gi)).join('')});
   html+=rows.filter(c=>!used.has(c.id)).map(c=>rowHtml(c)).join('')}else html=rows.map(c=>rowHtml(c)).join('');
  $('#ctbl tbody').innerHTML=html;
  document.querySelectorAll('#ctbl tr.grow').forEach(r=>r.onclick=()=>{const o=r.classList.toggle('open');document.querySelectorAll('#ctbl tr.g'+r.dataset.g).forEach(x=>x.style.display=o?'':'none');r.querySelector('b').textContent=(o?'▾ ':'▸ ')+r.querySelector('b').textContent.slice(2)});
@@ -807,18 +843,30 @@ function topColour(p){const o=on();return COLS.find(c=>o[c]&&p[c]>0)}
 function draw(){if(!map)return;if(layer)map.removeLayer(layer);layer=L.layerGroup().addTo(map);
  const F=filtered();
  F.slice().sort((a,b)=>b.shown-a.shown).forEach(p=>{const c=topColour(p);const r=4+Math.sqrt(p.shown)*3.2;
-  L.circleMarker([p.lat,p.lon],{radius:r,color:css('--surface'),weight:1,fillColor:css('--'+c.toLowerCase()),fillOpacity:.82})
+  L.circleMarker([p.lat,p.lon],{radius:r,color:css('--surface'),weight:1,fillColor:css('--'+BAND[c].sw),fillOpacity:.82})
   .bindPopup(`<b>${esc(p.name)}</b><br>${[p.province,p.region].filter(Boolean).map(esc).join(' · ')}<br>`+COLS.filter(k=>p[k]).map(k=>`${k}: <b>${p[k]}</b>`).join(' · ')+`<br><span style="color:#888">${p.tender} tender, ${p.award} awarded · located by ${esc(p.precision)}</span>`+projList(p)).addTo(layer)});
  if($('#s3 input').checked)(D.stage3_grid||[]).filter(g=>g.stalled>0).forEach(g=>L.circleMarker([g.lat,g.lon],{radius:3+Math.sqrt(g.stalled)*2.6,color:css('--purple'),weight:1.5,fillOpacity:0,dashArray:'3 2'}).bindPopup(`<b>Stage 3 (about 10 km area)</b><br>${g.stalled} possibly stalled, ${g.behind} far behind<br><span style="color:#888">DPWH records may simply be out of date</span>`).addTo(layer));
- $('#legend').innerHTML=COLS.map(c=>`<span><i style="background:var(--${c.toLowerCase()})"></i>${c}: ${fmt(F.reduce((a,p)=>a+(on()[c]?p[c]:0),0))}</span>`).join('')+`<span>Circle colour = most urgent colour present · size = number of cases</span>`;
+ $('#legend').innerHTML=COLS.map(c=>`<span><i style="background:${swv(c)}"></i>${BAND[c].label}: ${fmt(F.reduce((a,p)=>a+(on()[c]?p[c]:0),0))}</span>`).join('')+`<span>Circle colour = highest priority present · size = number of cases</span>`;
  table(F);ctable()}
-let sortK='total',sortD=-1;
-function table(F){const rows=F.slice().sort((a,b)=>{const x=a[sortK],y=b[sortK];return (typeof x==='string'?x.localeCompare(y):x-y)*sortD});
- $('#tbl tbody').innerHTML=rows.map((p,i)=>`<tr data-i="${P.indexOf(P.find(q=>q.name===p.name&&q.province===p.province))}"><td>${esc(p.name)}</td><td>${esc(p.province)}</td><td>${esc(p.region)}</td>${COLS.map(c=>`<td class="n">${p[c]||''}</td>`).join('')}<td class="n"><b>${p.total}</b></td><td class="n">${p.tender}</td><td class="n">${p.award}</td><td><span class="pill">${esc(p.precision)}</span></td></tr>`).join('');
+let sortK='region',sortD=1;
+function table(F){
+ // geography first: region, then province, then town, so an area is easy to find and recall
+ const geo=(a,b)=>String(a.region||'').localeCompare(String(b.region||''))||String(a.province||'').localeCompare(String(b.province||''))||String(a.name||'').localeCompare(String(b.name||''));
+ const rows=F.slice().sort((a,b)=>{if(sortK==='region')return geo(a,b)*sortD;
+   const x=a[sortK],y=b[sortK];return ((typeof x==='string'?x.localeCompare(y):x-y)*sortD)||geo(a,b)});
+ let last=null,html='';
+ rows.forEach(p=>{
+  if(sortK==='region'&&p.region!==last){last=p.region;
+   const inR=rows.filter(q=>q.region===p.region);
+   html+=`<tr class="rhead"><td colspan="3"><b>${esc(p.region||'Region not stated')}</b>${REGION_NOTE[p.region]?` <button class="inote" data-r="${esc(p.region)}" title="Coverage note" aria-label="Coverage note for ${esc(p.region)}">i</button>`:''}</td>${COLS.map(c=>`<td class="n">${fmt(inR.reduce((a,q)=>a+(q[c]||0),0))||''}</td>`).join('')}<td class="n"><b>${fmt(inR.reduce((a,q)=>a+q.total,0))}</b></td><td class="n">${fmt(inR.reduce((a,q)=>a+q.tender,0))}</td><td class="n">${fmt(inR.reduce((a,q)=>a+q.award,0))}</td><td></td></tr>`}
+  html+=`<tr data-i="${P.indexOf(P.find(q=>q.name===p.name&&q.province===p.province))}"><td style="font-size:13px;color:var(--muted)">${esc(p.region)}</td><td>${esc(p.province)}</td><td>${esc(p.name)}</td>${COLS.map(c=>`<td class="n">${p[c]||''}</td>`).join('')}<td class="n"><b>${p.total}</b></td><td class="n">${p.tender}</td><td class="n">${p.award}</td><td><span class="pill">${esc(p.precision)}</span></td></tr>`});
+ $('#tbl tbody').innerHTML=html;
+ document.querySelectorAll('#tbl .inote').forEach(b=>b.onclick=e=>{e.stopPropagation();alert(REGION_NOTE[b.dataset.r])});
  $('#count').textContent=`${fmt(rows.length)} places · ${fmt(rows.reduce((a,p)=>a+p.total,0))} cases`;
  document.querySelectorAll('#tbl thead th').forEach(th=>th.setAttribute('aria-sort',th.dataset.k===sortK?(sortD>0?'ascending':'descending'):'none'));
  document.querySelectorAll('#tbl tbody tr').forEach(tr=>tr.onclick=()=>{const p=P[+tr.dataset.i];if(map&&p){map.setView([p.lat,p.lon],11);document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'})}})}
 document.querySelectorAll('#tbl thead th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;sortD=(sortK===k)?-sortD:(['name','province','region','precision'].includes(k)?1:-1);sortK=k;draw()});
+const REGION_NOTE={"BARMM":"Not covered. Roads in the Bangsamoro Autonomous Region are built mainly by the Bangsamoro Ministry of Public Works, not by DPWH, so they do not appear in the DPWH data BantAI reads. Some national projects inside BARMM may be carried under a neighbouring region such as Region XII."};
 document.querySelectorAll('.chk').forEach(c=>{c.onclick=e=>{if(e.target.tagName!=='INPUT'){const i=c.querySelector('input');i.checked=!i.checked}draw()}});
 ['#region','#prec','#q'].forEach(s=>$(s).addEventListener('input',draw));
 setData(D);
