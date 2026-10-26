@@ -307,27 +307,33 @@
   "queue_new": 1,
   "current": 6106
  },
- "generated_at": "2026-10-26T14:40+00:00",
+ "generated_at": "2026-10-26T16:53+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
    "items": [
     {
      "title": "Republic Act 12009, the New Government Procurement Act (2024)",
-     "note": "Replaced RA 9184. Its implementing rules took effect on 25 February 2025.",
-     "use": "The law in force for contracts procured from 2025 onward. BantAI reads tenders and awards against it.",
-     "url": "https://www.gppb.gov.ph/wp-content/uploads/2024/08/RA-No.-12009.pdf"
+     "note": "Replaced RA 9184. Its implementing rules took effect on 25 February 2025, so contracts procured from 2025 sit under a different law from the 2018–2024 contracts the indicators were tested on.",
+     "use": "The law in force for contracts procured from 2025 onward.",
+     "url": "https://lawphil.net/statutes/repacts/ra2024/ra_12009_2024.html"
+    },
+    {
+     "title": "GPPB primer on the New Government Procurement Act",
+     "use": "A short official summary of what changed, for a reviewer who needs the gist rather than the statute.",
+     "url": "https://www.gppb.gov.ph/wp-content/uploads/2025/07/NGPA-Primer.pdf"
     },
     {
      "title": "Republic Act 9184 and its 2016 revised IRR",
-     "note": "The predecessor. Most contracts in BantAI's 2018–2024 history were procured under it.",
-     "use": "The rules that governed the past contracts every indicator was tested on.",
-     "url": "https://www.gppb.gov.ph/the-2016-revised-irr-of-ra-no-9184/"
+     "note": "The predecessor. Find it in the GPPB issuance library.",
+     "use": "The rules that governed the past contracts every BantAI indicator was tested on.",
+     "url": "https://www.gppb.gov.ph/"
     },
     {
-     "title": "GPPB Guidelines on the Blacklisting of Constructors",
+     "title": "DPWH Department Order 069, series of 2017",
+     "note": "Revised guidelines on blacklisting.",
      "use": "Why a blacklisted or suspended firm matters, and what a blacklisting actually bars.",
-     "url": "https://www.gppb.gov.ph/wp-content/uploads/2023/05/Blacklisting-Guidelines.pdf"
+     "url": "https://www.dpwh.gov.ph/DPWH/sites/default/files/issuances/DO_069_s2017.pdf"
     }
    ]
   },
@@ -342,14 +348,15 @@
     },
     {
      "title": "GPPB Resolution No. 018-2004",
-     "note": "Guidelines on the termination of contracts.",
+     "note": "Guidelines on the termination of contracts. In the GPPB issuance library.",
      "use": "The grounds on which an infrastructure contract must be terminated for default.",
-     "url": "https://www.gppb.gov.ph/wp-content/uploads/2023/05/Resolution-018-2004.pdf"
+     "url": "https://www.gppb.gov.ph/"
     },
     {
      "title": "Presidential Decree 1870 (1983)",
+     "note": "In the Official Gazette.",
      "use": "The authority behind take-over by administration of a delayed infrastructure project.",
-     "url": "https://www.officialgazette.gov.ph/1983/07/12/presidential-decree-no-1870-s-1983/"
+     "url": "https://www.officialgazette.gov.ph/"
     }
    ]
   },
@@ -363,9 +370,9 @@
      "url": "https://construction.gov.ph/wp-content/uploads/2026/01/CPES_ImpGuidelines042315v2.pdf"
     },
     {
-     "title": "PCAB licensing rules (Republic Act 4566, as amended by RA 11711)",
+     "title": "PCAB licensing rules (RA 4566, as amended by RA 11711)",
      "use": "What a PCAB licence and its Authorized Managing Officer are, which Risk 5 relies on.",
-     "url": "https://www.officialgazette.gov.ph/1965/06/19/republic-act-no-4566/"
+     "url": "https://pcab.construction.gov.ph/"
     }
    ]
   },
@@ -374,8 +381,8 @@
    "items": [
     {
      "title": "COA Annual Audit Reports on the DPWH",
-     "use": "The published audit findings BantAI's case for screening rests on, and the office a referral normally goes to.",
-     "url": "https://www.coa.gov.ph/reports/annual-audit-reports/"
+     "use": "The published audit findings the case for screening rests on, and the office a referral normally goes to.",
+     "url": "https://www.coa.gov.ph/"
     },
     {
      "title": "DILG-OPDS Third-Party Monitoring Manual for Government Infrastructure Projects (2025)",
@@ -385,7 +392,7 @@
     {
      "title": "DPWH Standard Specifications for Public Works and Highways (the Blue Book)",
      "use": "What the work should have been, when a reviewer checks quantities and materials against the Bill of Quantities.",
-     "url": "https://www.dpwh.gov.ph/dpwh/references/standard_specification"
+     "url": "https://www.dpwh.gov.ph/dpwh/references"
     }
    ]
   }
@@ -407,22 +414,22 @@
  "monitored": 6106,
  "checked": 6106,
  "cases": {
-  "total": 549,
+  "total": 566,
   "by_colour": {
    "Red": 128,
    "Yellow": 57,
-   "Blue": 338,
+   "Blue": 355,
    "Grey": 26
   },
   "by_stage": {
-   "Award": 342,
+   "Award": 359,
    "Tender": 202,
    "Construction": 5
   },
   "stage_colour": {
    "Award": {
     "Red": 79,
-    "Blue": 215,
+    "Blue": 232,
     "Yellow": 44,
     "Grey": 4
    },
@@ -465,7 +472,7 @@
    "region": "Region I (Ilocos Region)",
    "Red": 0,
    "Yellow": 17,
-   "Blue": 15,
+   "Blue": 17,
    "Grey": 0
   },
   {
@@ -479,7 +486,7 @@
    "region": "Region III (Central Luzon)",
    "Red": 16,
    "Yellow": 7,
-   "Blue": 58,
+   "Blue": 60,
    "Grey": 3
   },
   {
@@ -500,7 +507,7 @@
    "region": "Region V (Bicol Region)",
    "Red": 1,
    "Yellow": 1,
-   "Blue": 20,
+   "Blue": 23,
    "Grey": 1
   },
   {
@@ -514,7 +521,7 @@
    "region": "Region VII (Central Visayas)",
    "Red": 0,
    "Yellow": 2,
-   "Blue": 41,
+   "Blue": 42,
    "Grey": 3
   },
   {
@@ -528,7 +535,7 @@
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
    "Yellow": 7,
-   "Blue": 11,
+   "Blue": 17,
    "Grey": 3
   },
   {
@@ -549,7 +556,7 @@
    "region": "Region XII (SOCCSKSARGEN)",
    "Red": 0,
    "Yellow": 1,
-   "Blue": 29,
+   "Blue": 30,
    "Grey": 1
   },
   {
@@ -570,7 +577,7 @@
    "region": "NIR (Negros Island Region)",
    "Red": 1,
    "Yellow": 1,
-   "Blue": 3,
+   "Blue": 5,
    "Grey": 0
   }
  ],
@@ -1120,9 +1127,14 @@
      "evidence": "The pattern across the winner's other contracts, over at least two evaluations: 0.51% of those contracts were terminated against 0.32%, odds ×1.57 (1.02–2.43). GPPB Circular 03-2019 requires a catch-up programme from 5% and a final warning from 10%"
     },
     {
-     "label": "CPES findings on the winner's OTHER contracts: an evaluation over the termination threshold, a “Poor” or “Unsatisfactory” rating, low materials or workmanship, a “Satisfactory” rating",
+     "label": "WATCH: on the winner's OTHER contracts, an evaluation over the termination threshold or a “Poor” or “Unsatisfactory” rating",
+     "role": "watch",
+     "evidence": "Admits the case for review and adds no score. It does not predict this contract failing (odds ×1.00, 0.70–1.43), but it is a compliance question of its own: 15% slippage obliged the procuring entity to start termination on that contract, and Poor/Unsatisfactory is a ground for blacklisting (CPES Guidelines 12.7). About 3% of road contracts a year"
+    },
+    {
+     "label": "CPES findings on the winner's OTHER contracts: low materials or workmanship, a “Satisfactory” rating",
      "role": "context",
-     "evidence": "Shown for the reviewer, never scored. None of them predicts this contract failing (odds ×0.84 to ×1.06, every interval spanning 1) and together they would flag a quarter of all contracts"
+     "evidence": "Shown for the reviewer, never scored: no measurable link to termination (odds ×0.84 to ×1.06) and together they would flag most contracts"
     }
    ]
   }
