@@ -24,9 +24,9 @@
    "new_tenders": null,
    "new_awards": null,
    "new_cases": {
-    "Red": 104,
+    "Red": 105,
     "Yellow": 3,
-    "Blue": 36,
+    "Blue": 35,
     "Grey": 5
    },
    "source_changed": false,
@@ -89,8 +89,8 @@
    "new_awards": 1400,
    "new_cases": {
     "Red": 23,
-    "Yellow": 0,
-    "Blue": 39,
+    "Yellow": 1,
+    "Blue": 38,
     "Grey": 1
    },
    "source_changed": true,
@@ -137,8 +137,8 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 0,
-    "Blue": 179,
+    "Yellow": 16,
+    "Blue": 163,
     "Grey": 5
    },
    "source_changed": false,
@@ -307,7 +307,7 @@
   "queue_new": 1,
   "current": 6106
  },
- "generated_at": "2026-10-26T08:12+00:00",
+ "generated_at": "2026-10-26T08:29+00:00",
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.11.1",
  "last_run": "2026-10-25T23:26:37.106346+00:00",
@@ -325,28 +325,34 @@
  "monitored": 6106,
  "checked": 6106,
  "cases": {
-  "total": 419,
+  "total": 560,
   "by_colour": {
-   "Red": 128,
-   "Yellow": 3,
-   "Blue": 262,
+   "Red": 129,
+   "Yellow": 81,
+   "Blue": 324,
    "Grey": 26
   },
   "by_stage": {
-   "Award": 267,
-   "Tender": 152
+   "Award": 353,
+   "Tender": 202,
+   "Construction": 5
   },
   "stage_colour": {
    "Award": {
     "Red": 80,
-    "Blue": 180,
-    "Yellow": 3,
+    "Blue": 200,
+    "Yellow": 69,
     "Grey": 4
    },
    "Tender": {
-    "Blue": 82,
+    "Blue": 120,
+    "Yellow": 12,
     "Red": 48,
     "Grey": 22
+   },
+   "Construction": {
+    "Red": 1,
+    "Blue": 4
    }
   }
  },
@@ -361,113 +367,113 @@
   {
    "region": "National Capital Region (NCR)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 12,
+   "Yellow": 3,
+   "Blue": 11,
    "Grey": 1
   },
   {
    "region": "Cordillera Administrative Region (CAR)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 9,
+   "Yellow": 1,
+   "Blue": 15,
    "Grey": 1
   },
   {
    "region": "Region I (Ilocos Region)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 19,
+   "Yellow": 21,
+   "Blue": 15,
    "Grey": 0
   },
   {
    "region": "Region II (Cagayan Valley)",
    "Red": 5,
-   "Yellow": 0,
-   "Blue": 9,
+   "Yellow": 3,
+   "Blue": 12,
    "Grey": 0
   },
   {
    "region": "Region III (Central Luzon)",
    "Red": 16,
-   "Yellow": 3,
-   "Blue": 51,
+   "Yellow": 8,
+   "Blue": 57,
    "Grey": 3
   },
   {
    "region": "Region IV-A (CALABARZON)",
    "Red": 1,
-   "Yellow": 0,
-   "Blue": 29,
+   "Yellow": 15,
+   "Blue": 28,
    "Grey": 2
   },
   {
    "region": "Region IV-B (MIMAROPA)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 0,
+   "Blue": 4,
    "Grey": 1
   },
   {
    "region": "Region V (Bicol Region)",
    "Red": 1,
-   "Yellow": 0,
-   "Blue": 18,
+   "Yellow": 4,
+   "Blue": 19,
    "Grey": 1
   },
   {
    "region": "Region VI (Western Visayas)",
-   "Red": 42,
-   "Yellow": 0,
-   "Blue": 9,
+   "Red": 43,
+   "Yellow": 4,
+   "Blue": 12,
    "Grey": 1
   },
   {
    "region": "Region VII (Central Visayas)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 28,
+   "Yellow": 4,
+   "Blue": 38,
    "Grey": 3
   },
   {
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 23,
+   "Blue": 30,
    "Grey": 3
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 9,
+   "Yellow": 5,
+   "Blue": 11,
    "Grey": 3
   },
   {
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
-   "Blue": 14,
+   "Blue": 16,
    "Grey": 2
   },
   {
    "region": "Region XI (Davao Region)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 6,
+   "Yellow": 2,
+   "Blue": 9,
    "Grey": 1
   },
   {
    "region": "Region XII (SOCCSKSARGEN)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 8,
+   "Yellow": 1,
+   "Blue": 29,
    "Grey": 1
   },
   {
    "region": "Region XIII (Caraga)",
    "Red": 19,
-   "Yellow": 0,
-   "Blue": 17,
+   "Yellow": 2,
+   "Blue": 15,
    "Grey": 3
   },
   {
@@ -480,8 +486,8 @@
   {
    "region": "NIR (Negros Island Region)",
    "Red": 1,
-   "Yellow": 0,
-   "Blue": 1,
+   "Yellow": 8,
+   "Blue": 3,
    "Grey": 0
   }
  ],
@@ -989,7 +995,7 @@
     {
      "label": "WEAK: same name match with the same province but a different or unstated municipality, or the same municipality name with the province unclear",
      "role": "weak",
-     "evidence": "Identical place names are flagged for review. Shown on the case, not added to the colour score until a backtest supports it"
+     "evidence": "Identical place names are flagged for review. Counted in the score from rules-v0.12.0 by team decision (26 Oct 2026): the backtest shows no detectable link to termination, so treat it as a lead to verify, not a prediction"
     },
     {
      "label": "BetterGov AMO analysis: AMO who is an elected official (direct) or related to one (indirect)",
