@@ -26,7 +26,7 @@
    "new_cases": {
     "Red": 104,
     "Yellow": 3,
-    "Blue": 36,
+    "Blue": 35,
     "Grey": 5
    },
    "source_changed": false,
@@ -88,7 +88,7 @@
    "new_tenders": 113,
    "new_awards": 1400,
    "new_cases": {
-    "Red": 23,
+    "Red": 22,
     "Yellow": 1,
     "Blue": 38,
     "Grey": 1
@@ -137,8 +137,8 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 17,
-    "Blue": 162,
+    "Yellow": 16,
+    "Blue": 160,
     "Grey": 5
    },
    "source_changed": false,
@@ -271,12 +271,28 @@
    },
    "source_changed": false,
    "rules_changed": false
+  },
+  {
+   "d": "2026-10-27",
+   "rows": 266890,
+   "checked": 1000,
+   "rules": "rules-v0.12.0",
+   "new_tenders": 40,
+   "new_awards": 0,
+   "new_cases": {
+    "Red": 0,
+    "Yellow": 36,
+    "Blue": 115,
+    "Grey": 1
+   },
+   "source_changed": true,
+   "rules_changed": true
   }
  ],
- "left_scope": 58,
+ "left_scope": 63,
  "latest": {
   "source_changed": "2026-10-20",
-  "source_stale_days": 5,
+  "source_stale_days": 7,
   "source_check": {
    "checked_at": "2026-10-24T05:27:55+00:00",
    "api_ok": true,
@@ -300,14 +316,14 @@
    "rows_in_last_daily_run": 266665,
    "verdict": "Source reachable and unchanged since the last daily run: it is quiet, the pipeline is not broken."
   },
-  "source_rows": 266665,
+  "source_rows": 266890,
   "checked": 1000,
   "failed": 0,
-  "shadow_watch": 95,
-  "queue_new": 1,
-  "current": 6106
+  "shadow_watch": 137,
+  "queue_new": 152,
+  "current": 6117
  },
- "generated_at": "2026-10-27T00:29+00:00",
+ "generated_at": "2026-10-27T00:46+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -399,50 +415,44 @@
  ],
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.12.0",
- "last_run": "2026-10-25T23:26:37.106346+00:00",
+ "last_run": "2026-10-27T00:41:21.862855+00:00",
  "stages": {
-  "road_tenders_open": 4619,
-  "road_tenders_new": 0,
-  "road_awarded": 1487,
+  "road_tenders_open": 4659,
+  "road_tenders_new": 40,
+  "road_awarded": 1458,
   "road_awarded_new": 0,
-  "road_construction": 13346,
+  "road_construction": 13375,
   "road_completed_this_year": 97,
   "road_terminated_this_year": 0,
-  "all_dpwh_tenders_open": 10402
+  "all_dpwh_tenders_open": 10538
  },
- "stages_at": "2026-10-25T23:26:37.106346+00:00",
- "monitored": 6106,
- "checked": 6106,
+ "stages_at": "2026-10-27T00:41:21.862855+00:00",
+ "monitored": 6117,
+ "checked": 6117,
  "cases": {
   "total": 566,
   "by_colour": {
-   "Red": 128,
-   "Yellow": 57,
-   "Blue": 355,
-   "Grey": 26
+   "Red": 127,
+   "Yellow": 56,
+   "Blue": 356,
+   "Grey": 27
   },
   "by_stage": {
-   "Award": 359,
-   "Tender": 202,
-   "Construction": 5
+   "Award": 357,
+   "Tender": 209
   },
   "stage_colour": {
    "Award": {
     "Red": 79,
-    "Blue": 232,
+    "Blue": 230,
     "Yellow": 44,
     "Grey": 4
    },
    "Tender": {
-    "Blue": 120,
+    "Blue": 126,
     "Yellow": 12,
     "Red": 48,
-    "Grey": 22
-   },
-   "Construction": {
-    "Red": 1,
-    "Blue": 3,
-    "Yellow": 1
+    "Grey": 23
    }
   }
  },
@@ -465,7 +475,7 @@
    "region": "Cordillera Administrative Region (CAR)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 15,
+   "Blue": 14,
    "Grey": 1
   },
   {
@@ -512,7 +522,7 @@
   },
   {
    "region": "Region VI (Western Visayas)",
-   "Red": 42,
+   "Red": 41,
    "Yellow": 6,
    "Blue": 11,
    "Grey": 1
@@ -528,8 +538,8 @@
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 34,
-   "Grey": 3
+   "Blue": 33,
+   "Grey": 4
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
@@ -542,7 +552,7 @@
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
-   "Blue": 20,
+   "Blue": 23,
    "Grey": 2
   },
   {
@@ -562,7 +572,7 @@
   {
    "region": "Region XIII (Caraga)",
    "Red": 19,
-   "Yellow": 3,
+   "Yellow": 2,
    "Blue": 16,
    "Grey": 3
   },
@@ -691,6 +701,11 @@
    "d": "2026-10-25",
    "t": 4619,
    "a": 1487
+  },
+  {
+   "d": "2026-10-27",
+   "t": 4659,
+   "a": 1458
   }
  ],
  "evidence": [
