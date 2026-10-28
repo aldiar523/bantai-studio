@@ -310,26 +310,26 @@
   "source_changed": "2026-10-27",
   "source_stale_days": 0,
   "source_check": {
-   "checked_at": "2026-10-24T05:27:55+00:00",
+   "checked_at": "2026-10-28T07:12:47+00:00",
    "api_ok": true,
-   "rows": 266665,
-   "rows_with_id": 266665,
-   "rows_not_in_bantai_state": 259654,
+   "rows": 266890,
+   "rows_with_id": 266890,
+   "tenders_not_in_bantai_state": 11497,
    "status_counts": {
     "Completed": 215660,
     "On-Going": 31543,
-    "For Procurement": 15933,
+    "For Procurement": 16158,
     "Not Yet Started": 2466,
     "Terminated": 1063
    },
    "newest_infra_years": {
-    "2026": 16270,
-    "2025": 28088,
-    "2024": 30756,
+    "2026": 16406,
+    "2025": 28174,
+    "2024": 30759,
     "2023": 26182
    },
-   "rows_change_since_last_check": 0,
-   "rows_in_last_daily_run": 266665,
+   "rows_change_since_last_check": 225,
+   "rows_in_last_daily_run": 266890,
    "verdict": "Source reachable and unchanged since the last daily run: it is quiet, the pipeline is not broken."
   },
   "source_rows": 266890,
@@ -339,7 +339,7 @@
   "queue_new": 1,
   "current": 6103
  },
- "generated_at": "2026-10-28T05:47+00:00",
+ "generated_at": "2026-10-28T13:00+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
