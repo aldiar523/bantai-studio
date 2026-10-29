@@ -303,12 +303,28 @@
    },
    "source_changed": false,
    "rules_changed": false
+  },
+  {
+   "d": "2026-10-29",
+   "rows": 266890,
+   "checked": 1000,
+   "rules": "rules-v0.12.0",
+   "new_tenders": 0,
+   "new_awards": 0,
+   "new_cases": {
+    "Red": 0,
+    "Yellow": 0,
+    "Blue": 0,
+    "Grey": 1
+   },
+   "source_changed": false,
+   "rules_changed": false
   }
  ],
  "left_scope": 67,
  "latest": {
   "source_changed": "2026-10-27",
-  "source_stale_days": 0,
+  "source_stale_days": 2,
   "source_check": {
    "checked_at": "2026-10-28T07:12:47+00:00",
    "api_ok": true,
@@ -335,11 +351,11 @@
   "source_rows": 266890,
   "checked": 1000,
   "failed": 0,
-  "shadow_watch": 133,
+  "shadow_watch": 135,
   "queue_new": 1,
   "current": 6103
  },
- "generated_at": "2026-10-29T01:01+00:00",
+ "generated_at": "2026-10-29T01:09+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -431,7 +447,7 @@
  ],
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.12.0",
- "last_run": "2026-10-28T00:39:37.448346+00:00",
+ "last_run": "2026-10-29T01:08:51.478236+00:00",
  "stages": {
   "road_tenders_open": 4659,
   "road_tenders_new": 0,
@@ -442,20 +458,20 @@
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 10538
  },
- "stages_at": "2026-10-28T00:39:37.448346+00:00",
+ "stages_at": "2026-10-29T01:08:51.478236+00:00",
  "monitored": 6103,
  "checked": 6103,
  "cases": {
-  "total": 563,
+  "total": 564,
   "by_colour": {
    "Red": 127,
    "Yellow": 56,
    "Blue": 352,
-   "Grey": 28
+   "Grey": 29
   },
   "by_stage": {
    "Award": 353,
-   "Tender": 210
+   "Tender": 211
   },
   "stage_colour": {
    "Award": {
@@ -468,7 +484,7 @@
     "Blue": 126,
     "Yellow": 12,
     "Red": 48,
-    "Grey": 24
+    "Grey": 25
    }
   }
  },
@@ -583,7 +599,7 @@
    "Red": 0,
    "Yellow": 1,
    "Blue": 29,
-   "Grey": 1
+   "Grey": 2
   },
   {
    "region": "Region XIII (Caraga)",
@@ -725,6 +741,11 @@
   },
   {
    "d": "2026-10-28",
+   "t": 4659,
+   "a": 1444
+  },
+  {
+   "d": "2026-10-29",
    "t": 4659,
    "a": 1444
   }
