@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BantAI · AI Analysis</title>
+<meta name="description" content="An AI-written second look at one road contract flagged by Project BantAI: what the rules found, what public sources add, and a suggested next step for the human reviewer.">
+<style>
+:root{color-scheme:light;--page:#FFFFFF;--surface:#FFFFFF;--ink:#0D0D0D;--ink2:#3F4650;--muted:#6B7280;--line:#E6E8EB;--soft:#F7F8FA;
+--accent:#0032A0;--accent-soft:#E8EEF9;--blue:#0032A0;--blue-soft:#E8EEF9;
+--red:#BF0D3E;--red-soft:#FBE7EC;--orange:#FFA500;--orange-soft:#FFF1D9;--on-orange:#8A4B00;
+--yellow:#FFCE1B;--yellow-soft:#FFF8DB;--on-yellow:#7A5C00;--gold:#7A5C00;
+--grey:#98A2B3;--grey-soft:#F2F4F7;--good:#0E7A4B;--purple:#6941C6;--radius:16px}
+*{box-sizing:border-box}html,body{margin:0}html{scroll-behavior:smooth}
+body{background:var(--page);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}a:hover{text-decoration-thickness:2px}
+h1,h2,h3{letter-spacing:-.018em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* top bar: light chrome, dark text, the flag stripe kept as a hairline */
+.top{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.top::after{content:"";display:block;height:2px;background:linear-gradient(90deg,var(--accent) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
+.top .wrap{max-width:1320px;display:flex;align-items:center;gap:4px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.top .wrap::-webkit-scrollbar{display:none}
+.brand{font-weight:700;letter-spacing:-.02em;margin-right:14px;color:var(--ink);text-decoration:none;font-size:17px;flex:none}
+.brand span{color:var(--accent)}
+.top a.nav{color:var(--ink2);text-decoration:none;font-size:14px;padding:7px 9px;border-radius:9px;flex:none}
+.top a.nav:hover{background:var(--soft);color:var(--ink)}
+.top a.nav[aria-current="page"]{background:var(--soft);color:var(--ink);font-weight:600}
+.top a.cta{margin-left:auto;color:#fff;background:var(--ink);padding:8px 15px;border-radius:999px;font-weight:600;text-decoration:none;font-size:14.5px;flex:none}
+.top a.cta:hover{background:#000}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.dot.Red,.c-Red{background:var(--red)}
+.dot.Yellow,.c-Yellow{background:var(--orange)}
+.dot.Blue,.c-Blue{background:var(--yellow);box-shadow:inset 0 0 0 1px #E0B400}
+.dot.Grey,.c-Grey{background:var(--grey)}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:7px;padding:2px 8px;white-space:nowrap}
+.tag.strong,.tag.High{background:var(--red-soft);color:var(--red)}
+.tag.alert,.tag.Alert{background:var(--red);color:#fff}
+.tag.weak,.tag.Elevated{background:var(--orange-soft);color:var(--on-orange);box-shadow:inset 0 0 0 1px #F3C98B}
+.tag.watch,.tag.Watch{background:var(--yellow-soft);color:var(--on-yellow);box-shadow:inset 0 0 0 1px #F0DB8A}
+.tag.test,.tag.context,.tag.Context{background:var(--grey-soft);color:var(--ink2)}
+.tag.none{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+ border-radius:999px;padding:10px 18px;font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--soft)}
+.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.primary:hover{background:#000}
+footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+/* signal mode switch (standard / heightened), in the header */
+.mode{margin-left:auto;display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;flex:none;background:var(--soft)}
+.mode button{font:inherit;font-size:12px;font-weight:600;border:0;background:transparent;color:var(--ink2);padding:4px 9px;border-radius:999px;cursor:pointer}
+.mode button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+html[data-mode="heightened"] .mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mode+a.cta{margin-left:8px}
+.hbanner{display:none;background:var(--ink);color:#fff;font-size:13px;padding:7px 0}
+.hbanner a{color:#fff}
+html[data-mode="heightened"] .hbanner{display:block}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:22px 0 0}
+.bar .sp{flex:1}
+.paper{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 40px;margin:16px 0 40px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font-size:clamp(24px,3.4vw,32px);line-height:1.15;letter-spacing:-.02em;margin:8px 0 6px}
+.meta{color:var(--muted);font-size:13.5px;margin:0}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border-radius:14px;padding:18px 20px;margin:22px 0 8px;background:var(--soft)}
+.verdict .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.verdict .v{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:2px}
+.verdict .ic{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;font-weight:800}
+.verdict.escalate{background:var(--red-soft)}.verdict.escalate .ic{background:var(--red)}.verdict.escalate .v{color:var(--red)}
+.verdict.document_check{background:var(--orange-soft)}.verdict.document_check .ic{background:var(--orange)}.verdict.document_check .v{color:var(--on-orange)}
+.verdict.no_further_action{background:#E7F5EE}.verdict.no_further_action .ic{background:var(--good)}.verdict.no_further_action .v{color:var(--good)}
+.conf{display:inline-flex;gap:3px;vertical-align:middle;margin-left:6px}.conf i{width:18px;height:6px;border-radius:3px;background:#D0D5DD}.conf i.on{background:var(--ink)}
+.headline{font-size:19px;font-weight:650;line-height:1.4;margin:18px 0 8px}
+.summary{font-size:16px;color:var(--ink2);line-height:1.65;margin:0}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:30px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.sig{display:grid;grid-template-columns:120px 1fr;gap:4px 14px;padding:10px 0;border-bottom:1px solid var(--line)}
+.sig:last-child{border-bottom:0}
+.sig .st{font-size:12.5px;font-weight:700;border-radius:7px;padding:3px 8px;text-align:center;align-self:start}
+.st.supported{background:#E7F5EE;color:var(--good)}.st.partly{background:var(--orange-soft);color:var(--on-orange)}
+.st.not-supported{background:var(--red-soft);color:var(--red)}.st.cannot-check{background:var(--grey-soft);color:var(--ink2)}
+.sig b{font-size:15px}.sig p{margin:2px 0 0;font-size:14px;color:var(--ink2)}
+.find{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin:0 0 10px}
+.find p{margin:0 0 6px;font-size:15px}
+.find .src{font-size:13px;color:var(--muted)}.find .src a{word-break:break-word}
+.tagl{display:inline-block;font-size:11.5px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:6px;background:var(--accent-soft);color:var(--accent)}
+.tagl.u{background:var(--grey-soft);color:var(--ink2)}
+ul.l{margin:0;padding-left:20px}ul.l li{margin:5px 0;font-size:15px;color:var(--ink2)}
+ol.n{margin:0;padding-left:22px}ol.n li{margin:7px 0;font-size:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+@media (max-width:700px){.paper{padding:22px 18px}.two{grid-template-columns:1fr}.sig{grid-template-columns:1fr}.verdict{grid-template-columns:1fr}}
+.foot{font-size:12.5px;color:var(--muted);margin-top:28px;padding-top:14px;border-top:1px solid var(--line)}
+.empty{text-align:center;padding:60px 20px}
+@media print{.top,.bar,.hbanner{display:none!important}body{background:#fff}.paper{border:0;box-shadow:none;padding:0;margin:0}
+ .wrap{max-width:none;padding:0}h2{break-after:avoid}.find,.sig{break-inside:avoid}a{color:inherit}
+ .find .src a::after{content:""}@page{size:A4;margin:16mm 16mm 18mm}}
+</style></head><body>
+<script>(function(){var m='standard';try{var u=new URLSearchParams(location.search).get('mode');
+if(u==='heightened'||u==='standard')localStorage.setItem('bantai-mode',u);m=localStorage.getItem('bantai-mode')||'standard'}catch(e){}
+window.BMODE=m;document.documentElement.dataset.mode=m;
+window.setBMode=function(x){try{localStorage.setItem('bantai-mode',x)}catch(e){}var q=new URLSearchParams(location.search);q.delete('mode');
+var s=q.toString();location.href=location.pathname+(s?'?'+s:'')+location.hash};
+window.bandOf=function(c){return (m==='heightened'&&c.colour_h)?c.colour_h:c.colour}})();</script><div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html" aria-current="page">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><span class="mode" role="group" aria-label="Signal mode" title="Heightened mode counts every signal one tier higher"><button type="button" onclick="setBMode('standard')" aria-pressed="true" id="mStd">Standard</button><button type="button" onclick="setBMode('heightened')" aria-pressed="false" id="mHi">Heightened</button></span><script>if(window.BMODE==='heightened'){document.getElementById('mStd').setAttribute('aria-pressed','false');document.getElementById('mHi').setAttribute('aria-pressed','true')}</script><a class="cta" href="places.html">All cases</a></div><div class="hbanner"><div class="wrap" style="height:auto;display:block">Heightened mode: every signal counts one tier higher, so more cases rank High. Scores and decisions are unchanged. <a href="how.html#heightened">What this means</a> · <a href="#" onclick="setBMode('standard');return false">Back to standard</a></div></div></div>
+<main class="wrap"><div class="bar"><a class="btn" id="back" href="places.html">← Back to the case</a><span class="sp"></span>
+ <button class="btn" onclick="print()">Save as PDF</button><a class="btn" id="dWord" download>Word</a><a class="btn" id="dMd" download>Markdown</a></div>
+ <article class="paper" id="paper"><p class="meta">Loading…</p></article></main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const id=new URLSearchParams(location.search).get('id')||'';
+const REC={escalate:['Escalate','!'],document_check:['Check the documents first','?'],no_further_action:['No further action','✓']};
+const BL={Red:'High Review Priority',Yellow:'Medium Review Priority',Blue:'Document Check',Grey:'Baseline Comparison'};
+const peso=v=>v?'₱'+(v/1e6).toLocaleString('en-US',{maximumFractionDigits:1})+'M':'—';
+$('#back').href='case.html?id='+encodeURIComponent(id);
+$('#dWord').href=`analysis/${encodeURIComponent(id)}.docx`;$('#dMd').href=`analysis/${encodeURIComponent(id)}.md`;
+Promise.all([fetch(`analysis/${encodeURIComponent(id)}.json`).then(r=>r.ok?r.json():null),fetch(`cases/${encodeURIComponent(id)}.json`).then(r=>r.ok?r.json():null)])
+.then(([a,c])=>{const P=$('#paper');
+ if(!a){P.innerHTML=`<div class="empty"><h1>No AI analysis yet</h1><p class="meta">Open the case and press “Ask for an AI analysis”. Analyses are written every hour.</p><p><a class="btn primary" href="case.html?id=${encodeURIComponent(id)}">Open the case</a></p></div>`;$('.bar').style.display='none';return}
+ document.title='BantAI · AI Analysis · '+id;
+ const r=REC[a.recommendation]||['Advice','·'],cf={low:1,medium:2,high:3}[a.confidence]||1;
+ const list=(h,xs,cls='l')=>xs&&xs.length?`<h2>${h}</h2><${cls==='n'?'ol':'ul'} class="${cls}">${xs.map(x=>`<li>${esc(x)}</li>`).join('')}</${cls==='n'?'ol':'ul'}>`:'';
+ const facts=c?`${esc([c.place&&c.place.municipality,c.place&&c.place.province].filter(Boolean).join(', '))} · ${esc(c.office||'')} · ${esc(c.contractor||'')} · ABC ${peso(c.budget&&c.budget.abc)}`:'';
+ P.innerHTML=`<p class="kicker">AI Analysis · advice to the reviewer</p>
+  <h1>${esc(c?c.title:id)}</h1>
+  <p class="meta">Case ${esc(id)} · ${esc(BL[a.band]||a.band||'')} · ${facts}</p>
+  <div class="verdict ${esc(a.recommendation)}"><div class="ic">${r[1]}</div><div><div class="lbl">Suggested next step</div>
+   <div class="v">${esc(r[0])}${a.escalate_to&&a.escalate_to!=='none'?' → '+esc(a.escalate_to):''}</div>
+   <div class="meta" style="margin-top:4px">Confidence ${esc(a.confidence)} <span class="conf">${[1,2,3].map(i=>`<i class="${i<=cf?'on':''}"></i>`).join('')}</span></div></div></div>
+  <p class="headline">${esc(a.headline)}</p><p class="summary">${esc(a.summary)}</p>
+  ${a.signals&&a.signals.length?`<h2>What the rules found, checked against the facts</h2>${a.signals.map(s=>`<div class="sig"><span class="st ${esc(String(s.assessment).replace(/ /g,'-'))}">${esc(s.assessment)}</span><div><b>${esc(s.signal)}</b>${s.role?` <span class="tag ${esc(s.role)}">${esc(s.role)}</span>`:''}<p>${esc(s.note)}</p></div></div>`).join('')}`:''}
+  <h2>What public sources add</h2>${(a.outside_findings||[]).length?a.outside_findings.map(f=>`<div class="find"><p>${esc(f.finding)}</p>
+   <div class="src"><span class="tagl">${esc(f.relevance)}</span><span class="tagl u">${esc(f.certainty)}</span><a href="${esc(f.source_url)}" target="_blank" rel="noopener">${esc(f.source_title)}</a>${f.date?' · '+esc(f.date):''}</div></div>`).join(''):'<p class="summary">Nothing relevant was found in public sources. That is a result, not a failure: it means the web adds nothing to what the rules found.</p>'}
+  <div class="two"><div>${list('Ordinary explanations to rule out',a.ordinary_explanations)}</div><div>${list('Concerns the rules did not score',a.concerns_beyond_rules)}</div></div>
+  ${list('What is missing',a.gaps)}${list('Next steps',a.next_steps,'n')}
+  <div class="foot">Written by Claude for Project BantAI on ${esc((a.generated_at||'').replace('T',' ').slice(0,16))} UTC, under rules ${esc(a.rule_version||'')}${(a.searches||[]).length?'. Searches run: '+a.searches.map(esc).join('; '):''}.
+   A flag is a request to look, never an accusation. The analysis is advice; a person decides. Check every source before relying on it.</div>`})
+.catch(()=>{$('#paper').innerHTML='<p class="meta">The analysis could not be loaded.</p>'});
+</script></body></html>

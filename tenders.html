@@ -17,11 +17,11 @@ h1,h2,h3{letter-spacing:-.018em}
 /* top bar: light chrome, dark text, the flag stripe kept as a hairline */
 .top{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
 .top::after{content:"";display:block;height:2px;background:linear-gradient(90deg,var(--accent) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
-.top .wrap{display:flex;align-items:center;gap:6px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.top .wrap{max-width:1320px;display:flex;align-items:center;gap:4px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .top .wrap::-webkit-scrollbar{display:none}
 .brand{font-weight:700;letter-spacing:-.02em;margin-right:14px;color:var(--ink);text-decoration:none;font-size:17px;flex:none}
 .brand span{color:var(--accent)}
-.top a.nav{color:var(--ink2);text-decoration:none;font-size:14.5px;padding:7px 11px;border-radius:9px;flex:none}
+.top a.nav{color:var(--ink2);text-decoration:none;font-size:14px;padding:7px 9px;border-radius:9px;flex:none}
 .top a.nav:hover{background:var(--soft);color:var(--ink)}
 .top a.nav[aria-current="page"]{background:var(--soft);color:var(--ink);font-weight:600}
 .top a.cta{margin-left:auto;color:#fff;background:var(--ink);padding:8px 15px;border-radius:999px;font-weight:600;text-decoration:none;font-size:14.5px;flex:none}
@@ -45,6 +45,15 @@ h1,h2,h3{letter-spacing:-.018em}
 .btn:hover{background:var(--soft)}
 .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.primary:hover{background:#000}
 footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+/* signal mode switch (standard / heightened), in the header */
+.mode{margin-left:auto;display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;flex:none;background:var(--soft)}
+.mode button{font:inherit;font-size:12px;font-weight:600;border:0;background:transparent;color:var(--ink2);padding:4px 9px;border-radius:999px;cursor:pointer}
+.mode button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+html[data-mode="heightened"] .mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mode+a.cta{margin-left:8px}
+.hbanner{display:none;background:var(--ink);color:#fff;font-size:13px;padding:7px 0}
+.hbanner a{color:#fff}
+html[data-mode="heightened"] .hbanner{display:block}
 
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
 h1{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin:28px 0 6px}
@@ -63,7 +72,12 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 button{font:inherit;font-size:14px;border-radius:8px;padding:8px 14px;border:1px solid #D0D5DD;background:#fff;cursor:pointer}
 footer{margin:36px 0 0;padding:20px 0 36px}
 </style></head><body>
-<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html" aria-current="page">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><a class="cta" href="sources.html">Data sources</a></div></div>
+<script>(function(){var m='standard';try{var u=new URLSearchParams(location.search).get('mode');
+if(u==='heightened'||u==='standard')localStorage.setItem('bantai-mode',u);m=localStorage.getItem('bantai-mode')||'standard'}catch(e){}
+window.BMODE=m;document.documentElement.dataset.mode=m;
+window.setBMode=function(x){try{localStorage.setItem('bantai-mode',x)}catch(e){}var q=new URLSearchParams(location.search);q.delete('mode');
+var s=q.toString();location.href=location.pathname+(s?'?'+s:'')+location.hash};
+window.bandOf=function(c){return (m==='heightened'&&c.colour_h)?c.colour_h:c.colour}})();</script><div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html" aria-current="page">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><span class="mode" role="group" aria-label="Signal mode" title="Heightened mode counts every signal one tier higher"><button type="button" onclick="setBMode('standard')" aria-pressed="true" id="mStd">Standard</button><button type="button" onclick="setBMode('heightened')" aria-pressed="false" id="mHi">Heightened</button></span><script>if(window.BMODE==='heightened'){document.getElementById('mStd').setAttribute('aria-pressed','false');document.getElementById('mHi').setAttribute('aria-pressed','true')}</script><a class="cta" href="sources.html">Data sources</a></div><div class="hbanner"><div class="wrap" style="height:auto;display:block">Heightened mode: every signal counts one tier higher, so more cases rank High. Scores and decisions are unchanged. <a href="how.html#heightened">What this means</a> · <a href="#" onclick="setBMode('standard');return false">Back to standard</a></div></div></div>
 <main class="wrap">
 <h1>Open construction tenders on PhilGEPS</h1>
 <p class="sub">Every construction tender open on the PhilGEPS notice board, read each morning: mostly provinces, cities, municipalities and barangays, which DPWH's data does not cover. Road works are marked. At tender stage they are <b>not scored</b> (no road lengths, no bidders yet), but each carries <b>watch notes</b> where the agency's past road awards were dominated by one firm or the tender is a re-bid. Once awarded, local road contracts are assessed with BantAI's rules and the flagged ones join the <a href="places.html#cases">joint case list</a>. A listed tender is not a finding of anything.</p>

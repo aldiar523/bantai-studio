@@ -17,11 +17,11 @@ h1,h2,h3{letter-spacing:-.018em}
 /* top bar: light chrome, dark text, the flag stripe kept as a hairline */
 .top{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
 .top::after{content:"";display:block;height:2px;background:linear-gradient(90deg,var(--accent) 0 33.3%,var(--red) 33.3% 66.6%,var(--yellow) 66.6%)}
-.top .wrap{display:flex;align-items:center;gap:6px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.top .wrap{max-width:1320px;display:flex;align-items:center;gap:4px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .top .wrap::-webkit-scrollbar{display:none}
 .brand{font-weight:700;letter-spacing:-.02em;margin-right:14px;color:var(--ink);text-decoration:none;font-size:17px;flex:none}
 .brand span{color:var(--accent)}
-.top a.nav{color:var(--ink2);text-decoration:none;font-size:14.5px;padding:7px 11px;border-radius:9px;flex:none}
+.top a.nav{color:var(--ink2);text-decoration:none;font-size:14px;padding:7px 9px;border-radius:9px;flex:none}
 .top a.nav:hover{background:var(--soft);color:var(--ink)}
 .top a.nav[aria-current="page"]{background:var(--soft);color:var(--ink);font-weight:600}
 .top a.cta{margin-left:auto;color:#fff;background:var(--ink);padding:8px 15px;border-radius:999px;font-weight:600;text-decoration:none;font-size:14.5px;flex:none}
@@ -45,6 +45,15 @@ h1,h2,h3{letter-spacing:-.018em}
 .btn:hover{background:var(--soft)}
 .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.btn.primary:hover{background:#000}
 footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+/* signal mode switch (standard / heightened), in the header */
+.mode{margin-left:auto;display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;flex:none;background:var(--soft)}
+.mode button{font:inherit;font-size:12px;font-weight:600;border:0;background:transparent;color:var(--ink2);padding:4px 9px;border-radius:999px;cursor:pointer}
+.mode button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+html[data-mode="heightened"] .mode button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mode+a.cta{margin-left:8px}
+.hbanner{display:none;background:var(--ink);color:#fff;font-size:13px;padding:7px 0}
+.hbanner a{color:#fff}
+html[data-mode="heightened"] .hbanner{display:block}
 
 body{font-size:15px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
@@ -114,7 +123,12 @@ footer{padding:20px 0 40px}
 @media print{body>*{display:none!important}.memowrap{display:block!important;position:static;background:#fff;padding:0;overflow:visible}
  .memobar{display:none!important}.memo{max-width:none;border-radius:0;padding:0;font-size:11pt}}
 </style></head><body>
-<div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html" aria-current="page">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><a class="cta" href="places.html">All cases</a></div></div>
+<script>(function(){var m='standard';try{var u=new URLSearchParams(location.search).get('mode');
+if(u==='heightened'||u==='standard')localStorage.setItem('bantai-mode',u);m=localStorage.getItem('bantai-mode')||'standard'}catch(e){}
+window.BMODE=m;document.documentElement.dataset.mode=m;
+window.setBMode=function(x){try{localStorage.setItem('bantai-mode',x)}catch(e){}var q=new URLSearchParams(location.search);q.delete('mode');
+var s=q.toString();location.href=location.pathname+(s?'?'+s:'')+location.hash};
+window.bandOf=function(c){return (m==='heightened'&&c.colour_h)?c.colour_h:c.colour}})();</script><div class="top"><div class="wrap"><a class="brand" href="index.html">Project Bant<span>AI</span></a><a class="nav" href="index.html">Review Overview</a><a class="nav" href="data.html">Data Overview</a><a class="nav" href="places.html" aria-current="page">Projects &amp; Maps</a><a class="nav" href="how.html">How it Works</a><a class="nav" href="sources.html">Data Sources</a><a class="nav" href="manuals.html">Policies &amp; Manuals</a><span class="mode" role="group" aria-label="Signal mode" title="Heightened mode counts every signal one tier higher"><button type="button" onclick="setBMode('standard')" aria-pressed="true" id="mStd">Standard</button><button type="button" onclick="setBMode('heightened')" aria-pressed="false" id="mHi">Heightened</button></span><script>if(window.BMODE==='heightened'){document.getElementById('mStd').setAttribute('aria-pressed','false');document.getElementById('mHi').setAttribute('aria-pressed','true')}</script><a class="cta" href="places.html">All cases</a></div><div class="hbanner"><div class="wrap" style="height:auto;display:block">Heightened mode: every signal counts one tier higher, so more cases rank High. Scores and decisions are unchanged. <a href="how.html#heightened">What this means</a> · <a href="#" onclick="setBMode('standard');return false">Back to standard</a></div></div></div>
 <main class="wrap" id="main"><p class="small" style="margin-top:24px">Loading the case…</p></main>
 <footer class="wrap">A case is a request for a person to look at a contract, not a finding of wrongdoing. Data: DPWH via BetterGov; GPPB blacklist and PEP list via OpenSanctions; ICIJ Offshore Leaks; Bisto.ph; Wikidata. Field checks follow the DILG-OPDS Third-Party Monitoring Manual (2025). Project BantAI, LKYSPP PP5538 capstone, 2026.</footer>
 <script>
@@ -138,7 +152,12 @@ fetch(`cases/${encodeURIComponent(cid)}.json`).then(r=>{if(!r.ok)throw 0;return 
 function fact(k,v){return v==null||v===''?'':`<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`}
 const ckKey=()=>'bantai-check-'+C.id;
 function ticked(){try{return new Set(JSON.parse(store.get(ckKey())||'[]'))}catch(e){return new Set()}}
+const BL={Red:'High Review Priority',Yellow:'Medium Review Priority',Blue:'Document Check',Grey:'Baseline Comparison'};
 function render(){const c=C;
+ if(window.BMODE==='heightened'&&c.colour_h&&c.colour_h!==c.colour&&!c.colour_std){
+  c.colour_std=c.colour;c.colour=c.colour_h;
+  c.colour_meaning=`Heightened mode: each signal counts one tier higher, so this case is ${BL[c.colour_h]} here. In standard mode it is ${BL[c.colour_std]}. Nothing about the case has changed.`;
+  if(c.assessment)c.assessment.colour=c.colour_h}
  document.title=`BantAI · ${c.id}`;
  const place=[c.place.barangay,c.place.municipality,c.place.province].filter(Boolean).join(', ')||(/^Region|Central Office/.test(c.office)?'':c.office);
  const ratio=c.budget.award_ratio?` (${(c.budget.award_ratio*100).toFixed(1)}% of budget)`:'';
@@ -146,13 +165,13 @@ function render(){const c=C;
  const fams=A.families.map(f=>{const lv=LEVEL[f.level]||'none';
   const items=f.items.length?f.items.map(i=>`<div class="it"><span class="tag ${i.role}">${esc(ROLE[i.role]||i.role)}${i.unscored?' · not in colour score':''}</span> <b>${esc(i.label)}</b><div class="d">${esc(i.detail)}${i.source?` · <a href="${esc(i.source)}" target="_blank" rel="noopener">source</a>`:''}</div></div>`).join(''):'<span class="small">Nothing found in the data for this case.</span>';
   return `<tr class="${f.level==='No signal'?'none':''}"><td><div class="fname">${esc(f.name)}</div><div class="fst">Checked at stage ${f.stages.join(', ')}</div></td><td><span class="tag ${lv}">${esc(f.level)}</span></td><td>${items}</td><td>${esc(f.contribution)}</td></tr>`}).join('');
- const scoreboxes=`<div class="score"><div class="box"><b>${A.alerts}</b><span>integrity alerts</span></div><div class="box"><b>${A.strong}</b><span>strong signals</span></div><div class="box"><b>${A.weak}</b><span>weak signals</span></div><div class="arrow">→</div><div class="box"><b>${esc(A.priority)}</b><span>rule priority</span></div><div class="arrow">→</div><div class="box result" style="border-color:var(--${A.colour.toLowerCase()})"><b><span class="dot ${A.colour}"></span> ${esc(A.colour)}</b><span>queue colour</span></div></div>`;
+ const scoreboxes=`<div class="score"><div class="box"><b>${A.alerts}</b><span>integrity alerts</span></div><div class="box"><b>${A.strong}</b><span>strong signals</span></div><div class="box"><b>${A.weak}</b><span>weak signals</span></div><div class="arrow">→</div><div class="box"><b>${esc(A.priority)}</b><span>rule priority</span></div><div class="arrow">→</div><div class="box result" style="border-color:var(--${A.colour.toLowerCase()})"><b><span class="dot ${A.colour}"></span> ${esc((BL[A.colour]||A.colour).replace(' Review Priority',''))}</b><span>review band</span></div></div>`;
  const net=(c.network||[]).length?`<p class="small" style="margin:10px 0 0">Repeat co-bidders are shown for context: in past DPWH tenders, firms that often meet were not more likely to fail (odds ×0.5).</p>`:'';
  const bid=c.bidders.length?`<div class="card tw"><h2>Bidders and their records</h2><table><tr><th>Bidder</th><th>Licence</th><th class="n">Earlier road contracts</th><th class="n">Completed</th><th class="n">Terminated</th></tr>${c.bidders.map(b=>`<tr><td>${esc(b.name)}${b.winner?' <b>(winner)</b>':''}${b.terminated_examples.length?`<div class="small">Terminated: ${b.terminated_examples.map(e=>`<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.id)}</a> (${esc(e.year)})`).join(', ')}</div>`:''}</td><td>${esc(b.licence)}</td><td class="n">${b.road_contracts??''}</td><td class="n">${b.completed??''}</td><td class="n">${b.terminated??''}</td></tr>`).join('')}</table><p class="small">Counts from DPWH records before this contract's year.</p>${net}</div>`:'<div class="card"><h2>Bidders</h2><p class="small">Not published yet.</p></div>';
  const bm=c.benchmark&&c.benchmark.p95?fact('95th percentile, similar works',peso(c.benchmark.p95)+` per km <span class="small">(${esc(c.benchmark.group)}, ${c.benchmark.n} contracts)</span>`):'';
  $('#main').innerHTML=`<div class="layout"><div>
   <div style="margin-top:4px"><a class="small" href="places.html#cases">← All cases</a></div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><span class="pill"><span class="dot ${c.colour}"></span>${esc(c.colour)}</span>${c.source==='PhilGEPS'?'<span class="pill" style="background:var(--yellow-soft)">PhilGEPS · local / other agency</span>':''}<span class="pill">${esc(c.stage)} stage</span><span class="pill">${esc(c.id)}</span>${c.added?`<span class="pill" style="font-weight:400">Added ${esc(c.added)}</span>`:''}</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><span class="pill"><span class="dot ${c.colour}"></span>${esc(BL[c.colour]||c.colour)}${c.colour_std?` <span style="font-weight:400;color:var(--muted)">· heightened (standard: ${esc(BL[c.colour_std]||c.colour_std)})</span>`:''}</span>${c.source==='PhilGEPS'?'<span class="pill" style="background:var(--yellow-soft)">PhilGEPS · local / other agency</span>':''}<span class="pill">${esc(c.stage)} stage</span><span class="pill">${esc(c.id)}</span>${c.added?`<span class="pill" style="font-weight:400">Added ${esc(c.added)}</span>`:''}</div>
   <h1>${esc(c.title)}</h1>
   <div class="meta">${[place,c.region,c.contractor].filter(Boolean).map(esc).join(' · ')}</div>
   <p style="margin:10px 0 0">${esc(c.colour_meaning)}</p>
@@ -172,9 +191,10 @@ function render(){const c=C;
   <div class="card" id="next"><h2>What to do next</h2><p class="lead">Tick each step when it is done. <b>Escalate</b> and <b>Close</b> unlock in the Decision panel when every step is ticked; until then only <b>Further review</b> is available.</p><ol class="steps" id="steps"></ol></div>
  </div><aside class="side">
   <div class="card links"><h2>Sources</h2><a href="${esc(c.links.dpwh)}" target="_blank" rel="noopener">${c.source==='PhilGEPS'?'PhilGEPS notice':'Official DPWH page'}</a>${c.links.docs?`<a href="${esc(c.links.docs)}" target="_blank" rel="noopener">Bid documents (zip)</a>`:''}${c.links.philgeps?`<a href="${esc(c.links.philgeps)}" target="_blank" rel="noopener">PhilGEPS notice</a>`:''}${c.links.data?`<a href="${esc(c.links.data)}" target="_blank" rel="noopener">Machine-readable record</a>`:''}</div>
+  <div class="card aicard" id="aicard"></div>
   <div class="card" id="decide"></div>
  </aside></div>`;
- renderSteps();decisionPanel();
+ renderSteps();decisionPanel();aiPanel();
 }
 const md=s=>String(s||'').replace(/\*\*/g,'').replace(/^#+\s*/gm,'');
 const iso=d=>d.toISOString().slice(0,10);
@@ -220,6 +240,25 @@ const TARGET_KEY={'COA regional audit team (Commission on Audit)':'coa','DPWH In
 async function who_name(){const id=store.get('bantai-reviewer-id');return id?await who(id):null}
 function pgf(p){if(!p)return '';const a=p.award||{};return fact('PhilGEPS notice',`${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.ref)}</a>`:esc(p.ref)} · ${esc(p.status)}${p.notices>1?` · ${p.notices} notices`:''}`)+fact('PhilGEPS ABC',peso(p.abc)+(p.abc_conflict?' <span class="tag weak">differs from DPWH</span>':''))+fact('Published → closing',esc((p.published||'?')+' → '+(p.closing||'?')))+(a.amount?fact('Award (PhilGEPS)',peso(a.amount)+(p.abc?` (${(a.amount/p.abc*100).toFixed(1)}% of ABC)`:'')+` · ${esc(a.award_date||'')}`)+((a.ntp||a.effective||a.end)?fact('Contract period',esc((a.ntp||a.effective||'?')+' → '+(a.end||'?'))):'')+fact('Awardee (PhilGEPS)',esc(a.awardee+(a.size?' · '+a.size:'')+(a.jv&&a.jv!=='No JV'?' · '+a.jv:''))):'')}
 function claudeBox(){const c=C;return (c.claude_note||c.docs_note)?`<div class="note">${esc(md(c.claude_note))}${c.docs_note?(c.claude_note?'\n\n':'')+'Documents: '+esc(md(c.docs_note)):''}</div><div class="small" style="margin-top:6px">Claude reads the official records and documents and notes what matches and what is missing. It advises; it does not score or decide.</div>`:`<div class="small" style="margin-top:4px">Claude has not checked this case yet (it checks up to 25 new red and yellow cases a day). Tick this step once you have checked the sources yourself.</div>`}
+// AI Analysis: a sourced second look written by Claude (ai_analysis.py); advice only
+function aiPanel(){const c=C,box=$('#aicard');if(!box)return;const a=c.analysis;
+ const REC={escalate:['Escalate','var(--red)'],document_check:['Check the documents first','var(--on-orange)'],no_further_action:['No further action','var(--good)']};
+ const key='bantai-ai-asked-'+c.id;let asked=null;try{asked=localStorage.getItem(key)}catch(e){}
+ const ask=`<button class="btn" id="aiAsk" style="width:100%;justify-content:center">${a?'Ask for a fresh analysis':'Ask for an AI analysis'}</button>`;
+ if(a){const r=REC[a.recommendation]||['Advice',''];
+  box.innerHTML=`<h2>AI Analysis</h2><p class="small" style="margin:2px 0 10px">Claude re-read the facts and searched public sources after the rules ran. Advice only; you decide.</p>
+   <div style="font-size:13px;color:var(--muted)">Suggested next step</div><div style="font-weight:800;font-size:17px;color:${r[1]};margin:2px 0 4px">${esc(r[0])}</div>
+   <div class="small">Confidence ${esc(a.confidence||'low')} · ${esc((a.generated_at||'').slice(0,10))}</div>
+   ${a.stale?'<p class="small" style="margin:8px 0 0;color:var(--on-orange)">The case has changed since this analysis was written.</p>':''}
+   <a class="btn primary" href="analysis.html?id=${encodeURIComponent(c.id)}" style="width:100%;justify-content:center;margin-top:12px">Open the AI Analysis</a>
+   ${a.stale&&!asked?`<div style="margin-top:8px">${ask}</div>`:''}`}
+ else box.innerHTML=`<h2>AI Analysis</h2><p class="small" style="margin:2px 0 12px">A deeper look by Claude: it checks each signal against the facts, searches public sources (news, COA, Ombudsman, courts) and suggests whether to escalate. High-priority cases are analysed every morning; any other case on request.</p>
+   ${asked?`<p class="small" style="margin:0"><b>Requested ${esc(asked)}.</b> Analyses are written every hour; reload this page later.</p>`:ask}`;
+ const b=$('#aiAsk');if(!b)return;
+ b.onclick=async()=>{b.disabled=true;b.textContent='Sending…';
+  try{const r=await fetch(`https://ntfy.sh/${TOPIC}-ai`,{method:'POST',body:'bantai-ai '+c.id});if(!r.ok)throw new Error(r.status);
+   const t=new Date().toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});try{localStorage.setItem(key,t)}catch(e){}aiPanel()}
+  catch(e){b.disabled=false;b.textContent='Could not send. Try again'}}}
 function renderSteps(){const t=ticked();
  $('#steps').innerHTML=C.steps.map((s,i)=>`<li class="${t.has(s.id)?'done':''}"><input type="checkbox" id="ck-${esc(s.id)}" data-id="${esc(s.id)}" ${t.has(s.id)?'checked':''} aria-label="Step ${i+1} done"><label for="ck-${esc(s.id)}"><span class="t">${i+1}. ${esc(s.title)}</span></label><div style="grid-column:2">${s.sub.length?`<ul>${s.sub.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${s.claude?claudeBox():''}</div></li>`).join('');
  document.querySelectorAll('#steps input').forEach(b=>b.onchange=()=>{const t=ticked();b.checked?t.add(b.dataset.id):t.delete(b.dataset.id);store.set(ckKey(),JSON.stringify([...t]));b.closest('li').classList.toggle('done',b.checked);decisionPanel(true)});

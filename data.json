@@ -137,8 +137,8 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 16,
-    "Blue": 157,
+    "Yellow": 19,
+    "Blue": 154,
     "Grey": 5
    },
    "source_changed": false,
@@ -329,8 +329,8 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 0,
-    "Blue": 0,
+    "Yellow": 11,
+    "Blue": 32,
     "Grey": 1
    },
    "source_changed": false,
@@ -371,7 +371,7 @@
   "queue_new": 1,
   "current": 6102
  },
- "generated_at": "2026-10-30T10:07+00:00",
+ "generated_at": "2026-10-30T16:58+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -462,7 +462,7 @@
   }
  ],
  "engine_version": "0.11.1",
- "rule_version": "rules-v0.12.0",
+ "rule_version": "rules-v0.13.0",
  "last_run": "2026-10-30T01:14:29.784014+00:00",
  "stages": {
   "road_tenders_open": 4659,
@@ -478,27 +478,33 @@
  "monitored": 6102,
  "checked": 6102,
  "cases": {
-  "total": 565,
+  "total": 608,
   "by_colour": {
    "Red": 127,
-   "Yellow": 56,
-   "Blue": 352,
+   "Yellow": 70,
+   "Blue": 381,
+   "Grey": 30
+  },
+  "by_colour_h": {
+   "Red": 233,
+   "Yellow": 274,
+   "Blue": 71,
    "Grey": 30
   },
   "by_stage": {
-   "Award": 353,
-   "Tender": 212
+   "Award": 365,
+   "Tender": 243
   },
   "stage_colour": {
    "Award": {
     "Red": 79,
     "Blue": 226,
-    "Yellow": 44,
+    "Yellow": 56,
     "Grey": 4
    },
    "Tender": {
-    "Blue": 126,
-    "Yellow": 12,
+    "Blue": 155,
+    "Yellow": 14,
     "Red": 48,
     "Grey": 26
    }
@@ -517,128 +523,388 @@
    "Red": 0,
    "Yellow": 1,
    "Blue": 10,
-   "Grey": 1
+   "Grey": 1,
+   "h": {
+    "Red": 3,
+    "Yellow": 8,
+    "Blue": 0,
+    "Grey": 1
+   }
   },
   {
    "region": "Cordillera Administrative Region (CAR)",
    "Red": 0,
-   "Yellow": 0,
-   "Blue": 14,
-   "Grey": 1
+   "Yellow": 9,
+   "Blue": 24,
+   "Grey": 1,
+   "h": {
+    "Red": 12,
+    "Yellow": 21,
+    "Blue": 0,
+    "Grey": 1
+   }
   },
   {
    "region": "Region I (Ilocos Region)",
    "Red": 0,
    "Yellow": 17,
    "Blue": 17,
-   "Grey": 0
+   "Grey": 0,
+   "h": {
+    "Red": 20,
+    "Yellow": 12,
+    "Blue": 2,
+    "Grey": 0
+   }
   },
   {
    "region": "Region II (Cagayan Valley)",
    "Red": 5,
    "Yellow": 2,
    "Blue": 11,
-   "Grey": 0
+   "Grey": 0,
+   "h": {
+    "Red": 7,
+    "Yellow": 7,
+    "Blue": 4,
+    "Grey": 0
+   }
   },
   {
    "region": "Region III (Central Luzon)",
    "Red": 16,
    "Yellow": 7,
    "Blue": 60,
-   "Grey": 3
+   "Grey": 3,
+   "h": {
+    "Red": 26,
+    "Yellow": 45,
+    "Blue": 12,
+    "Grey": 3
+   }
   },
   {
    "region": "Region IV-A (CALABARZON)",
    "Red": 1,
    "Yellow": 7,
    "Blue": 31,
-   "Grey": 2
+   "Grey": 2,
+   "h": {
+    "Red": 12,
+    "Yellow": 20,
+    "Blue": 7,
+    "Grey": 2
+   }
   },
   {
    "region": "Region IV-B (MIMAROPA)",
    "Red": 0,
    "Yellow": 0,
    "Blue": 3,
-   "Grey": 1
+   "Grey": 1,
+   "h": {
+    "Red": 0,
+    "Yellow": 3,
+    "Blue": 0,
+    "Grey": 1
+   }
   },
   {
    "region": "Region V (Bicol Region)",
    "Red": 1,
-   "Yellow": 1,
-   "Blue": 22,
-   "Grey": 1
+   "Yellow": 5,
+   "Blue": 32,
+   "Grey": 1,
+   "h": {
+    "Red": 12,
+    "Yellow": 24,
+    "Blue": 2,
+    "Grey": 1
+   }
   },
   {
    "region": "Region VI (Western Visayas)",
    "Red": 41,
    "Yellow": 6,
    "Blue": 11,
-   "Grey": 1
+   "Grey": 1,
+   "h": {
+    "Red": 50,
+    "Yellow": 7,
+    "Blue": 1,
+    "Grey": 1
+   }
   },
   {
    "region": "Region VII (Central Visayas)",
    "Red": 0,
    "Yellow": 2,
    "Blue": 42,
-   "Grey": 4
+   "Grey": 4,
+   "h": {
+    "Red": 2,
+    "Yellow": 21,
+    "Blue": 21,
+    "Grey": 4
+   }
   },
   {
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
    "Yellow": 0,
    "Blue": 33,
-   "Grey": 4
+   "Grey": 4,
+   "h": {
+    "Red": 1,
+    "Yellow": 23,
+    "Blue": 9,
+    "Grey": 4
+   }
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
-   "Yellow": 7,
-   "Blue": 17,
-   "Grey": 3
+   "Yellow": 8,
+   "Blue": 26,
+   "Grey": 3,
+   "h": {
+    "Red": 9,
+    "Yellow": 19,
+    "Blue": 6,
+    "Grey": 3
+   }
   },
   {
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
    "Blue": 23,
-   "Grey": 2
+   "Grey": 2,
+   "h": {
+    "Red": 44,
+    "Yellow": 17,
+    "Blue": 5,
+    "Grey": 2
+   }
   },
   {
    "region": "Region XI (Davao Region)",
    "Red": 0,
    "Yellow": 2,
    "Blue": 8,
-   "Grey": 1
+   "Grey": 1,
+   "h": {
+    "Red": 3,
+    "Yellow": 6,
+    "Blue": 1,
+    "Grey": 1
+   }
   },
   {
    "region": "Region XII (SOCCSKSARGEN)",
    "Red": 0,
    "Yellow": 1,
    "Blue": 29,
-   "Grey": 2
+   "Grey": 2,
+   "h": {
+    "Red": 4,
+    "Yellow": 25,
+    "Blue": 1,
+    "Grey": 2
+   }
   },
   {
    "region": "Region XIII (Caraga)",
    "Red": 19,
    "Yellow": 2,
    "Blue": 16,
-   "Grey": 4
+   "Grey": 4,
+   "h": {
+    "Red": 26,
+    "Yellow": 11,
+    "Blue": 0,
+    "Grey": 4
+   }
   },
   {
    "region": "BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)",
    "Red": 0,
    "Yellow": 0,
    "Blue": 0,
-   "Grey": 0
+   "Grey": 0,
+   "h": {
+    "Red": 0,
+    "Yellow": 0,
+    "Blue": 0,
+    "Grey": 0
+   }
   },
   {
    "region": "NIR (Negros Island Region)",
    "Red": 1,
    "Yellow": 1,
    "Blue": 5,
-   "Grey": 0
+   "Grey": 0,
+   "h": {
+    "Red": 2,
+    "Yellow": 5,
+    "Blue": 0,
+    "Grey": 0
+   }
   }
  ],
+ "dash": {
+  "money_m": {
+   "Red": 7175.0,
+   "Yellow": 2284.8,
+   "Blue": 28582.1,
+   "Grey": 1679.5
+  },
+  "money_h_m": {
+   "Red": 12440.5,
+   "Yellow": 20718.3,
+   "Blue": 4883.2,
+   "Grey": 1679.5
+  },
+  "waiting": 608,
+  "oldest_days": 22,
+  "median_days": 15,
+  "over_30_days": 0,
+  "drivers": [
+   {
+    "reason": "Bidder has a reported link to an official or investigation",
+    "Red": 113,
+    "Yellow": 0,
+    "Blue": 0,
+    "h": {
+     "Red": 113,
+     "Yellow": 0,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Bidder's name matches the GPPB blacklist (to verify)",
+    "Red": 75,
+    "Yellow": 0,
+    "Blue": 24,
+    "h": {
+     "Red": 78,
+     "Yellow": 21,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "A bidder had a contract terminated before",
+    "Red": 63,
+    "Yellow": 4,
+    "Blue": 15,
+    "h": {
+     "Red": 71,
+     "Yellow": 11,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Winner's other projects drew citizen reports",
+    "Red": 21,
+    "Yellow": 5,
+    "Blue": 102,
+    "h": {
+     "Red": 54,
+     "Yellow": 25,
+     "Blue": 49
+    }
+   },
+   {
+    "reason": "CPES: winner often behind schedule",
+    "Red": 4,
+    "Yellow": 32,
+    "Blue": 59,
+    "h": {
+     "Red": 49,
+     "Yellow": 46,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Bisto inspectors rated the winner's other work unsatisfactory",
+    "Red": 26,
+    "Yellow": 3,
+    "Blue": 48,
+    "h": {
+     "Red": 37,
+     "Yellow": 22,
+     "Blue": 18
+    }
+   },
+   {
+    "reason": "Winner's managing officer matches an elected official (to verify)",
+    "Red": 2,
+    "Yellow": 35,
+    "Blue": 52,
+    "h": {
+     "Red": 39,
+     "Yellow": 50,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Price per km above 95% of similar works",
+    "Red": 2,
+    "Yellow": 10,
+    "Blue": 68,
+    "h": {
+     "Red": 19,
+     "Yellow": 61,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Very fast award after bid opening",
+    "Red": 3,
+    "Yellow": 21,
+    "Blue": 37,
+    "h": {
+     "Red": 30,
+     "Yellow": 31,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "COA cited the implementing office for cost findings",
+    "Red": 0,
+    "Yellow": 14,
+    "Blue": 36,
+    "h": {
+     "Red": 18,
+     "Yellow": 32,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "Bidder named in an official action",
+    "Red": 14,
+    "Yellow": 0,
+    "Blue": 0,
+    "h": {
+     "Red": 14,
+     "Yellow": 0,
+     "Blue": 0
+    }
+   },
+   {
+    "reason": "CPES: winner's other work rated poor or far behind",
+    "Red": 4,
+    "Yellow": 0,
+    "Blue": 22,
+    "h": {
+     "Red": 7,
+     "Yellow": 19,
+     "Blue": 0
+    }
+   }
+  ]
+ },
  "trend": [
   {
    "d": "2026-10-09",
@@ -1027,7 +1293,7 @@
     {
      "label": "Price per km above the 95th percentile, like-for-like (same type of work, year, region and length)",
      "role": "weak",
-     "evidence": "Termination odds ×2.97 (1.60–5.51); not yet confirmed on 2023–2025 or PhilGEPS data, so weak"
+     "evidence": "Termination odds ×2.97 (1.60–5.51); not yet confirmed on 2023–2025 or PhilGEPS data, so weak. COA check: too few COA-listed roads with a length to tell (1 of 25)"
     },
     {
      "label": "Price per km between the 90th and 95th percentile, like-for-like",
@@ -1048,6 +1314,21 @@
      "label": "Works under 200 m are not priced per km",
      "role": "context",
      "evidence": "Short segments carry fixed costs; removing them raised the price signal's odds ratio"
+    },
+    {
+     "label": "COA listed this contract as costing more than the allowable COA estimate (FY2018/2019 audit tables)",
+     "role": "alert",
+     "evidence": "An official audit finding on this contract; a match not made on the printed contract ID is tagged verify"
+    },
+    {
+     "label": "The winner had another contract COA listed for excess cost (audit years within 3 years, report public at the start)",
+     "role": "strong",
+     "evidence": "Team definition; no link to termination (odds ×0.9, 0.4–1.8): it measures cost findings, not failure"
+    },
+    {
+     "label": "COA cited the implementing office for costs above its estimate or inflated estimate items, same year (or latest report)",
+     "role": "weak",
+     "evidence": "Team definition; office-level only, COA examines some offices each year; no link to termination (×0.96)"
     }
    ]
   },
@@ -1062,7 +1343,7 @@
     {
      "label": "A bidder had a contract terminated after work had started, in the last 3 years",
      "role": "weak",
-     "evidence": "Termination odds ×3.2 (2.4–4.4); 2023–2025 ×3.5; PhilGEPS ×6.5. Terminations before work started (often right-of-way, funding or design problems) showed no link and are context"
+     "evidence": "Termination odds ×3.2 (2.4–4.4); 2023–2025 ×3.5; PhilGEPS ×6.5. Terminations before work started (often right-of-way, funding or design problems) showed no link and are context. COA check: no link to COA cost findings (×1.1)"
     },
     {
      "label": "Bidder on the GPPB blacklist, or licence marked [REVOKED]",
@@ -1103,6 +1384,16 @@
      "label": "Bidder has a documented link to an official or investigation",
      "role": "alert",
      "evidence": "From the team's sourced register; reported, not proven"
+    },
+    {
+     "label": "Winner blacklisted or suspended by DPWH, licence revoked by PCAB, or convicted (court and enforcement register)",
+     "role": "alert",
+     "evidence": "Official decision, sourced row by row; a sanction counts only while in force"
+    },
+    {
+     "label": "Charges filed in court against the winner, its officers or its owner (court and enforcement register)",
+     "role": "strong",
+     "evidence": "Team definition; a charge is not a conviction. Acquittals and reversed convictions are shown as context"
     },
     {
      "label": "Name matches a politically exposed person or an offshore record",
