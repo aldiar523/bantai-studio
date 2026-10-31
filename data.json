@@ -387,7 +387,7 @@
   "queue_new": 44,
   "current": 6101
  },
- "generated_at": "2026-10-31T05:50+00:00",
+ "generated_at": "2026-10-31T09:48+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -1273,6 +1273,37 @@
    ]
   }
  ],
+ "answer_key": {
+  "key": 209,
+  "comparison": 9521,
+  "rows": [
+   {
+    "check": "One or two bidders",
+    "key_rate": 0.464,
+    "cmp_rate": 0.564
+   },
+   {
+    "check": "Winning bid 99% or more of the official budget",
+    "key_rate": 0.15,
+    "cmp_rate": 0.193
+   },
+   {
+    "check": "Winner had an earlier terminated contract",
+    "key_rate": 0.201,
+    "cmp_rate": 0.178
+   },
+   {
+    "check": "Finished unusually fast for its size",
+    "key_rate": 0.099,
+    "cmp_rate": 0.09
+   },
+   {
+    "check": "Contract of ₱50M or more",
+    "key_rate": 0.234,
+    "cmp_rate": 0.193
+   }
+  ]
+ },
  "families": [
   {
    "name": "Procurement competition and bidding patterns",
