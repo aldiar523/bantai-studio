@@ -24,9 +24,9 @@
    "new_tenders": null,
    "new_awards": null,
    "new_cases": {
-    "Red": 104,
+    "Red": 99,
     "Yellow": 3,
-    "Blue": 35,
+    "Blue": 34,
     "Grey": 5
    },
    "source_changed": false,
@@ -88,9 +88,9 @@
    "new_tenders": 113,
    "new_awards": 1400,
    "new_cases": {
-    "Red": 22,
+    "Red": 20,
     "Yellow": 1,
-    "Blue": 38,
+    "Blue": 36,
     "Grey": 1
    },
    "source_changed": true,
@@ -138,7 +138,7 @@
    "new_cases": {
     "Red": 0,
     "Yellow": 19,
-    "Blue": 154,
+    "Blue": 152,
     "Grey": 5
    },
    "source_changed": false,
@@ -282,7 +282,7 @@
    "new_cases": {
     "Red": 0,
     "Yellow": 36,
-    "Blue": 114,
+    "Blue": 112,
     "Grey": 1
    },
    "source_changed": true,
@@ -345,18 +345,34 @@
    "new_awards": 0,
    "new_cases": {
     "Red": 0,
-    "Yellow": 11,
+    "Yellow": 10,
     "Blue": 32,
     "Grey": 1
    },
    "source_changed": false,
    "rules_changed": true
+  },
+  {
+   "d": "2026-11-02",
+   "rows": 266890,
+   "checked": 1000,
+   "rules": "rules-v0.13.0",
+   "new_tenders": 0,
+   "new_awards": 0,
+   "new_cases": {
+    "Red": 0,
+    "Yellow": 0,
+    "Blue": 0,
+    "Grey": 1
+   },
+   "source_changed": false,
+   "rules_changed": false
   }
  ],
- "left_scope": 67,
+ "left_scope": 82,
  "latest": {
   "source_changed": "2026-10-27",
-  "source_stale_days": 4,
+  "source_stale_days": 6,
   "source_check": {
    "checked_at": "2026-10-28T07:12:47+00:00",
    "api_ok": true,
@@ -383,11 +399,11 @@
   "source_rows": 266890,
   "checked": 1000,
   "failed": 0,
-  "shadow_watch": 155,
-  "queue_new": 44,
-  "current": 6101
+  "shadow_watch": 141,
+  "queue_new": 1,
+  "current": 6050
  },
- "generated_at": "2026-10-31T09:48+00:00",
+ "generated_at": "2026-11-02T00:58+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -479,50 +495,50 @@
  ],
  "engine_version": "0.11.1",
  "rule_version": "rules-v0.13.0",
- "last_run": "2026-10-31T00:57:47.368520+00:00",
+ "last_run": "2026-11-02T00:58:39.017421+00:00",
  "stages": {
   "road_tenders_open": 4659,
   "road_tenders_new": 0,
-  "road_awarded": 1442,
+  "road_awarded": 1391,
   "road_awarded_new": 0,
-  "road_construction": 13391,
+  "road_construction": 13442,
   "road_completed_this_year": 97,
   "road_terminated_this_year": 0,
   "all_dpwh_tenders_open": 10538
  },
- "stages_at": "2026-10-31T00:57:47.368520+00:00",
- "monitored": 6101,
- "checked": 6101,
+ "stages_at": "2026-11-02T00:58:39.017421+00:00",
+ "monitored": 6050,
+ "checked": 6050,
  "cases": {
-  "total": 609,
+  "total": 595,
   "by_colour": {
-   "Red": 127,
-   "Yellow": 70,
-   "Blue": 381,
-   "Grey": 31
+   "Red": 120,
+   "Yellow": 69,
+   "Blue": 374,
+   "Grey": 32
   },
   "by_colour_h": {
-   "Red": 233,
-   "Yellow": 274,
-   "Blue": 71,
-   "Grey": 31
+   "Red": 223,
+   "Yellow": 271,
+   "Blue": 69,
+   "Grey": 32
   },
   "by_stage": {
-   "Award": 365,
-   "Tender": 244
+   "Award": 350,
+   "Tender": 245
   },
   "stage_colour": {
    "Award": {
-    "Red": 79,
-    "Blue": 226,
-    "Yellow": 56,
+    "Red": 72,
+    "Blue": 219,
+    "Yellow": 55,
     "Grey": 4
    },
    "Tender": {
     "Blue": 155,
     "Yellow": 14,
     "Red": 48,
-    "Grey": 27
+    "Grey": 28
    }
   }
  },
@@ -617,22 +633,22 @@
    "Red": 0,
    "Yellow": 0,
    "Blue": 3,
-   "Grey": 2,
+   "Grey": 3,
    "h": {
     "Red": 0,
     "Yellow": 3,
     "Blue": 0,
-    "Grey": 2
+    "Grey": 3
    }
   },
   {
    "region": "Region V (Bicol Region)",
    "Red": 1,
    "Yellow": 5,
-   "Blue": 32,
+   "Blue": 30,
    "Grey": 1,
    "h": {
-    "Red": 12,
+    "Red": 10,
     "Yellow": 24,
     "Blue": 2,
     "Grey": 1
@@ -640,12 +656,12 @@
   },
   {
    "region": "Region VI (Western Visayas)",
-   "Red": 41,
+   "Red": 35,
    "Yellow": 6,
    "Blue": 11,
    "Grey": 1,
    "h": {
-    "Red": 50,
+    "Red": 44,
     "Yellow": 7,
     "Blue": 1,
     "Grey": 1
@@ -668,23 +684,23 @@
    "region": "Region VIII (Eastern Visayas)",
    "Red": 0,
    "Yellow": 0,
-   "Blue": 33,
+   "Blue": 31,
    "Grey": 4,
    "h": {
     "Red": 1,
     "Yellow": 23,
-    "Blue": 9,
+    "Blue": 7,
     "Grey": 4
    }
   },
   {
    "region": "Region IX (Zamboanga Peninsula)",
    "Red": 0,
-   "Yellow": 8,
+   "Yellow": 7,
    "Blue": 26,
    "Grey": 3,
    "h": {
-    "Red": 9,
+    "Red": 8,
     "Yellow": 19,
     "Blue": 6,
     "Grey": 3
@@ -694,11 +710,11 @@
    "region": "Region X (Northern Mindanao)",
    "Red": 43,
    "Yellow": 0,
-   "Blue": 23,
+   "Blue": 22,
    "Grey": 2,
    "h": {
     "Red": 44,
-    "Yellow": 17,
+    "Yellow": 16,
     "Blue": 5,
     "Grey": 2
    }
@@ -720,24 +736,24 @@
    "region": "Region XII (SOCCSKSARGEN)",
    "Red": 0,
    "Yellow": 1,
-   "Blue": 29,
+   "Blue": 28,
    "Grey": 2,
    "h": {
     "Red": 4,
-    "Yellow": 25,
+    "Yellow": 24,
     "Blue": 1,
     "Grey": 2
    }
   },
   {
    "region": "Region XIII (Caraga)",
-   "Red": 19,
+   "Red": 18,
    "Yellow": 2,
-   "Blue": 16,
+   "Blue": 15,
    "Grey": 4,
    "h": {
-    "Red": 26,
-    "Yellow": 11,
+    "Red": 25,
+    "Yellow": 10,
     "Blue": 0,
     "Grey": 4
    }
@@ -771,84 +787,84 @@
  ],
  "dash": {
   "money_m": {
-   "Red": 7175.0,
-   "Yellow": 2284.8,
-   "Blue": 28582.1,
-   "Grey": 1728.1
+   "Red": 6665.0,
+   "Yellow": 2280.7,
+   "Blue": 28122.9,
+   "Grey": 1762.8
   },
   "money_h_m": {
-   "Red": 12440.5,
-   "Yellow": 20718.3,
-   "Blue": 4883.2,
-   "Grey": 1728.1
+   "Red": 11707.5,
+   "Yellow": 20562.4,
+   "Blue": 4798.7,
+   "Grey": 1762.8
   },
-  "waiting": 609,
-  "oldest_days": 22,
-  "median_days": 15,
+  "waiting": 595,
+  "oldest_days": 24,
+  "median_days": 17,
   "over_30_days": 0,
   "drivers": [
    {
     "reason": "Bidder has a reported link to an official or investigation",
-    "Red": 113,
+    "Red": 106,
     "Yellow": 0,
     "Blue": 0,
     "h": {
-     "Red": 113,
+     "Red": 106,
      "Yellow": 0,
      "Blue": 0
     }
    },
    {
     "reason": "Bidder's name matches the GPPB blacklist (to verify)",
-    "Red": 75,
+    "Red": 73,
     "Yellow": 0,
     "Blue": 24,
     "h": {
-     "Red": 78,
+     "Red": 76,
      "Yellow": 21,
      "Blue": 0
     }
    },
    {
     "reason": "A bidder had a contract terminated before",
-    "Red": 63,
+    "Red": 62,
     "Yellow": 4,
     "Blue": 15,
     "h": {
-     "Red": 71,
+     "Red": 70,
      "Yellow": 11,
      "Blue": 0
     }
    },
    {
     "reason": "Winner's other projects drew citizen reports",
-    "Red": 21,
+    "Red": 19,
     "Yellow": 5,
-    "Blue": 102,
+    "Blue": 98,
     "h": {
-     "Red": 54,
+     "Red": 50,
      "Yellow": 25,
-     "Blue": 49
+     "Blue": 47
     }
    },
    {
     "reason": "CPES: winner often behind schedule",
     "Red": 4,
-    "Yellow": 32,
-    "Blue": 59,
+    "Yellow": 31,
+    "Blue": 57,
     "h": {
-     "Red": 49,
-     "Yellow": 46,
+     "Red": 48,
+     "Yellow": 44,
      "Blue": 0
     }
    },
    {
     "reason": "Bisto inspectors rated the winner's other work unsatisfactory",
-    "Red": 26,
+    "Red": 25,
     "Yellow": 3,
     "Blue": 48,
     "h": {
-     "Red": 37,
+     "Red": 36,
      "Yellow": 22,
      "Blue": 18
     }
@@ -879,20 +895,20 @@
     "reason": "Very fast award after bid opening",
     "Red": 3,
     "Yellow": 21,
-    "Blue": 37,
+    "Blue": 36,
     "h": {
      "Red": 30,
-     "Yellow": 31,
+     "Yellow": 30,
      "Blue": 0
     }
    },
    {
     "reason": "COA cited the implementing office for cost findings",
     "Red": 0,
-    "Yellow": 14,
-    "Blue": 36,
+    "Yellow": 13,
+    "Blue": 34,
     "h": {
-     "Red": 18,
+     "Red": 15,
      "Yellow": 32,
      "Blue": 0
     }
@@ -910,11 +926,11 @@
    },
    {
     "reason": "CPES: winner's other work rated poor or far behind",
-    "Red": 4,
+    "Red": 3,
     "Yellow": 0,
     "Blue": 22,
     "h": {
-     "Red": 7,
+     "Red": 6,
      "Yellow": 19,
      "Blue": 0
     }
@@ -1056,6 +1072,11 @@
    "d": "2026-10-31",
    "t": 4659,
    "a": 1442
+  },
+  {
+   "d": "2026-11-02",
+   "t": 4659,
+   "a": 1391
   }
  ],
  "evidence": [
