@@ -390,26 +390,26 @@
   "source_changed": "2026-10-27",
   "source_stale_days": 13,
   "source_check": {
-   "checked_at": "2026-11-04T07:52:59+00:00",
+   "checked_at": "2026-11-11T08:07:49+00:00",
    "api_ok": true,
-   "rows": 267292,
-   "rows_with_id": 267292,
-   "tenders_not_in_bantai_state": 11899,
+   "rows": 267632,
+   "rows_with_id": 267632,
+   "tenders_not_in_bantai_state": 12137,
    "status_counts": {
     "Completed": 215660,
     "On-Going": 31543,
-    "For Procurement": 16560,
+    "For Procurement": 16900,
     "Not Yet Started": 2466,
     "Terminated": 1063
    },
    "newest_infra_years": {
-    "2026": 16621,
-    "2025": 28358,
-    "2024": 30762,
+    "2026": 16851,
+    "2025": 28461,
+    "2024": 30769,
     "2023": 26182
    },
-   "rows_change_since_last_check": 402,
-   "rows_in_last_daily_run": 266890,
+   "rows_change_since_last_check": 340,
+   "rows_in_last_daily_run": 267292,
    "verdict": "Source has gained rows since the last daily run: the next run will pick them up."
   },
   "source_rows": 267292,
@@ -419,7 +419,7 @@
   "queue_new": 5,
   "current": 6087
  },
- "generated_at": "2026-11-09T01:09+00:00",
+ "generated_at": "2026-11-12T08:33+00:00",
  "manuals": [
   {
    "group": "Procurement law and its rules",
@@ -815,9 +815,9 @@
    "Grey": 1806.3
   },
   "waiting": 579,
-  "oldest_days": 31,
-  "median_days": 24,
-  "over_30_days": 137,
+  "oldest_days": 34,
+  "median_days": 27,
+  "over_30_days": 143,
   "drivers": [
    {
     "reason": "Bidder has a reported link to an official or investigation",
